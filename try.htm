@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/try.css">
+  <script src="css/sign.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Sign up form</h1>
+  <hr />
+  
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-1">Sign Up</button>
+  <!-- [ Modal info ] -->
+  <div class="modal fade" id="demo-1" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title caps"><strong>Sign Up</strong></h2>
+      </div>
+      <div class="modal-body">
+        <h2 style="text-align: center;">Welcome!</h2>
+        <div class="form-group">
+          <label for="email">Email:</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Enter email"/>
+              <label for="email">Password:</label>
+              <input type="password" class="form-control" placeholder="Enter password" />
+              <label for="email">Company Name:</label>
+              <input type="password" class="form-control" placeholder="Enter company name" />
+              <label for="email">Address:</label>
+              <input type="password" class="form-control" placeholder="Enter address" />
+              <label for="email">Zipcode:</label>
+              <input type="password" class="form-control" placeholder="Enter zipcode" />
+              <label for="email">Contact #:</label>
+              <input type="password" class="form-control" placeholder="Enter #" />
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#demo-2" data-dismiss="modal">Next</button>
+            </button>
+        </div>
+     </div>
+    </div>
+  </div>
+
+  <!-- [ Modal payment] -->
+  <div class="modal fade" id="demo-2" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title caps"><strong>Sign Up</strong></h2>
+      </div>
+      <div class="modal-header">
+        <h2 style="text-align: center;">Subscription</h2>
+      </div>
+      <center><div class="cc-selector-2" >
+        <input id="trial" type="radio" name="creditcard" value="trial" />
+        <label class="drinkcard-cc trial" for="trial"></label>
+        <input id="monthly" type="radio" name="creditcard" value="monthly" />
+        <label class="drinkcard-cc monthly" for="monthly"></label>
+
+         <input id="quarter" type="radio" name="creditcard" value="quarter" />
+        <label class="drinkcard-cc quarter" for="quarter"></label>
+        <input id="annual" type="radio" name="creditcard" value="annual" />
+        <label class="drinkcard-cc annual" for="annual"></label>
+      </div></center>
+      <div>
+        <img src="images/paypal.png" height="100">      
+        <h3 style="text-align: center;">Pay with PayPal</h3>  
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="form-group">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email Address"/>
+              <input type="password" class="form-control" placeholder="Password" />
+        </div>
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-1" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#demo-3" data-dismiss="modal">Submit</button>
+        </div>
+     </div>
+    </div>
+  </div>
+
+<br />
+<br />
+</body>
+</html>
