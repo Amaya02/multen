@@ -1,0 +1,69 @@
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #a8a8a8;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+ .pay {display: block;
+    margin-left: auto;
+    margin-right: auto;
+ width: 40%;}
+
+.trial{background-image:url("../img/trial.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+.monthly{background-image:url("../img/monthly.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+.quarter{background-image:url("../img/quarter.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+.annual{background-image:url("../img/annual.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:130px;height:100px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+
+.modal {overflow-y: scroll}
+
+input.checked[type="radio"]{visibility:hidden;}
