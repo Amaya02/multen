@@ -85,7 +85,7 @@ img{ display: block;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:140px;height:100px;
+    width:130px;height:100px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -103,3 +103,7 @@ img{ display: block;
 a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
+
+.modal {overflow-y: scroll}
+
+input.checked[type="radio"]{visibility:hidden;}
