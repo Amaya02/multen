@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/signin.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	
-	<body>
-		<button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-		<div id="id01" class="modal">
-			<form class="modal-content animate">
-				<div class="topcontainer">
-					<a id="close" href="">X</a>
-					<span style="color:white; font-size:2em;font-family:abeezee; text-align: left;">Sign in </span>
-				</div>
-				<div class="container">
-					<span style="color:	#505050; font-size:2em;font-family:abeezee;">Welcome!</span>
-					<br><br><br><i class="fa fa-user-o"><span style="color:#202020;font-family:abeezee; font-size:1em; ">&nbsp;Email Address:&nbsp;&nbsp;</i>
-					<input type="text" placeholder="Enter Username" required>
-					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-key">&nbsp;<span style="color:#202020;font-family:abeezee;"> Password:&nbsp;&nbsp;</i>
-					<input id="pass" type="password" placeholder="Enter Password" required>
-					<br><input type="checkbox" onclick="myFunction()">Show Password
-					<br><br><br><a href="#" style="color:	#0066cc; font-size:80%; text-decoration:none;font-family:typo gotika;">Forgot password?</a>
-					<br><br><br><br>
-					<button class="button2 button2a">Sign In</button><br>
-				</div>
-			</form>
-		</div>
-		<script src="js/signin.js"></script>
-	</body>
+<html lang="en">
+<head>
+  <title>Sign In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/try.css">
+  <script src="js/sign.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Sign in form</h1>
+  <hr />
+  
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-1">Sign In</button>
+  <!-- [ Modal info ] -->
+  <div class="modal fade" id="demo-1" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title caps">Sign In</h2>
+      </div>
+      <div class="modal-body">
+        <h1 style="text-align: center;">Welcome!</h1>
+        <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
+              <label for="password">Password:</label>
+              <input type="password" id="pass" class="form-control" placeholder="Enter password" required />
+			  <input type="checkbox" onclick="myFunction()">Show Password
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+			<button type="button" class="btn btn-success" data-toggle="modal" onclick="return empty1()">Signin</button>
+        </div>
+     </div>
+    </div>
+  </div>
+  
+<br />
+<br />
+</body>
 </html>
