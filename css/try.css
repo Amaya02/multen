@@ -18,9 +18,6 @@ body          { font-family: 'Roboto', sans-serif; }
     background-color: $color-primary;
   }
 }
-h2{
-  color: white;
-}
 
 input{
   margin-bottom: 10px;
@@ -76,7 +73,7 @@ img{ display: block;
 .trial{background-image:url("../images/trial.jpg");}
 .monthly{background-image:url("../images/monthly.jpg");}
 .quarter{background-image:url("../images/quarter.jpg");}
-.annual{background-image:url("../images/monthly.jpg");}
+.annual{background-image:url("../images/annual.jpg");}
 .cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
     -webkit-filter: none;
@@ -110,15 +107,3 @@ p{margin-bottom:.3em;}
 .modal {overflow-y: scroll}
 
 input.checked[type="radio"]{visibility:hidden;}
-
-.modal-header {
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #a8a8a8;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
- }
