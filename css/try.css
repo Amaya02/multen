@@ -107,7 +107,12 @@ a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
 
-.modal {overflow-y: scroll}
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
+
 
 input.checked[type="radio"]{visibility:hidden;}
 

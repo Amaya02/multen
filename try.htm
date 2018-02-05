@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sign Up</title>
+  <title>Sign In</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
       <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title caps">Sign Up</h2>
+        <h2 class="modal-title caps"><strong>Sign Up</strong></h2>
       </div>
       <div class="modal-body">
         <h1 style="text-align: center;">Welcome!</h1>
@@ -39,12 +39,12 @@
               <label for="zipcode">Zipcode:</label>
               <input type="text" id="zipcode" class="form-control" placeholder="Enter zipcode" />
               <label for="contact">Contact #:</label>
-              <input type="number" id="contact" class="form-control" placeholder="Enter #" />
+              <input type="text" id="contact" class="form-control" placeholder="Enter #" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
         </div>
       </div>
        <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
-            <button type="button submit" class="btn btn-info" data-toggle="modal" onclick="return empty()">Next</button>
+            <button type="button submit" class="btn btn-info" data-toggle="modal" " onclick="return empty()">Next</button>
             </button>
         </div>
      </div>
@@ -62,7 +62,6 @@
       </div>
       <div class="modal-body">
         <h1 style="text-align: center;">Subscription</h1>
-      </div>
       <center><div class="cc-selector-2" >
         <input class="checked" id="trial" type="radio" name="creditcard" value="trial" />
         <label class="drinkcard-cc trial" for="trial"></label>
@@ -86,6 +85,7 @@
               <input type="password" id="password" class="form-control" placeholder="Password" />
         </div>
         </div>
+      </div>
       </div>
        <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
