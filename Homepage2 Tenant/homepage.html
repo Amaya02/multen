@@ -369,7 +369,7 @@
               <br><label for="zipcode">Zipcode:</label>
               <input type="text" id="zipcode" class="form-control" placeholder="Enter zipcode" />
               <br><label for="contact">Contact #:</label>
-              <input type="number" id="contact" class="form-control" placeholder="Enter #" />
+              <input type="text" id="contact" class="form-control" placeholder="Enter #" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
         </div>
       </div>
        <div class="modal-footer">
