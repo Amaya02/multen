@@ -67,3 +67,10 @@ p{margin-bottom:.3em;}
 .modal {overflow-y: scroll}
 
 input.checked[type="radio"]{visibility:hidden;}
+
+body
+{
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+}
