@@ -64,9 +64,25 @@ a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
 
-.modal {overflow-y: scroll}
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
 
 input.checked[type="radio"]{visibility:hidden;}
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #a8a8a8;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
 
 body
 {
