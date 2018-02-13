@@ -54,7 +54,7 @@
               <a href="" class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#demo-0">Sign in</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Sign up</a>
+              <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#demo-1">Sign up</a>
             </li>
           </ul>
         </div>
@@ -350,7 +350,81 @@
      </div>
     </div>
   </div>
-  
+      
+  <!-- Signup -->
+  <!-- [ Modal info ] -->
+  <div class="modal fade" id="demo-1" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <h2 class="signinheader">Sign Up</h2>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <h1 style="text-align: center;">Welcome!</h1>
+        <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email1" class="form-control required" placeholder="Enter email" required/>
+              <br><label for="password">Password:</label>
+              <input type="password" id="pass1" class="form-control" placeholder="Enter password" required/>
+              <br><label for="company">Company Name:</label>
+              <input type="text" id="company" class="form-control" placeholder="Enter company name" />
+              <br><label for="address">Address:</label>
+              <input type="text" id="address" class="form-control" placeholder="Enter address" />
+              <br><label for="zipcode">Zipcode:</label>
+              <input type="text" id="zipcode" class="form-control" placeholder="Enter zipcode" />
+              <br><label for="contact">Contact #:</label>
+              <input type="text" id="contact" class="form-control" placeholder="Enter #" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            <button type="button submit" class="btn btn-info" data-toggle="modal" onclick="return empty()">Next</button>
+        </div>
+     </div>
+    </div>
+  </div>
+
+  <!-- [ Modal payment] -->
+  <div class="modal fade" id="demo-2" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <h2 class="signinheader">Sign Up</h2>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <h1 style="text-align: center;">Subscription</h1>
+      <center><div class="cc-selector-2" >
+        <input class="checked" id="trial" type="radio" name="creditcard" value="trial" />
+        <label class="drinkcard-cc trial" for="trial"></label>
+        <input class="checked" id="monthly" type="radio" name="creditcard" value="monthly" />
+        <label class="drinkcard-cc monthly" for="monthly"></label>
+
+         <input class="checked" id="quarter" type="radio" name="creditcard" value="quarter" />
+        <label class="drinkcard-cc quarter" for="quarter"></label>
+        <input class="checked" id="annual" type="radio" name="creditcard" value="annual" />
+        <label class="drinkcard-cc annual" for="annual"></label>
+      </div></center>
+      <div>
+        <img src="<?php echo base_url('assets/img/paypal.png'); ?>" alt="" class="pay" height="100">      
+        <h3 style="text-align: center;">Pay with PayPal</h3>  
+      </div>
+        <div class="form-group">
+              <input type="email" name="paypalemail" id="paypalemail" class="form-control" placeholder="Email Address"/>
+              <input type="password" id="paypalpass" name="paypalpass" class="form-control" placeholder="Password" />
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-1" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" onclick="emptyPayment()">Submit</button>
+        </div>
+     </div>
+    </div>
+  </div>
   
     <!-- Footer -->
     <footer>
