@@ -70,3 +70,9 @@ p{margin-bottom:.3em;}
 }
 
 input.checked[type="radio"]{visibility:hidden;}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+html { margin-left: calc(100vw - 100%); }
