@@ -26,6 +26,12 @@ function empty() {
     };
 	$('#demo-1').modal('hide');
 	$('#demo-2').modal('show');
+	
+	$("#demo-2").mouseenter(function(){
+   	$("body").css("overflow", "hidden"); 
+	}).mouseleave(function(){
+   	$("body").css("overflow", "visible");
+	});
   
 }
 
