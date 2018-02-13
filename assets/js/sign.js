@@ -7,7 +7,7 @@ function empty1() {
         alert("Please fill out all fields");
       	return false;
     };
-	alert("Sign up completed");
+	alert("Sign in completed");
     $('#demo-1').modal('hide');
 }
 
