@@ -317,32 +317,6 @@
           </div>
         </div>
     </section>
-	
-  <div class="modal fade" id="demo-0" tabindex="-1">
-    <div class="modal-dialog">
-     <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
-      <div class="modal-header">
-		<h2 class="signinheader">Sign In</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <h1 style="text-align: center;">Welcome!</h1>
-        <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
-              <br><label for="password">Password:</label>
-              <input type="password" id="pass" class="form-control" placeholder="Enter password" required />
-			  <br><input type="checkbox" onclick="myFunction()">Show Password
-        </div>
-      </div>
-       <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
-			<button type="button" class="btn btn-success" data-toggle="modal" onclick="return empty1()">Signin</button>
-        </div>
-     </div>
-    </div>
-  </div>
   
     <!-- Footer -->
     <footer>
