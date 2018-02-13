@@ -334,7 +334,7 @@
       <div class="modal-body">
         <h1 style="text-align: center;">Welcome!</h1>
         <div class="form-group">
-		<form action='<?php base_url();?>login' method='post' name='process'>
+		<form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
               <label for="email">Email:</label>
               <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
               <br><label for="password">Password:</label>
