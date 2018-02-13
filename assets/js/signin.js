@@ -2,7 +2,7 @@
 function empty1() {
     var x,y;
     x = document.getElementById("email").value;
-    y= document.getElementById("pass").value;
+    y= document.getElementById("password").value;
 	
     if (x == "" || y =="") {
         alert("Please fill out all fields");
@@ -13,7 +13,7 @@ function empty1() {
 }
 
 function myFunction(){
-	var x=document.getElementById("pass");
+	var x=document.getElementById("password");
 	if(x.type == "password"){
 			x.type="text";
 	}
