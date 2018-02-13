@@ -1,0 +1,124 @@
+@import "compass/css3";
+
+// vars
+$color-primary: #008aff !default;
+
+// global
+body          { font-family: 'Roboto', sans-serif; }
+#{headings()} { font-family: 'Advent Pro', sans-serif; }
+
+// buttons
+.btn {
+  @include border-radius(2px);
+}
+
+.btn {
+  &.btn-primary {
+    border-color: $color-primary;
+    background-color: $color-primary;
+  }
+}
+h2{
+  color: white;
+}
+
+input{
+  margin-bottom: 10px;
+}
+
+// helpers
+.caps { text-transform: uppercase; }
+
+pre.prettyprint {
+  padding: 15px !important;
+  border: 0 !important;
+  font-family: consolas;
+  font-size: 14px;
+  background-color: rgb(46, 44, 52) !important;
+  @include border-radius(2px !important);
+
+  .callout-demo & {
+    max-height: 415px;
+  }
+
+  span {
+    &.com { color: #5E5E5E; }
+    &.pln { color: #395063; }
+    &.tag { color: #B5C6DF; }
+    &.atv { color: #70B8AF; }
+    &.pun, &.opn, &.clo {
+      color: #B9947B;
+    }
+    &.atn { color: #B5A8B8; }
+  }
+}
+
+
+
+
+
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-selector-2 input{
+    position:absolute;
+    z-index:999;
+}
+img{ display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+
+.trial{background-image:url("../images/trial.jpg");}
+.monthly{background-image:url("../images/monthly.jpg");}
+.quarter{background-image:url("../images/quarter.jpg");}
+.annual{background-image:url("../images/annual.jpg");}
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:130px;height:100px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+
+.modal {overflow-y: scroll}
+
+input.checked[type="radio"]{visibility:hidden;}
+
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #a8a8a8;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
