@@ -22,7 +22,7 @@
 	
     <!-- Custom styles for this template -->
 	<link type="text/css" href="<?php echo base_url('assets/css/agency.css'); ?>" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/sign.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
 	
 	
 	
@@ -334,17 +334,19 @@
       <div class="modal-body">
         <h1 style="text-align: center;">Welcome!</h1>
         <div class="form-group">
+		<form action='<?php base_url();?>login' method='post' name='process'>
               <label for="email">Email:</label>
               <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
-              <label for="password">Password:</label>
-              <input type="password" id="pass" class="form-control" placeholder="Enter password" required />
-			  <input type="checkbox" onclick="myFunction()">Show Password
+              <br><label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
+			  <br><input type="checkbox" onclick="myFunction()">Show Password
         </div>
       </div>
        <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
-			<button type="button" class="btn btn-success" data-toggle="modal" onclick="return empty1()">Signin</button>
+			<button type="Submit" value="Login" class="btn btn-success" data-toggle="modal" >Signin</button>
         </div>
+		</form>
      </div>
     </div>
   </div>
@@ -473,8 +475,7 @@
 	
     <!-- Custom scripts for this template -->
     <script type="text/javascript" src="<?php echo base_url('assets/js/agency.js'); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url('assets/js/sign.js'); ?>"></script>
-	
+	<script type="text/javascript" src="<?php echo base_url('assets/js/signin.js'); ?>"></script>
 	
   </body>
 
