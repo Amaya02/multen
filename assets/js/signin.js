@@ -52,4 +52,3 @@ function emptyPayment(){
    	alert("Sign up completed");
    	$('#demo-2').modal('hide');
 }
-

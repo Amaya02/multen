@@ -350,7 +350,7 @@
      </div>
     </div>
   </div>
-  
+      
   <!-- Signup -->
   <!-- [ Modal info ] -->
   <div class="modal fade" id="demo-1" tabindex="-1">
