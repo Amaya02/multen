@@ -16,8 +16,8 @@ class user_model extends CI_Model {
 		$password = $this->security->xss_clean($this->input->post('password'));
 		
 		//prep the query
-		$this->db->where('email',$email);
-		$this->db->where('password',$password);
+		$this->db->where('email like binary',$email);
+		$this->db->where('password like binary',$password);
 		
 		//run the query
 		$query = $this->db->get('admin');
@@ -45,8 +45,8 @@ class user_model extends CI_Model {
 		$password = $this->security->xss_clean($this->input->post('password'));
 		
 		//prep the query
-		$this->db->where('email',$email);
-		$this->db->where('password',$password);
+		$this->db->where('email like binary',$email);
+		$this->db->where('password like binary',$password);
 		
 		//run the query
 		$query = $this->db->get('users');
