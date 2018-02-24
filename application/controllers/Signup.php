@@ -18,35 +18,41 @@ class signup extends CI_Controller {
 	public function process(){
 	
 	$this->check_isValidated();
- 
+	
 	$email_check=$this->signup_model->email_check($this->input->post('email'));
 	
 	if($email_check){
-		$check=$this->signup_model->checklogotype();
+		$check=$this->signup_model->checkcompanyname();
 		if($check){
-			$check=$this->signup_model->checklogosize();
+			$check=$this->signup_model->checklogotype();
 			if($check){
-				$check=$this->signup_model->checkwebsitename();
+				$check=$this->signup_model->checklogosize();
 				if($check){
-					$this->signup_model->register_user();
-					
-					$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-					$base=base_url();
-					redirect($base);
+					$check=$this->signup_model->checkwebsitename();
+					if($check){
+						$this->signup_model->register_user();
+						$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+						$base=base_url();
+						redirect($base);
+					}
+					else{
+						$this->session->set_flashdata('error_msg', 'Website already exist!');
+						redirect('signup');
+					}
+				
 				}
 				else{
-					$this->session->set_flashdata('error_msg', 'Website already exist!');
+					$this->session->set_flashdata('error_msg', 'Logo is too large!');
 					redirect('signup');
 				}
-				
 			}
 			else{
-				$this->session->set_flashdata('error_msg', 'Logo is too large!');
+				$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
 				redirect('signup');
 			}
 		}
 		else{
-			$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
+			$this->session->set_flashdata('error_msg', 'Company Already Exist!');
 			redirect('signup');
 		}
 	}
