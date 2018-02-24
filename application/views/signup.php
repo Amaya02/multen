@@ -24,7 +24,6 @@
 </head>
 <body>
 <!-- Name Section -->
-<div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
 	<h1>Sign Up <small>MULTEN</small></h1>
@@ -34,7 +33,7 @@
                     echo "<script type='text/javascript'>alert('$error_msg');</script>";
                   }
                    ?>
-      <form class="form-horizontal" autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='' onsubmit="return checkCheckBoxes(this);">
+      <form class="form-horizontal" autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process' onsubmit="return checkCheckBoxes(this);">
         <fieldset>
 		
 <!-- Account Information -->		
@@ -47,8 +46,11 @@
               <input required type="email" name="email" placeholder="Email Address" class="form-control">
             </div>
 			<div class="col-sm-4">
-              <input required type="password" name="password" placeholder="Password" class="form-control">
+              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,}" title="minimum of 6 characters">
             </div>
+			<div class="col-sm-2">
+				<input type="checkbox" onclick="myFunction()">Show Password
+			</div>
           </div>
 
 <!-- Company Information -->
@@ -138,7 +140,6 @@
                 <div class="col-sm-2">
                   	 <input type="radio" name="template" value="template2"> Template 2
                 </div>
-                
 			</div>
 			</div>	
 			<div class="form-group">
@@ -164,6 +165,5 @@
       </form>
     </div><!-- /.col-lg-12 -->
 </div><!-- /.row -->
-</div>
 </body>
 </html>
