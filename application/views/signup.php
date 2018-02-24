@@ -24,7 +24,6 @@
 </head>
 <body>
 <!-- Name Section -->
-<div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
 	<h1>Sign Up <small>MULTEN</small></h1>
@@ -34,7 +33,7 @@
                     echo "<script type='text/javascript'>alert('$error_msg');</script>";
                   }
                    ?>
-      <form class="form-horizontal" autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='' onsubmit="return checkCheckBoxes(this);">
+      <form class="form-horizontal" autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process' onsubmit="return checkCheckBoxes(this);">
         <fieldset>
 		
 <!-- Account Information -->		
@@ -138,7 +137,6 @@
                 <div class="col-sm-2">
                   	 <input type="radio" name="template" value="template2"> Template 2
                 </div>
-                
 			</div>
 			</div>	
 			<div class="form-group">
@@ -157,13 +155,12 @@
           <div class="form-group">
             <div class="col-sm-4">
                 <button type="submit" class="btn btn-default" onclick="goBack()" >Back</button>
-                <button type="submit" class="btn btn-primary" >Sign Up</button>
+                <button type="submit" class="btn btn-primary" >Save</button>
               </div>
           </div>
         </fieldset>
       </form>
     </div><!-- /.col-lg-12 -->
 </div><!-- /.row -->
-</div>
 </body>
 </html>

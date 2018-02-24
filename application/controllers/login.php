@@ -5,6 +5,7 @@ class login extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		$this->check_isValidated();
 	}
 	
 	public function index()
@@ -21,10 +22,9 @@ class login extends CI_Controller {
 			$result = $this->user_model->validateuser();
 			// Now we verify the result
 			if(! $result){
-				$msg = 'Invalid email or password';
 				$base=base_url();
-				echo "<script type='text/javascript'>alert('$msg');</script>";
-				echo "<script type='text/javascript'>setTimeout(\"location.href='$base';\");</script>";
+				$this->session->set_flashdata('error_msg', 'Invalid email or password');
+				redirect($base);
 			}
 			else{
 				// If user did validate,
@@ -36,6 +36,16 @@ class login extends CI_Controller {
 			// If user did validate,
 			// redirect to dashboard
 			redirect('admindashboard');
+		}
+	}
+	
+	private function check_isValidated(){
+		$user = $this->input->post('email');
+		$pass = $this->input->post('password');
+
+		if(strlen($user)==0 || strlen ($pass)==0){
+			$base=base_url();
+			redirect($base);
 		}
 	}
 }
