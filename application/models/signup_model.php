@@ -8,7 +8,6 @@ class signup_model extends CI_model{
 public function register_user(){
 
 $websitename=str_replace(' ','',$this->input->post('websitename'));
-$companyname=str_replace(' ','',$this->input->post('companyname'));
 $subscription = $_POST['creditcard'];
 $this->db->where('subscription',$subscription);
 $query = $this->db->get('bill');
@@ -49,6 +48,21 @@ public function email_check($email){
   $this->db->select('*');
   $this->db->from('users');
   $this->db->where('email',$email);
+  $query=$this->db->get();
+ 
+  if($query->num_rows()>0){
+    return false;
+  }else{
+    return true;
+  }
+ 
+}
+
+public function checkcompanyname(){
+  $companyname=$this->input->post('companyname');
+  $this->db->select('*');
+  $this->db->from('users');
+  $this->db->where('companyname',$companyname);
   $query=$this->db->get();
  
   if($query->num_rows()>0){
