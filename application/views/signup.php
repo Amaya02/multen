@@ -46,8 +46,11 @@
               <input required type="email" name="email" placeholder="Email Address" class="form-control">
             </div>
 			<div class="col-sm-4">
-              <input required type="password" name="password" placeholder="Password" class="form-control">
+              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,}" title="minimum of 6 characters">
             </div>
+			<div class="col-sm-2">
+				<input type="checkbox" onclick="myFunction()">Show Password
+			</div>
           </div>
 
 <!-- Company Information -->
