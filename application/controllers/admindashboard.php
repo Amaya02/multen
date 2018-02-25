@@ -11,8 +11,7 @@ class admindashboard extends CI_Controller {
 	public function index()
 	{
 		// if the user is validated, then this function will run
-		echo 'Congrats!';
-		echo $this->session->userdata('username');
+		$this->load->view('admindashboard');
 	}
 	
 	private function check_isValidated(){
