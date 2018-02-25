@@ -1,109 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
 
-    <title>
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+  
+  <title>
 	<?php foreach($posts as $post){?>
 		<?php echo $post->companyname;?>
-	<?php }?> </title>
+	<?php }?> 
+  </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="<?php echo base_url('assets/lib/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
 	
+  <!-- Libraries CSS Files -->
+  <link href="<?php echo base_url('assets/lib/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+  
+  <link href="<?php echo base_url('assets/lib/animate-css/animate.min.css'); ?>" rel="stylesheet">
+  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
+  
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
-	
+  <!-- Main Stylesheet File -->
+  <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+  
 
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url('assets/css/coming-soon.min.css'); ?>" rel="stylesheet">
-	<link type="text/css" href="<?php echo base_url('assets/css/agency.css'); ?>" rel="stylesheet">
-	
+  <!-- =======================================================
+    Theme Name: Imperial
+    Theme URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
 
-  </head>
+<body>
 
-  <body>
-  <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt=""></a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-			<li class="nav-item">
-              <a href="" class="nav-link js-scroll-trigger">Sign in</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Sign up</a>
-            </li>
-          </ul>
+<header id="header">
+    <div class="container">
+	<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo"></a>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="" data-toggle="modal" data-target="#demo-0" >Sign In</a></li> 
+          <li><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+ </header>
+  
+   <!-- Signin -->
+  <div class="modal fade" id="demo-0" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="signinheader">Sign In</h2>
+        
+      </div>
+      <div class="modal-body">
+        <h1 style="text-align: center;">Welcome!</h1>
+        <div class="form-group">
+    <form action='' method='post' name='process' autocomplete="off">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
+              <br><label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
+        <br><input type="checkbox" onclick="myFunction()">Show Password
         </div>
       </div>
-    </nav>
-
-    <div class="overlay"></div>
-
-    <div class="masthead">
-      <div class="masthead-bg"></div>
-      <div class="container h-100">
-        <div class="row h-100">
-          <div class="col-12 my-auto">
-            <div class="masthead-content text-white py-5 py-md-0">
-				<?php foreach($posts as $post){?>
-					<h1 class="mb-3"><br/><?php echo $post->companyname;?></h1>
-				<?php }?>  
-				<p class="mb-5">Multi-tenant Manpower Agency</p>
-            </div>
-          </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+      <button type="Submit" value="Login" class="btn btn-success" data-toggle="modal" >Signin</button>
+        </div>
+    </form>
+     </div>
+    </div>
+  </div>
+  
+  
+  <section id="hero">
+    <div class="hero-container">
+      <div class="wow fadeIn">
+        <?php foreach($posts as $post){?>
+			<h1 class="mb-3"><br/><?php echo $post->companyname;?></h1>
+		<?php }?>  
+        <h2>We <span class="rotating">are a Manpower Agency, offer wide job searching, offer legitimate job openings</span></h2>
+        <div class="actions">
+          <a href="" data-toggle="modal" data-target="#demo-0" class="btn-get-started">Sign In</a>
+          <a href="" class="btn-services">Sign Up</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="social-icons">
-      <ul class="list-unstyled text-center mb-0">
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </li>
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-facebook"></i>
-          </a>
-        </li>
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-instagram"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-	
-    <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-	
 
-    <!-- Plugin JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/vide/jquery.vide.min.js'); ?>"></script>
-	
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-    <!-- Custom scripts for this template -->
-    <script src="<?php echo base_url('assets/js/coming-soon.min.js'); ?>"></script>
-	
+  <!-- Required JavaScript Libraries -->
+  <script src="<?php echo base_url('assets/lib/jquery/jquery.min.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/bootstrap/js/bootstrap.min.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/superfish/hoverIntent.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/superfish/superfish.min.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/morphext/morphext.min.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/wow/wow.min.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/stickyjs/sticky.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/lib/easing/easing.js'); ?>"></script>
 
-  </body>
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+  
+  <script src="<?php echo base_url('assets/js/signin.js'); ?>"></script>
+
+  <script src=" <?php echo base_url('contactform/contactform.js'); ?>"></script>
+ 
+
+
+</body>
 
 </html>
