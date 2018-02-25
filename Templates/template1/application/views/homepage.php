@@ -104,7 +104,7 @@
     <div class="hero-container">
       <div class="wow fadeIn">
         <?php foreach($posts as $post){?>
-			<h1 class="mb-3"><br/><?php echo $post->companyname;?></h1>
+			<h1><br/><?php echo $post->companyname;?></h1> 
 		<?php }?>  
         <h2>We <span class="rotating">are a Manpower Agency, offer wide job searching, offer legitimate job openings</span></h2>
         <div class="actions">
