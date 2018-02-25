@@ -5481,21 +5481,6 @@ button.close {
   opacity: 0.5;
 }
 
-.modal-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-}
 
 .modal-header .close {
   padding: 1rem;
@@ -6041,13 +6026,14 @@ button.close {
 .carousel-caption {
   position: absolute;
   right: 15%;
-  bottom: 20px;
   left: 15%;
+  bottom: 20px;
   z-index: 10;
-  padding-top: 20px;
+  padding-top: 100px;
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
+  font-size: 100px;
 }
 
 .align-baseline {

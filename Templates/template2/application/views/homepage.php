@@ -8,33 +8,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>
-	<?php foreach($posts as $post){?>
-		<?php echo $post->companyname;?>
-	<?php }?> </title>
+	<title>
+		<?php foreach($posts as $post){?>
+			<?php echo $post->companyname;?>
+		<?php }?> 
+	</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
-	
-
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
 	
 
     <!-- Custom styles for this template -->
-    <link href="<?php echo base_url('assets/css/coming-soon.min.css'); ?>" rel="stylesheet">
-	<link type="text/css" href="<?php echo base_url('assets/css/agency.css'); ?>" rel="stylesheet">
-	
+    <link href="<?php echo base_url('assets/css/full-slider.css'); ?>" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
+	<link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 
   </head>
 
   <body>
-  <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt=""></a>
+<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+       <div class="container">
+        <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -42,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
 			<li class="nav-item">
-              <a href="" class="nav-link js-scroll-trigger">Sign in</a>
+              <a href="" data-toggle="modal" data-target="#demo-0" class="nav-link js-scroll-trigger">Sign in</a>
             </li>
 			<li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="">Sign up</a>
@@ -50,60 +45,78 @@
           </ul>
         </div>
       </div>
-    </nav>
+		</nav>
 
-    <div class="overlay"></div>
-
-    <div class="masthead">
-      <div class="masthead-bg"></div>
-      <div class="container h-100">
-        <div class="row h-100">
-          <div class="col-12 my-auto">
-            <div class="masthead-content text-white py-5 py-md-0">
-				<?php foreach($posts as $post){?>
-					<h1 class="mb-3"><br/><?php echo $post->companyname;?></h1>
-				<?php }?>  
-				<p class="mb-5">Multi-tenant Manpower Agency</p>
+    <header>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('assets/vendor/images/image1.jpg')">
+			<div class="carousel-caption d-none d-md-block">
+                <?php foreach($posts as $post){?>
+					<?php echo $post->companyname;?>
+				<?php }?> 
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('assets/vendor/images/image2.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              Manpower Agency
             </div>
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+	</header>
+	
+	  <!-- Signin -->
+  <div class="modal fade" id="demo-0" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2>Sign In</h2>
       </div>
+      <div class="modal-body">
+        <h1 style="text-align: center;">Welcome!</h1>
+        <div class="form-group">
+    <form action='' method='post' name='process' autocomplete="off">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
+              <br><label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
+        <br><input type="checkbox" onclick="myFunction()">Show Password
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+      <button type="Submit" value="Login" class="btn btn-success" data-toggle="modal" >Signin</button>
+        </div>
+    </form>
+     </div>
     </div>
-
-    <div class="social-icons">
-      <ul class="list-unstyled text-center mb-0">
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </li>
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-facebook"></i>
-          </a>
-        </li>
-        <li class="list-unstyled-item">
-          <a href="#">
-            <i class="fa fa-instagram"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-
+  </div>
+	 
     <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
 	
-    <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script  type="text/javascript" src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 	
-
-    <!-- Plugin JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/vide/jquery.vide.min.js'); ?>"></script>
+    <script  type="text/javascript" src="<?php echo base_url('assets/js/signin.js'); ?>"></script>
 	
 
-    <!-- Custom scripts for this template -->
-    <script src="<?php echo base_url('assets/js/coming-soon.min.js'); ?>"></script>
-	
-
-  </body>
+</body>
 
 </html>
