@@ -11,8 +11,8 @@ class dashboard extends CI_Controller {
 	public function index()
 	{
 		// if the user is validated, then this function will run
-		$userid=$this->session->userdata('userid');
-		$this->db->where('userid',$userid);
+		$configid=$this->session->userdata('configid');
+		$this->db->where('configid',$configid);
 		$query = $this->db->get('config');
 		if($query->num_rows()==1){
 			//if there is a user, then create session data

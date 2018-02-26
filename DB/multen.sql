@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2018 at 12:22 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Feb 26, 2018 at 07:17 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -72,7 +70,6 @@ INSERT INTO `bill` (`billid`, `subscription`, `amount`) VALUES
 
 CREATE TABLE `config` (
   `configid` int(50) NOT NULL,
-  `userid` int(50) NOT NULL,
   `websitename` varchar(50) NOT NULL,
   `databasename` varchar(50) NOT NULL,
   `template` varchar(50) NOT NULL
@@ -95,7 +92,8 @@ CREATE TABLE `users` (
   `zipcode` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
   `conemail` varchar(50) NOT NULL,
-  `billid` int(50) NOT NULL
+  `billid` int(50) NOT NULL,
+  `configid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -135,14 +133,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `config`
   MODIFY `configid` int(50) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userid` int(20) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

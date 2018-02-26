@@ -60,6 +60,7 @@ class user_model extends CI_Model {
 						'userid' => $row->userid,
 						'companyname' => $row->companyname,
 						'email' => $row->email,
+						'configid' => $row->configid,
 						'validated' => true);
 			$this->session->set_userdata($data);
 			return true;

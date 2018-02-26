@@ -112,11 +112,11 @@
 					<label class="drinkcard-cc monthly" for="monthly"></label>
                 </div>
                 <div class="col-sm-2"> 
-					<input class="checked" id="quarter" type="radio" name="creditcard" value="quarter" />
+					<input class="checked" id="quarter" type="radio" name="creditcard" value="quarterly" />
 					<label class="drinkcard-cc quarter" for="quarter"></label>
                 </div>
 				<div class="col-sm-2"> 
-					<input class="checked" id="annual" type="radio" name="creditcard" value="annual" />
+					<input class="checked" id="annual" type="radio" name="creditcard" value="annually" />
 					<label class="drinkcard-cc annual" for="annual"></label>
 				</div>
           </div>
