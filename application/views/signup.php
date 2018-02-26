@@ -6,6 +6,7 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
 <script type="text/javascript" src="<?php echo base_url('assets/js/signup.js'); ?>"></script>
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
 
 <style>
   body{

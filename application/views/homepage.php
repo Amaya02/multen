@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
     <title>MULTEN - Multi-tenant Man Power Agency</title>
 
     <!-- Bootstrap core CSS -->
