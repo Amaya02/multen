@@ -193,7 +193,7 @@
                                     </div>
 									<button type="submit" style="float: right;" class="btn btn-submit">Save</button>
                                 </form>
-								<a href="<?php echo base_url(); ?>adminsetting"><button type="button" style="float: right;" class="btn btn-info">Back</button>
+								<a href="<?php echo base_url(); ?>adminsetting"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
                             </div>
                         </div>
                     </div>

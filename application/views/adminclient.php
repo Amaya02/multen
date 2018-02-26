@@ -141,7 +141,7 @@
                                                     
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button>
+                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -155,7 +155,7 @@
                                                     
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button>
+                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
                                             </tr>
                                         </tbody>
