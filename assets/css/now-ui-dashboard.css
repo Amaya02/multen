@@ -2881,6 +2881,12 @@ Created using IcoMoon - icomoon.io
 	 color: white;
 }	
 
+.recruit{
+	 background-color: #f8deb8;
+	 color: white;
+}	
+
+
 .bills{
 	 background-color: #c4e2d9;
 	 color: white;
@@ -3262,6 +3268,14 @@ Created using IcoMoon - icomoon.io
   .fixed-plugin .bootstrap-switch {
     margin: 0; }
 
+.nav-second-level li{
+  border-bottom: none !important;
+}
+.nav-second-level li a {
+  padding-left: 37px;
+}
+	
+	
 @media screen and (max-width: 991px) {
   .profile-photo .profile-photo-small {
     margin-left: -2px; }
