@@ -16,6 +16,15 @@ if($query->num_rows()==1){
 	$row = $query->row();
 	$billid=$row->billid;
 }
+
+$config=array(
+      'websitename'=>$websitename,
+      'databasename'=>$websitename,
+      'template'=>$_POST['template'],  
+);
+
+$this->db->insert('config', $config);
+
 $user=array(
       'email'=>$this->input->post('email'),
       'companyname'=>$this->input->post('companyname'),
@@ -25,22 +34,15 @@ $user=array(
 	  'zipcode'=>$this->input->post('zipcode'),
       'cnumber'=>$this->input->post('cnumber'),
 	  'conemail'=>$this->input->post('conemail'),
-	  'billid'=>$billid
+	  'billid'=>$billid,
+	  'configid'=>$this->db->insert_id()
 	  
 );
 $this->db->insert('users', $user);
 
-$tenant="Tenant";
-$config=array(
-      'websitename'=>$websitename,
-      'databasename'=>$tenant.$this->db->insert_id(),
-      'template'=>$_POST['template'],
-	  'userid'=>$this->db->insert_id()
-);
+$userid=$this->db->insert_id();
 
-$this->db->insert('config', $config);
-
-$this->createwebsite($config,$user);
+$this->createwebsite($config,$user,$userid);
 }
  
 public function email_check($email){
@@ -114,13 +116,13 @@ public function checkwebsitename(){
 
 }
 
-public function createwebsite($config,$user){
+public function createwebsite($config,$user,$userid){
 	$this->recurse_copy("C:/xampp/htdocs/multen/Templates/".$config['template'],"C:/xampp/htdocs/".$config[websitename]);
 	$this->uploadlogo($config);
 	$this->editconfig($config);
 	$this->createdatabase($config);
 	$this->createtable($config);
-	$this->inserttotable($config,$user);
+	$this->inserttotable($config,$user,$userid);
 	
 }
 
@@ -200,7 +202,8 @@ private function createtable($config){
 		zipcode varchar(50) NOT NULL,
 		cnumber varchar(50) NOT NULL,
 		conemail varchar(50) NOT NULL,
-		billid int(50) NOT NULL
+		billid int(50) NOT NULL,
+		configid int(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
@@ -210,10 +213,74 @@ private function createtable($config){
 		amount int(50) NOT NULL
 	)";
 	$conn->query($sql);
+	
+	$sql = "CREATE TABLE employer (
+		empid int(20) NOT NULL,
+		email varchar(50) NOT NULL,
+		password varchar(50) NOT NULL,
+		companyname varchar(50) NOT NULL,
+		address varchar(50) NOT NULL,
+		city varchar(50) NOT NULL,
+		state varchar(50) NOT NULL,
+		zipcode varchar(50) NOT NULL,
+		cnumber varchar(50) NOT NULL,
+		conemail varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE applicant (
+		appid int(20) NOT NULL,
+		email varchar(50) NOT NULL,
+		password varchar(50) NOT NULL,
+		username varchar(50) NOT NULL,
+		fname varchar(50) NOT NULL,
+		lname varchar(50) NOT NULL,
+		mname varchar(50) NOT NULL,
+		address varchar(50) NOT NULL,
+		city varchar(50) NOT NULL,
+		state varchar(50) NOT NULL,
+		zipcode varchar(50) NOT NULL,
+		nationality varchar(50) NOT NULL,
+		bday DATE NOT NULL,
+		religion varchar(50) NOT NULL,
+		gender varchar(50) NOT NULL,
+		status varchar(50) NOT NULL,
+		cnumber varchar(50) NOT NULL,
+		expid varchar(50) NOT NULL,
+		skillid varchar(50) NOT NULL,
+		educid varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE experience (
+		expid int(20) NOT NULL,
+		job varchar(50) NOT NULL,
+		years int(20) NOT NULL,
+		company varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE education (
+		educid int(20) NOT NULL,
+		level varchar(50) NOT NULL,
+		school varchar(50) NOT NULL,
+		address varchar(50) NOT NULL,
+		startyear varchar(50) NOT NULL,
+		endyear varchar(50) NOT NULL,
+		honor varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE skill (
+		skillid int(20) NOT NULL,
+		skill varchar(50) NOT NULL,
+	)";
+	$conn->query($sql);
+	
 	$conn->close();
 }
 
-private function inserttotable($config,$user){
+private function inserttotable($config,$user,$userid){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -224,9 +291,9 @@ private function inserttotable($config,$user){
 		die("Connection failed:" . $conn->connect_error);
 	}
 	$sql = "INSERT INTO agency (
-		`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`) VALUES
-		(".$config['userid'].", '".$user['email']."', '".$user['password']."', '".$user['companyname']."', '".$user['address']."', '".$user['city']."'
-		, '".$user['state']."', '".$user['zipcode']."', '".$user['cnumber']."', '".$user['conemail']."', ".$user['billid']."
+		`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
+		(".$userid.", '".$user['email']."', '".$user['password']."', '".$user['companyname']."', '".$user['address']."', '".$user['city']."'
+		, '".$user['state']."', '".$user['zipcode']."', '".$user['cnumber']."', '".$user['conemail']."', ".$user['billid'].", ".$user['configid']."
 	)";
 	
 	$conn->query($sql);
