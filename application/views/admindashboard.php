@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
     <title>MULTEN - Admin Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -91,9 +92,9 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard">Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting">Settings</a>
-                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">Logout</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>
