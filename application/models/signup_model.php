@@ -273,7 +273,7 @@ private function createtable($config){
 	
 	$sql = "CREATE TABLE skill (
 		skillid int(20) NOT NULL,
-		skill varchar(50) NOT NULL,
+		skill varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
