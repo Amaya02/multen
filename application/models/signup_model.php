@@ -16,11 +16,10 @@ if($query->num_rows()==1){
 	$row = $query->row();
 	$billid=$row->billid;
 }
-
+$tenant="tenant";
 $config=array(
       'websitename'=>$websitename,
-      'databasename'=>$websitename,
-      'template'=>$_POST['template'],  
+      'template'=>$_POST['template']
 );
 
 $this->db->insert('config', $config);
@@ -39,8 +38,16 @@ $user=array(
 	  
 );
 $this->db->insert('users', $user);
-
 $userid=$this->db->insert_id();
+
+$config=array(
+      'websitename'=>$websitename,
+	  'databasename'=>$tenant.$userid,
+      'template'=>$_POST['template']
+);
+
+$this->db->where('configid',$user['configid']);
+$this->db->update('config', $config);
 
 $this->createwebsite($config,$user,$userid);
 }
@@ -207,11 +214,21 @@ private function createtable($config){
 	)";
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `agency`
+			ADD PRIMARY KEY (`userid`)";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE bill (
 		billid int(50) NOT NULL,
 		subscription varchar(50) NOT NULL,
 		amount int(50) NOT NULL
 	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `bill`
+			ADD PRIMARY KEY (`billid`)";
+	
 	$conn->query($sql);
 	
 	$sql = "CREATE TABLE employer (
@@ -226,6 +243,11 @@ private function createtable($config){
 		cnumber varchar(50) NOT NULL,
 		conemail varchar(50) NOT NULL
 	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `employer`
+			ADD PRIMARY KEY (`empid`)";
+	
 	$conn->query($sql);
 	
 	$sql = "CREATE TABLE applicant (
@@ -252,12 +274,22 @@ private function createtable($config){
 	)";
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `applicant`
+			ADD PRIMARY KEY (`appid`)";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE experience (
 		expid int(20) NOT NULL,
 		job varchar(50) NOT NULL,
 		years int(20) NOT NULL,
 		company varchar(50) NOT NULL
 	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `experience`
+			ADD PRIMARY KEY (`expid`)";
+	
 	$conn->query($sql);
 	
 	$sql = "CREATE TABLE education (
@@ -271,10 +303,20 @@ private function createtable($config){
 	)";
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `education`
+			ADD PRIMARY KEY (`educid`)";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE skill (
 		skillid int(20) NOT NULL,
 		skill varchar(50) NOT NULL
 	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `skill`
+			ADD PRIMARY KEY (`skillid`)";
+	
 	$conn->query($sql);
 	
 	$conn->close();
