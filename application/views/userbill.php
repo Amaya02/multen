@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
-    <title>MULTEN - Admin Dashboard</title>
+    <title>MULTEN - Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -189,7 +189,7 @@
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
 
 
 </html>
