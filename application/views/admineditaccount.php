@@ -191,7 +191,7 @@
                                         </div>
                                         
                                     </div>
-									<button type="submit" style="float: right;" class="btn btn-submit">Save</button>
+									<a href="" data-toggle="modal" data-target="#editModal"><button type="submit" style="float: right;" class="btn btn-submit">Save</button></a>
                                 </form>
 								<a href="<?php echo base_url(); ?>adminsetting"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
                             </div>
@@ -229,6 +229,25 @@
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Edit Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update this account?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Update" below if you want to update account.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>adminsetting">Update</a>
           </div>
         </div>
       </div>
