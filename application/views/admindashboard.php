@@ -207,7 +207,17 @@
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+
+<script type="text/javascript">
+    	$(document).ready(function(){
+
+        	demo.showNotification('top','right')();
+
+        	
+
+    	});
+	</script>
 
 
 </html>
