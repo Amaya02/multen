@@ -5,11 +5,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
-    <title>MULTEN - Admin Dashboard</title>
+    <title>MULTEN - Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	
     <!-- CSS Files -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 	
@@ -25,26 +26,41 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="<?php echo base_url(); ?>admindashboard" class="simple-text">
+                <a href="<?php echo base_url(); ?>dashboard" class="simple-text">
                     <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>admindashboard">
+                        <a href="<?php echo base_url(); ?>dashboard">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminclient">
-                            <i class="now-ui-icons users_circle-08"></i>
-                            <p>Clients</p>
+                        <a href="<?php echo base_url(); ?>employers">
+                            <i class="now-ui-icons business_briefcase-24"></i>
+                            <p>Employers</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo base_url(); ?>adminbill">
+                    <li class="active">
+                        <a href="<?php echo base_url(); ?>applicants">
+                            <i class="now-ui-icons business_badge"></i>
+                            <p>Applicants</p>
+                        </a>
+                    </li>
+					<li> 
+						<a class="waves-effect waves-dark" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="fa fa-fw fa-user-plus"></i><span class="hide-menu">Recruitment</span></a>
+						<ul class="sidenav-second-level collapse" id="collapseComponents">
+							<li><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
+							<li><a href="<?php echo base_url(); ?>interview">Interview</a></li>
+							<li><a href="<?php echo base_url(); ?>selected">Selected</a></li>
+							<li><a href="<?php echo base_url(); ?>hired">Hired</a></li>
+						</ul>
+					</li>
+					<li>
+                        <a href="<?php echo base_url(); ?>bills">
                             <i class="now-ui-icons business_money-coins"></i>
                             <p>Bills</p>
                         </a>
@@ -64,7 +80,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h5>Settings</h5>
+                        <h5>Applicants</h5>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -76,7 +92,7 @@
                             <div class="input-group no-border">
                                 <input type="text" value="" class="form-control" placeholder="Search...">
 								<span class="input-group-addon">
-									<a href="<?php echo base_url(); ?>adminsearch"><button type="button" class="btnsearch">
+									<a href="<?php echo base_url(); ?>search"><button type="button" class="btnsearch">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>
 									</button></a>
                                 </span>
@@ -92,8 +108,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -110,95 +126,80 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Name of Admin</h5>
+                                <h4 class="card-title"> List of Applicants</h4>
                             </div>
                             <div class="card-body">
-                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Admin ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="First Name" value="Candy Amaya" required />
-                                            </div>
-                                        </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" value="Lelis" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-									    <div class="col-md-5 pr-1">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email" value="adminamaya@yahoo.com" required />
-											</div>
-                                        </div>
-										<div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="adminamaya" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Address" value="Silang Cavite" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Cavite" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input type="text" class="form-control" placeholder="State" value="N/A" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Contact Number</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-									<button type="submit" style="float: right;" class="btn btn-submit">Save</button>
-                                </form>
-								<a href="<?php echo base_url(); ?>adminsetting"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
+								<div style="display: inline;">
+									<select id="soflow">
+										<option>Select company</option>
+										<option>Harvey Corporation</option>
+										<option>Amaya Corporation</option>
+										<option>Hannah Corporation</option>
+									</select>
+								</div>
+								<div style="display: inline;"> 
+									<select id="soflow">
+										<option>Select field</option>
+										<option>IT</option>
+										<option>Communication</option>
+										<option>Arts</option>
+									</select>
+								</div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Company
+                                            </th>
+                                            <th>
+                                                Job
+                                            </th>
+                                            <th class="text-right">
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Applicant1
+                                                </td>
+                                                <td>
+                                                    Amaya Corporation
+                                                </td>
+                                                <td>
+													Software Analyst
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Applicant2
+                                                </td>
+                                                <td>
+                                                    Hannah Corporation
+                                                </td>
+                                                <td>
+                                                    Multimedia Graphic Artist
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+				<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
             </div>
+			
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="copyright">
@@ -211,7 +212,6 @@
                     </div>
                 </div>
             </footer>
-        </div>
         </div>
     </div>
 	
@@ -250,7 +250,7 @@
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
 
 
 </html>

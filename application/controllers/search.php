@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class dashboard extends CI_Controller {
+class search extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -11,7 +11,7 @@ class dashboard extends CI_Controller {
 	public function index()
 	{
 		// if the user is validated, then this function will run
-		$this->load->view('userdashboard');
+		$this->load->view('usersearch');
 	}
 	
 	private function check_isValidated(){

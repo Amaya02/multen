@@ -138,10 +138,10 @@
                                                     
                                                 </td>
                                                 <td>
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button>
+                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
                                                 <td class="text-right">
-													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button>
+													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button></a>
                                                     
                                                 </td>
                                             </tr>
@@ -153,10 +153,10 @@
                                                     
                                                 </td>
                                                 <td>
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button>
+                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
                                                 <td class="text-right">
-													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button>
+													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button></a>
                                                     
                                                 </td>
                                             </tr>

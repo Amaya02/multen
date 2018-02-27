@@ -193,7 +193,7 @@
                                     </div>
 									
                                 </form>
-								<a href="<?php echo base_url(); ?>admineditaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button>
+								<a href="<?php echo base_url(); ?>admineditaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button></a>
                             </div>
                         </div>
                     </div>

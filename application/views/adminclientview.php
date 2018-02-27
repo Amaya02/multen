@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-				<a href="<?php echo base_url(); ?>adminclient"><button type="button" style="float: right;" class="btn btn-info">Back</button>
+				<a href="<?php echo base_url(); ?>adminclient"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
             </div>
 				

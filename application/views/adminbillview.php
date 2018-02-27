@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-				<a href="<?php echo base_url(); ?>adminbill"><button type="button" style="float: right;" class="btn btn-info">Back</button>
+				<a href="<?php echo base_url(); ?>adminbill"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
             </div>
 				
