@@ -53,7 +53,7 @@
 					<li> 
 						<a class="waves-effect waves-dark" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="fa fa-fw fa-user-plus"></i><span class="hide-menu">Recruitment</span></a>
 						<ul class="sidenav-second-level collapse" id="collapseComponents">
-							<li><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
+							<li class="active"><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
 							<li><a href="<?php echo base_url(); ?>interview">Interview</a></li>
 							<li><a href="<?php echo base_url(); ?>selected">Selected</a></li>
 							<li><a href="<?php echo base_url(); ?>hired">Hired</a></li>
@@ -80,7 +80,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h5>Settings</h5>
+                        <h5>Pre-Selection</h5>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -122,87 +122,131 @@
             <div class="panel-header panel-header-sm">
             </div>
             <div class="content">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Skills and Experience</h5>
+							</div>
+							<div class="card-body">
+							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
+								<div class="form-group">
+                                    <label for="exampleInputExperience">Years of Experience</label>
+									<input type="text" name="expnum" placeholder="No. of experience" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    <br/><label for="exampleInputSkill">Skill</label>
+									<input type="text" name="skill" placeholder="Skill" class="form-control">
+								</div>
+								<button type="submit" style="float: right;" class="btn btn-info">Search</button>
+							</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Education</h5>
+							</div>
+							<div class="card-body">
+							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
+								<div class="form-group">
+                                    <label for="exampleInputSchool">School Graduated</label>
+									<input type="text" name="school" placeholder="School graduated" class="form-control">
+                                    <br/><label for="exampleInputDegree">Degree</label>
+									<input type="text" name="degree" placeholder="Degree" class="form-control">
+								</div>
+								<button type="submit" style="float: right;" class="btn btn-info">Search</button>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h4 class="card-title"> List of Applicants</h4>
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>User ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" disabled="" placeholder="Email" value="amayalelis@yahoo.com">
-                                            </div>
-                                        </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" disabled="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-									    <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Company name</label>
-                                                <input type="text" class="form-control" placeholder="Company Name" value="mayacorp" disabled="">
-											</div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="Address" value="Silang Cavite">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="City" value="Cavite">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="State" value="N/A">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Contact Number</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-									
-                                </form>
-								<a href="<?php echo base_url(); ?>editaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button></a>
+								<div style="display: inline;">
+									<select id="company">
+										<option>Select company</option>
+										<option>Harvey Corporation</option>
+										<option>Amaya Corporation</option>
+										<option>Hannah Corporation</option>
+									</select>
+								</div>
+								<div style="display: inline;"> 
+									<select id="job">
+										<option>Select job</option>
+										<option>Software Analyst</option>
+										<option>Web Developer</option>
+										<option>Front end</option>
+									</select>
+								</div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Company
+                                            </th>
+                                            <th>
+                                                Job
+                                            </th>
+											<th>
+                                                
+                                            </th>
+                                            <th class="text-right">
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Applicant1
+                                                </td>
+                                                <td>
+                                                    Amaya Corporation
+                                                </td>
+                                                <td>
+													Software Analyst
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#interviewModal"><button type="button" style="float: right;" class="btn btn-success">Interview</button></a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Applicant2
+                                                </td>
+                                                <td>
+                                                    Hannah Corporation
+                                                </td>
+                                                <td>
+                                                    Multimedia Graphic Artist
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#interviewModal"><button type="button" style="float: right;" class="btn btn-success">Interview</button></a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+				<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
             </div>
+			
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="copyright">
@@ -237,20 +281,20 @@
       </div>
     </div>
 	
-	<!-- Edit Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- Interview Modal-->
+    <div class="modal fade" id="interviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update this account?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Interview this applicant?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select Update below if you want to update account.</div>
+          <div class="modal-body">Click "Interview" to add this applicant to list of interviewees</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>setting">Update</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>interviewapplicant">Interview</a>
           </div>
         </div>
       </div>

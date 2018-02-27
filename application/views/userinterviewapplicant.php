@@ -54,7 +54,7 @@
 						<a class="waves-effect waves-dark" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="fa fa-fw fa-user-plus"></i><span class="hide-menu">Recruitment</span></a>
 						<ul class="sidenav-second-level collapse" id="collapseComponents">
 							<li><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
-							<li><a href="<?php echo base_url(); ?>interview">Interview</a></li>
+							<li class="active"><a href="<?php echo base_url(); ?>interview">Interview</a></li>
 							<li><a href="<?php echo base_url(); ?>selected">Selected</a></li>
 							<li><a href="<?php echo base_url(); ?>hired">Hired</a></li>
 						</ul>
@@ -80,7 +80,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h5>Settings</h5>
+                        <h5>Interview</h5>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -122,87 +122,46 @@
             <div class="panel-header panel-header-sm">
             </div>
             <div class="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="title">Company Name</h5>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>User ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" disabled="" placeholder="Email" value="amayalelis@yahoo.com">
-                                            </div>
-                                        </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" disabled="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-									    <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Company name</label>
-                                                <input type="text" class="form-control" placeholder="Company Name" value="mayacorp" disabled="">
-											</div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="Address" value="Silang Cavite">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="City" value="Cavite">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 px-1">
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="State" value="N/A">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Contact Number</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-									
-                                </form>
-								<a href="<?php echo base_url(); ?>editaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Interview Details</h5>
+							</div>
+							<div class="card-body">
+							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
+								<div class="form-group">
+                                    <label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
+									<div style="display: inline;">
+										<select id="month">
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+										</select>
+										<select id="day">
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+										</select>
+										<select id="year">
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+										</select>
+									</div>
+                                    <br/><br/><label for="exampleInputExperience">Place of Interview</label>
+									<input type="text" name="place" placeholder="Placeof interview" class="form-control">
+								</div>
+								<a href="" data-toggle="modal" data-target="#saveinterviewModal"><button type="submit" style="float: right;" class="btn btn-info">Submit</button></a>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="copyright">
@@ -237,20 +196,20 @@
       </div>
     </div>
 	
-	<!-- Edit Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- Save Interview Modal-->
+    <div class="modal fade" id="saveinterviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update this account?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Submit interview details?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select Update below if you want to update account.</div>
+          <div class="modal-body">Click "Submit" below to save interview details</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>setting">Update</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>interview">Submit</a>
           </div>
         </div>
       </div>

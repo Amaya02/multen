@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-				<a href="<?php echo base_url(); ?>employers"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
+				<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
             </div>
 			

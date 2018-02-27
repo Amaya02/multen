@@ -44,7 +44,7 @@
                             <p>Employers</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo base_url(); ?>applicants">
                             <i class="now-ui-icons business_badge"></i>
                             <p>Applicants</p>
@@ -54,7 +54,7 @@
 						<a class="waves-effect waves-dark" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="fa fa-fw fa-user-plus"></i><span class="hide-menu">Recruitment</span></a>
 						<ul class="sidenav-second-level collapse" id="collapseComponents">
 							<li><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
-							<li><a href="<?php echo base_url(); ?>interview">Interview</a></li>
+							<li class="active"><a href="<?php echo base_url(); ?>interview">Interview</a></li>
 							<li><a href="<?php echo base_url(); ?>selected">Selected</a></li>
 							<li><a href="<?php echo base_url(); ?>hired">Hired</a></li>
 						</ul>
@@ -80,7 +80,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h5>Applicants</h5>
+                        <h5>Interview</h5>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -126,11 +126,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> List of Applicants</h4>
+                                <h4 class="card-title">To be Interviewed</h4>
                             </div>
                             <div class="card-body">
 								<div style="display: inline;">
-									<select id="company">
+									<select id="soflow">
 										<option>Select company</option>
 										<option>Harvey Corporation</option>
 										<option>Amaya Corporation</option>
@@ -138,11 +138,11 @@
 									</select>
 								</div>
 								<div style="display: inline;"> 
-									<select id="job">
+									<select id="soflow">
 										<option>Select job</option>
-										<option>IT</option>
-										<option>Communication</option>
-										<option>Arts</option>
+										<option>Software Analyst</option>
+										<option>Web Developer</option>
+										<option>Front end</option>
 									</select>
 								</div>
                                 <div class="table-responsive">
@@ -156,6 +156,15 @@
                                             </th>
                                             <th>
                                                 Job
+                                            </th>
+											<th>
+                                                Date
+                                            </th>
+											<th>
+                                                Place
+                                            </th>
+											<th>
+                                                
                                             </th>
                                             <th class="text-right">
                                                 
@@ -172,6 +181,15 @@
                                                 <td>
 													Software Analyst
                                                 </td>
+												<td>
+													02/28/18
+                                                </td>
+												<td>
+													Building
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#doneModal"><button type="button" style="float: right;" class="btn btn-success">Done</button></a>
+                                                </td>
                                                 <td class="text-right">
                                                     <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
@@ -186,6 +204,15 @@
                                                 <td>
                                                     Multimedia Graphic Artist
                                                 </td>
+												<td>
+													02/28/18
+                                                </td>
+												<td>
+													Building
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#doneModal"><button type="button" style="float: right;" class="btn btn-success">Done</button></a>
+                                                </td>
                                                 <td class="text-right">
                                                     <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
                                                 </td>
@@ -193,10 +220,124 @@
                                         </tbody>
                                     </table>
                                 </div>
+								
                             </div>
                         </div>
                     </div>
+					
                 </div>
+				<div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Done</h4>
+                            </div>
+                            <div class="card-body">
+								<div style="display: inline;">
+									<select id="soflow">
+										<option>Select company</option>
+										<option>Harvey Corporation</option>
+										<option>Amaya Corporation</option>
+										<option>Hannah Corporation</option>
+									</select>
+								</div>
+								<div style="display: inline;"> 
+									<select id="soflow">
+										<option>Select job</option>
+										<option>Software Analyst</option>
+										<option>Web Developer</option>
+										<option>Front end</option>
+									</select>
+								</div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Company
+                                            </th>
+                                            <th>
+                                                Job
+                                            </th>
+											<th>
+                                                Date
+                                            </th>
+											<th>
+                                                Place
+                                            </th>
+											<th>
+                                                
+                                            </th>
+											<th>
+                                                
+                                            </th>
+                                            <th class="text-right">
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Applicant1
+                                                </td>
+                                                <td>
+                                                    Amaya Corporation
+                                                </td>
+                                                <td>
+													Software Analyst
+                                                </td>
+												<td>
+													02/26/18
+                                                </td>
+												<td>
+													Building
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#passModal"><button type="button" style="float: right;" class="btn btn-success">Pass</button></a>
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#failModal"><button type="button" style="float: right;" class="btn btn-danger">Fail</button></a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Applicant2
+                                                </td>
+                                                <td>
+                                                    Hannah Corporation
+                                                </td>
+                                                <td>
+                                                    Multimedia Graphic Artist
+                                                </td>
+												<td>
+													02/25/18
+                                                </td>
+												<td>
+													Building
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#passModal"><button type="button" style="float: right;" class="btn btn-success">Pass</button></a>
+                                                </td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#failModal"><button type="button" style="float: right;" class="btn btn-danger">Fail</button></a>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="<?php echo base_url(); ?>applicantview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+								
+                            </div>
+                        </div>
+                    </div>
+				</div>
 				<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
             </div>
 			
@@ -229,6 +370,63 @@
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Done Modal-->
+    <div class="modal fade" id="doneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Interview Done?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Done" below if this interview is done.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="">Done</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Passed Modal-->
+    <div class="modal fade" id="passModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Applicant Passed?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Passed" below if this applicant passed the interview.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="">Passed</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Passed Modal-->
+    <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Applicant Failed?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Failed" below if this applicant failed the interview.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="">Failed</a>
           </div>
         </div>
       </div>
