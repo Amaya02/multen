@@ -85,7 +85,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form role="search" action="<?php echo base_url(); ?>admin/search" method="get">
                             <div class="input-group no-border">
-                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search...">
+                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search..." />
 								<span class="input-group-addon">
 									<button class="btnsearch" type="submit">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>

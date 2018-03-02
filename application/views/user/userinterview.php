@@ -129,7 +129,7 @@
                             </div>
                             <div class="card-body">
 								<div style="display: inline;">
-									<select id="soflow">
+									<select id="company">
 										<option>Select company</option>
 										<option>Harvey Corporation</option>
 										<option>Amaya Corporation</option>
@@ -137,7 +137,7 @@
 									</select>
 								</div>
 								<div style="display: inline;"> 
-									<select id="soflow">
+									<select id="job">
 										<option>Select job</option>
 										<option>Software Analyst</option>
 										<option>Web Developer</option>
@@ -233,7 +233,7 @@
                             </div>
                             <div class="card-body">
 								<div style="display: inline;">
-									<select id="soflow">
+									<select id="company">
 										<option>Select company</option>
 										<option>Harvey Corporation</option>
 										<option>Amaya Corporation</option>
@@ -241,7 +241,7 @@
 									</select>
 								</div>
 								<div style="display: inline;"> 
-									<select id="soflow">
+									<select id="job">
 										<option>Select job</option>
 										<option>Software Analyst</option>
 										<option>Web Developer</option>
