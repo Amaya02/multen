@@ -66,7 +66,7 @@ class admin extends CI_Controller {
 			$this->load->view('admin/adminbillview',$data);		
 		}		
 		else{
-			redirect('admin/adminbill','refresh');
+			redirect('admin/bill','refresh');
 		}
 	}
 	
@@ -77,6 +77,29 @@ class admin extends CI_Controller {
 		$data['result']=$this->user_model->search($keyword);
 		$data['key']=$keyword;
 		$this->load->view('admin/adminsearch',$data);
+	}
+	
+	public function setting()
+	{
+		// if the user is validated, then this function will run
+		$data['metadata']=$this->session->userdata();
+		$this->load->view('admin/adminsetting',$data);
+	}
+	
+	public function editaccount()
+	{
+		// if the user is validated, then this function will run
+		$data['metadata']=$this->session->userdata();
+		$this->load->view('admin/admineditaccount',$data);
+	}
+	
+	public function processedit()
+	{
+		// if the user is validated, then this function will run
+		$id=$this->input->post('adminid');
+		$this->user_model->updateadmin($id);
+		$this->session->set_flashdata('success_msg', 'Updated successfully');
+		redirect('admin/setting');
 	}
 	
 	private function check_isValidated(){

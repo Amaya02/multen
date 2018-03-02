@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
     <title>MULTEN - Admin Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 	
@@ -25,26 +25,26 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="<?php echo base_url(); ?>admindashboard" class="simple-text">
+                <a href="<?php echo base_url(); ?>admin/dashboard" class="simple-text">
                     <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>admindashboard">
+                        <a href="<?php echo base_url(); ?>admin/dashboard">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminclient">
+                        <a href="<?php echo base_url(); ?>admin/client">
                             <i class="now-ui-icons users_circle-08"></i>
                             <p>Clients</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminbill">
+                        <a href="<?php echo base_url(); ?>admin/bill">
                             <i class="now-ui-icons business_money-coins"></i>
                             <p>Bills</p>
                         </a>
@@ -91,8 +91,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admin/dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>admin/setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -109,27 +109,27 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Name of Admin</h5>
+                                <h5 class="title">Settings</h5>
                             </div>
                             <div class="card-body">
-                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>admin/processedit" onsubmit="return(validate());">
                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Admin ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
+                                                <input readonly name="adminid" type="text" class="form-control" value="<?php echo $metadata['adminid']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="First Name" value="Candy Amaya" required />
+                                                <input name="fname" type="text" class="form-control" placeholder="First Name" value="<?php echo $metadata['fname']; ?>" required />
                                             </div>
                                         </div>
 										<div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" value="Lelis" required />
+                                                <input name="lname" type="text" class="form-control" placeholder="Last Name" value="<?php echo $metadata['lname']; ?>" required />
                                             </div>
                                         </div>
                                     </div>
@@ -137,19 +137,19 @@
 									    <div class="col-md-5 pr-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email" value="adminamaya@yahoo.com" required />
+                                                <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $metadata['email']; ?>" required />
 											</div>
                                         </div>
 										<div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="adminamaya" required />
+                                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $metadata['username']; ?>" required  />
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" required />
+                                                <input type="password" name="password" class="form-control" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 15 characters" value="<?php echo $metadata['password']; ?>" required  />
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Address" value="Silang Cavite" required />
+                                                <input type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $metadata['address']; ?>" required />
                                             </div>
                                         </div>
                                     </div>
@@ -165,19 +165,19 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Cavite" required />
+                                                <input type="text" name="city" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" class="form-control" placeholder="State" value="N/A" required />
+                                                <input type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
+                                                <input name="zipcode" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" required />
                                             </div>
                                         </div>
                                     </div>
@@ -185,14 +185,13 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Contact Number</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
+                                                <input name="cnum" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnum']; ?>" required />
                                             </div>
-                                        </div>
-                                        
+                                        </div>        
                                     </div>
-									<a href="" data-toggle="modal" data-target="#editModal"><button type="submit" style="float: right;" class="btn btn-submit">Save</button></a>
-                                </form>
-								<a href="<?php echo base_url(); ?>adminsetting"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
+                                <button type="submit" style="float: right;" class="btn btn-success">Save</button>
+								</form>
+								<a href="<?php echo base_url(); ?>admin/setting" style="float: right;" class="btn btn-info">Back</a>
                             </div>
                         </div>
                     </div>
@@ -214,6 +213,25 @@
         </div>
     </div>
 	
+<!-- Edit Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update this account?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Update" below if you want to update account.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
 <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -233,25 +251,6 @@
       </div>
     </div>
 	
-	<!-- Edit Modal-->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update this account?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Update" below if you want to update account.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>adminsetting">Update</a>
-          </div>
-        </div>
-      </div>
-    </div>
-	
 </body>
 <!--   Core JS Files   -->
 <script src="<?php echo base_url('assets/js/core/jquery.min.js'); ?>"></script>
@@ -265,10 +264,18 @@
 <script src="<?php echo base_url('assets/js/plugins/chartjs.min.js'); ?>"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
 
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to update this?")
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 
 </html>

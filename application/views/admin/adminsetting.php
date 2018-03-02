@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
     <title>MULTEN - Admin Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 	
@@ -18,33 +18,44 @@
 
 </head>
 
-<body class="">
+<body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper ">
         <div class="sidebar" data-color="grey">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="<?php echo base_url(); ?>admindashboard" class="simple-text">
+                <a href="<?php echo base_url(); ?>admin/dashboard" class="simple-text">
                     <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>admindashboard">
+                        <a href="<?php echo base_url(); ?>admin/dashboard">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminclient">
+                        <a href="<?php echo base_url(); ?>admin/client">
                             <i class="now-ui-icons users_circle-08"></i>
                             <p>Clients</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminbill">
+                        <a href="<?php echo base_url(); ?>admin/bill">
                             <i class="now-ui-icons business_money-coins"></i>
                             <p>Bills</p>
                         </a>
@@ -91,8 +102,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admin/dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>admin/setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -109,7 +120,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Name of Admin</h5>
+                                <h5 class="title">Settings</h5>
                             </div>
                             <div class="card-body">
                                 <form>
@@ -117,19 +128,19 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Admin ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
+                                                <input name="adminid" type="text" class="form-control" disabled="" value="<?php echo $metadata['adminid']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="First Name" value="Candy Amaya" disabled="">
+                                                <input name="fname" type="text" class="form-control" placeholder="First Name" value="<?php echo $metadata['fname']; ?>" disabled="" />
                                             </div>
                                         </div>
 										<div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" value="Lelis" disabled="">
+                                                <input name="lname" type="text" class="form-control" placeholder="Last Name" value="<?php echo $metadata['lname']; ?>" disabled="" />
                                             </div>
                                         </div>
                                     </div>
@@ -137,19 +148,19 @@
 									    <div class="col-md-5 pr-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" disabled="" placeholder="Email" value="adminamaya@yahoo.com">
+                                                <input type="email" name="email" class="form-control" disabled="" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
 											</div>
                                         </div>
 										<div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="adminamaya" disabled="">
+                                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $metadata['username']; ?>" disabled="" />
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" disabled="">
+                                                <input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo $metadata['password']; ?>" disabled="" />
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +168,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="Address" value="Silang Cavite">
+                                                <input type="text" name="address" class="form-control" disabled="" placeholder="Address" value="<?php echo $metadata['address']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -165,19 +176,19 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="City" value="Cavite">
+                                                <input type="text" name="city" class="form-control" disabled="" placeholder="City" value="<?php echo $metadata['city']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="State" value="N/A">
+                                                <input type="text" name="state" class="form-control" disabled="" placeholder="State" value="<?php echo $metadata['state']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
+                                                <input disabled="" name="zipcode" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -185,14 +196,14 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Contact Number</label>
-                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
+                                                <input disabled="" name="cnum" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnum']; ?>" />
                                             </div>
                                         </div>
                                         
                                     </div>
 									
                                 </form>
-								<a href="<?php echo base_url(); ?>admineditaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button></a>
+								<a href="<?php echo base_url(); ?>admin/editaccount" style="float: right;" class="btn btn-info">Edit Account</a>
                             </div>
                         </div>
                     </div>
@@ -246,10 +257,8 @@
 <script src="<?php echo base_url('assets/js/plugins/chartjs.min.js'); ?>"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
 
 
 </html>

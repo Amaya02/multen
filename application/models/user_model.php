@@ -152,6 +152,25 @@ class user_model extends CI_Model {
 		$query = $this->db->get('users');
 		return $query->result();
 	}
+	
+	public function updateadmin($id){
+		$admin=array(
+			'adminid'=>$this->input->post('adminid'),
+			'fname'=>$this->input->post('fname'),
+			'lname'=>$this->input->post('lname'),
+			'username'=>$this->input->post('username'),
+			'email'=>$this->input->post('email'),
+			'password'=>$this->input->post('password'),
+			'address'=>$this->input->post('address'),
+			'city'=>$this->input->post('city'),
+			'state'=>$this->input->post('state'),
+			'zipcode'=>$this->input->post('zipcode'),
+			'cnum'=>$this->input->post('cnum')
+	  );
+		$this->session->set_userdata($admin);
+		$this->db->where('adminid',$id);
+		$this->db->update('admin', $admin);
+	}
 }
 
 ?>
