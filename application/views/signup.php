@@ -47,7 +47,7 @@
               <input required type="email" name="email" placeholder="Email Address" class="form-control">
             </div>
 			<div class="col-sm-4">
-              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,}" title="minimum of 6 characters">
+              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 15 characters">
             </div>
 			<div class="col-sm-2">
 				<input type="checkbox" onclick="myFunction()">Show Password
@@ -158,7 +158,7 @@
 <!-- Command -->
           <div class="form-group">
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-default" onclick="goBack()" >Back</button>
+                 <a class="btn btn-default" href="<?php echo base_url(); ?>">Back</a>
                 <button type="submit" class="btn btn-primary" >Sign Up</button>
               </div>
           </div>

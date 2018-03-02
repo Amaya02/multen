@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
     <title>MULTEN - Admin Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
 	
@@ -25,26 +25,26 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="<?php echo base_url(); ?>admindashboard" class="simple-text">
+                <a href="<?php echo base_url(); ?>admin/dashboard" class="simple-text">
                     <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>admindashboard">
+                        <a href="<?php echo base_url(); ?>admin/dashboard">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li  class="active">
-                        <a href="<?php echo base_url(); ?>adminclient">
+                        <a href="<?php echo base_url(); ?>admin/client">
                             <i class="now-ui-icons users_circle-08"></i>
                             <p>Clients</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>adminbill">
+                        <a href="<?php echo base_url(); ?>admin/bill">
                             <i class="now-ui-icons business_money-coins"></i>
                             <p>Bills</p>
                         </a>
@@ -72,16 +72,15 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form role="search" action="<?php echo base_url(); ?>admin/search" method="get">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search...">
 								<span class="input-group-addon">
-									<a href="<?php echo base_url(); ?>adminsearch"><button type="button" class="btnsearch">
+									<button class="btnsearch" type="submit">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>
-									</button></a>
+									</button>
                                 </span>
                             </div>
-							
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -92,8 +91,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>adminsetting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>admin/dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>admin/setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -110,24 +109,24 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h5 class="title"><?php echo $company[0]['companyname']; ?></h5>
                             </div>
                             <div class="card-body">
-                                <p>Email Address:</p>
-								<p>Password:</p><br/>
-								<p>Address:</p>
-								<p>City:</p>
-								<p>State:</p>
-								<p>Zip Code:</p></br>
-								<p>Contact Number:</p>
-								<p>Additional Email Address:</p></br>
-								<p>Website:</p>
-								<button type="button" style="float: left;" class="btn btn-submit">View Website</button>
+                                <p><b>ID No:</b> <?php echo $company[0]['userid']; ?></p>
+								<p><b>Email Address:</b> <?php echo $company[0]['email']; ?></p><br/>
+								<p><b>Address:</b> <?php echo $company[0]['address']; ?></p>
+								<p><b>City:</b> <?php echo $company[0]['city']; ?></p>
+								<p><b>State:</b> <?php echo $company[0]['state']; ?></p>
+								<p><b>Zip Code:</b> <?php echo $company[0]['zipcode']; ?></p><br/>
+								<p><b>Contact Number:</b> <?php echo $company[0]['cnumber']; ?></p>
+								<p><b>Additional Email Address:</b> <?php echo $company[0]['conemail']; ?></p><br/>
+								<p><b>Website:</b> <?php echo $configs[0]['websitename'] ?></p>
+								<a style="float: left;" class="btn btn-submit" href="<?php echo $configs[0]['websitename'] ; ?>" target="_blank">View Website</a>
                             </div>
                         </div>
                     </div>
                 </div>
-				<a href="<?php echo base_url(); ?>adminclient"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
+				<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
             </div>
 				
@@ -179,10 +178,7 @@
 <script src="<?php echo base_url('assets/js/plugins/chartjs.min.js'); ?>"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<!-- Control Center for Now Ui Dashboard: parallax effects  -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/demo/demo.js'); ?>"></script>
-
 
 </html>

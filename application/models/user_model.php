@@ -31,6 +31,14 @@ class user_model extends CI_Model {
 						'adminid' => $row->adminid,
 						'username' => $row->username,
 						'email' => $row->email,
+						'password' => $row->password,
+						'fname' => $row->fname,
+						'lname' => $row->lname,
+						'address' => $row->address,
+						'city' => $row->city,
+						'state' => $row->state,
+						'zipcode' => $row->zipcode,
+						'cnum' => $row->cnum,
 						'validated' => true);
 			$this->session->set_userdata($data);
 			return true;
@@ -68,6 +76,81 @@ class user_model extends CI_Model {
 		//if the previous process did not validate
 		//then return false
 		return false;
+	}
+	
+	public function getClients($condition=null) {
+		$users = array();
+		$this->db->select('*');
+		$this->db->from('users');
+		if( isset($condition) ) $this->db->where($condition);
+		//run the query
+		$query = $this->db->get();
+		$rs=$query->result_array();
+		foreach($rs as $r){
+			$info = array(
+				'userid' => $r['userid'],
+				'email' => $r['email'],
+				'companyname' => $r['companyname'],
+				'password' => $r['password'],
+				'address' => $r['address'],
+				'city' => $r['city'],
+				'state' => $r['state'],
+				'zipcode' => $r['zipcode'],		
+				'cnumber' => $r['cnumber'],	
+				'conemail' => $r['conemail'],
+				'billid' => $r['billid'],	
+				'configid' => $r['configid'],			
+			);
+			$users[] = $info;
+		}
+		
+		return $users;
+	}
+	
+	public function getClientsConfig($condition=null) {
+		$config = array();
+		$this->db->select('*');
+		$this->db->from('config');
+		if( isset($condition) ) $this->db->where($condition);
+		$query = $this->db->get();
+		$rs=$query->result_array();
+		$website="http://localhost/";
+		foreach($rs as $r){
+			$info = array(
+				'configid' => $r['configid'],
+				'websitename' => $website.$r['websitename'],
+				'databasename' => $r['databasename'],
+				'template' => $r['template']		
+			);
+			$config[] = $info;
+		}
+		
+		return $config;
+	}
+	
+	public function getClientsBill($condition=null) {
+		$bill = array();
+		$this->db->select('*');
+		$this->db->from('bill');
+		if( isset($condition) ) $this->db->where($condition);
+		$query = $this->db->get();
+		$rs=$query->result_array();
+		foreach($rs as $r){
+			$info = array(
+				'billid' => $r['billid'],
+				'subscription' => $r['subscription'],
+				'amount' => $r['amount']		
+			);
+			$bill[] = $info;
+		}
+		
+		return $bill;
+	}
+	
+	public function search($keyword){
+		$this->db->like('companyname',$keyword);
+		$query = $this->db->get('users');
+		return $query->result();
 	}
 }
 

@@ -64,7 +64,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h5>Search</h5>
+                        <h5>Settings</h5>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -72,16 +72,15 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form role="search" action="<?php echo base_url(); ?>admin/search" method="get">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search...">
 								<span class="input-group-addon">
-									<a href="<?php echo base_url(); ?>adminsearch"><button type="button" class="btnsearch">
+									<button class="btnsearch" type="submit">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>
-									</button></a>
+									</button>
                                 </span>
                             </div>
-							
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -105,64 +104,95 @@
             <!-- End Navbar -->
             <div class="panel-header panel-header-sm">
             </div>
-			<div class="content">
+            <div class="content">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Search Results</h4>
+                                <h5 class="title">Name of Admin</h5>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Company Name
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    Man Power Agency1
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
-                                                </td>
-                                                <td class="text-right">
-													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button></a>
-                                                    
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Man Power Agency2
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <a href="<?php echo base_url(); ?>adminclientview"><button type="button" style="float: right;" class="btn btn-info">View Profile</button></a>
-                                                </td>
-                                                <td class="text-right">
-													<a href="<?php echo base_url(); ?>adminbillview"><button type="button" style="float: right;" class="btn btn-submit">View Bill</button></a>
-                                                    
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Admin ID</label>
+                                                <input type="text" class="form-control" disabled="" value="1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-control" placeholder="First Name" value="Candy Amaya" disabled="">
+                                            </div>
+                                        </div>
+										<div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control" placeholder="Last Name" value="Lelis" disabled="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+									    <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" disabled="" placeholder="Email" value="adminamaya@yahoo.com">
+											</div>
+                                        </div>
+										<div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" placeholder="Username" value="adminamaya" disabled="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 pl-1">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" placeholder="Password" value="secret" disabled="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="Address" value="Silang Cavite">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="City" value="Cavite">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>State</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="State" value="N/A">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Zip Code</label>
+                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Contact Number</label>
+                                                <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+									
+                                </form>
+								<a href="<?php echo base_url(); ?>admineditaccount"><button type="button" style="float: right;" class="btn btn-info">Edit Account</button></a>
                             </div>
                         </div>
                     </div>

@@ -30,6 +30,7 @@ $user=array(
       'password'=>sha1($this->input->post('password')),
       'address'=>$this->input->post('address'),
       'city'=>$this->input->post('city'),
+	  'state'=>$this->input->post('state'),
 	  'zipcode'=>$this->input->post('zipcode'),
       'cnumber'=>$this->input->post('cnumber'),
 	  'conemail'=>$this->input->post('conemail'),

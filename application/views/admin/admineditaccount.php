@@ -72,16 +72,15 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form role="search" action="<?php echo base_url(); ?>admin/search" method="get">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search...">
 								<span class="input-group-addon">
-									<a href="<?php echo base_url(); ?>adminsearch"><button type="button" class="btnsearch">
+									<button class="btnsearch" type="submit">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>
-									</button></a>
+									</button>
                                 </span>
                             </div>
-							
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class adminbill extends CI_Controller {
+class admindashboard extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -11,7 +11,8 @@ class adminbill extends CI_Controller {
 	public function index()
 	{
 		// if the user is validated, then this function will run
-		$this->load->view('adminbill');
+		$data['metadata']=$this->session->userdata();
+		$this->load->view('admindashboard',$data);
 	}
 	
 	private function check_isValidated(){
