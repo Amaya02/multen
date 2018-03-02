@@ -114,7 +114,7 @@
                             <div class="card-body">
 								<p><b>Bill ID:</b> <?php echo $bill[0]['billid']; ?></p>
                                 <p><b>Subsciption:</b> <?php echo $bill[0]['subscription']; ?></p>
-								<p><b>Amount:</b> <?php echo $bill[0]['amount']; ?></p><br/>
+								<p><b>Amount:</b> $ <?php echo $bill[0]['amount']; ?></p><br/>
                             </div>
                         </div>
                     </div>
