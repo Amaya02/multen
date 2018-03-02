@@ -7,7 +7,6 @@ class user extends CI_Controller {
 		parent::__construct();
 		$this->check_isValidated();
 		$this->load->model('user_model');
-		$this->load->model('tenant_model');
 	}
 	
 	public function dashboard(){
