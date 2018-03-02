@@ -67,7 +67,16 @@ class user_model extends CI_Model {
 			$data = array(
 						'userid' => $row->userid,
 						'companyname' => $row->companyname,
+						'username' => $row->username,
 						'email' => $row->email,
+						'password' => $row->password,
+						'address' => $row->address,
+						'state' => $row->state,
+						'city' => $row->city,
+						'zipcode' => $row->zipcode,
+						'conemail' => $row->conemail,
+						'cnumber' => $row->cnumber,
+						'billid' => $row->billid,
 						'configid' => $row->configid,
 						'validated' => true);
 			$this->session->set_userdata($data);

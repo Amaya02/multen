@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
     <title>MULTEN - Dashboard</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
 	
     <!-- CSS Files -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
@@ -26,26 +26,26 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="<?php echo base_url(); ?>dashboard" class="simple-text">
+                <a href="<?php echo base_url(); ?>user/dashboard" class="simple-text">
                     <img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>dashboard">
+                        <a href="<?php echo base_url(); ?>user/dashboard">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>employers">
+                        <a href="<?php echo base_url(); ?>user/employers">
                             <i class="now-ui-icons business_briefcase-24"></i>
                             <p>Employers</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>applicants">
+                        <a href="<?php echo base_url(); ?>user/applicants">
                             <i class="now-ui-icons business_badge"></i>
                             <p>Applicants</p>
                         </a>
@@ -53,14 +53,14 @@
 					<li> 
 						<a class="waves-effect waves-dark" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="fa fa-fw fa-user-plus"></i><span class="hide-menu">Recruitment</span></a>
 						<ul class="sidenav-second-level collapse" id="collapseComponents">
-							<li><a href="<?php echo base_url(); ?>preselection">Pre-Selection</a></li>
-							<li><a href="<?php echo base_url(); ?>interview">Interview</a></li>
-							<li><a href="<?php echo base_url(); ?>selected">Selected</a></li>
-							<li><a href="<?php echo base_url(); ?>hired">Hired</a></li>
+							<li><a href="<?php echo base_url(); ?>user/preselection">Pre-Selection</a></li>
+							<li><a href="<?php echo base_url(); ?>user/interview">Interview</a></li>
+							<li><a href="<?php echo base_url(); ?>user/selected">Selected</a></li>
+							<li><a href="<?php echo base_url(); ?>user/hired">Hired</a></li>
 						</ul>
 					</li>
 					<li>
-                        <a href="<?php echo base_url(); ?>bills">
+                        <a href="<?php echo base_url(); ?>user/bills">
                             <i class="now-ui-icons business_money-coins"></i>
                             <p>Bills</p>
                         </a>
@@ -88,16 +88,15 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form role="search" action="<?php echo base_url(); ?>user/search" method="get">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input required type="text" name="keyword" value="" class="form-control" placeholder="Search..." />
 								<span class="input-group-addon">
-									<a href="<?php echo base_url(); ?>search"><button type="button" class="btnsearch">
+									<button class="btnsearch" type="submit">
 										<i class="now-ui-icons ui-1_zoom-bold"></i>
-									</button></a>
+									</button>
                                 </span>
                             </div>
-							
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -108,8 +107,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>user/dashboard"><i class="now-ui-icons users_single-02"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>user/setting"><i class="now-ui-icons ui-1_settings-gear-63"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="now-ui-icons media-1_button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -134,7 +133,7 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>User ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1">
+                                                <input type="text" class="form-control" disabled="" value="1" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
@@ -182,7 +181,7 @@
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118">
+                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118" />
                                             </div>
                                         </div>
                                     </div>
@@ -190,14 +189,14 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Contact Number</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678">
+                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678" />
                                             </div>
                                         </div>
   
                                     </div>
-									<a href="" data-toggle="modal" data-target="#editModal"><button type="submit" style="float: right;" class="btn btn-submit">Save</button></a>
+									<a href="" data-toggle="modal" data-target="#editModal" style="float: right;" class="btn btn-submit">Save</a>
                                 </form>
-								<a href="<?php echo base_url(); ?>setting"><button type="button" style="float: right;" class="btn btn-info">Back</button></a>
+								<a href="<?php echo base_url(); ?>user/setting" style="float: right;" class="btn btn-info">Back</a>
                             </div>
                         </div>
                     </div>
@@ -250,7 +249,7 @@
           <div class="modal-body">Select "Update" below if you want to update account.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>setting">Update</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>user/setting">Update</a>
           </div>
         </div>
       </div>
@@ -269,10 +268,7 @@
 <script src="<?php echo base_url('assets/js/plugins/chartjs.min.js'); ?>"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
 
 </html>
