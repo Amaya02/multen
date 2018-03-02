@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2018 at 07:17 AM
+-- Generation Time: Mar 02, 2018 at 08:11 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -30,15 +30,22 @@ CREATE TABLE `admin` (
   `adminid` int(11) NOT NULL,
   `email` varchar(29) NOT NULL,
   `password` varchar(29) NOT NULL,
-  `username` varchar(29) NOT NULL
+  `username` varchar(29) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `zipcode` varchar(50) NOT NULL,
+  `cnum` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`adminid`, `email`, `password`, `username`) VALUES
-(0, 'adminamaya@yahoo.com', 'secret', 'amayaadmin');
+INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname`, `address`, `city`, `state`, `zipcode`, `cnum`) VALUES
+(0, 'adminamaya@yahoo.com', 'secret', 'amayaadmin', 'amaya', 'lelis', 'silang', 'cavite', 'n/a', '4118', '09771273912');
 
 -- --------------------------------------------------------
 
@@ -75,6 +82,14 @@ CREATE TABLE `config` (
   `template` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`configid`, `websitename`, `databasename`, `template`) VALUES
+(1, 'amayacorporation', 'tenant1', 'template1'),
+(2, 'Corporate', 'tenant2', 'template2');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +110,14 @@ CREATE TABLE `users` (
   `billid` int(50) NOT NULL,
   `configid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
+(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Amaya Corporation', 'St. Magallanes', 'Makati', '', '4118', '464654', 'amayalelis@yahoo.com', 1, 1),
+(2, 'amaya@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Corporate', 'sad', 'asd', '', '123', '57576', 'amaya@yahoo.com', 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -132,12 +155,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `configid` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `configid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
