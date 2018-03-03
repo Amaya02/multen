@@ -270,7 +270,11 @@
 <script type="text/javascript">
 function validate()
 {
-     $('#editModal').modal('show');
+     var r=confirm("Do you want to update this?");
+    if (r==true)
+      return true;
+    else
+      return false;
 }
 </script>
 
