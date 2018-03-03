@@ -11,6 +11,8 @@ class user extends CI_Controller {
 	
 	public function dashboard(){
 		$data['metadata']=$this->session->userdata();
+		$configid = $this->session->userdata('configid');
+		$data['config']=$this->user_model->getClientsConfig(array('configid'=>$configid));
 		$this->load->view('user/userdashboard',$data);
 	}
 	
