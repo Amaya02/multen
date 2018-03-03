@@ -178,8 +178,8 @@
 								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
 								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
 								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
-								<p><b>Website:</b> </p></p>
-								<a style="float: left;" class="btn btn-submit" href="" target="_blank">View Website</a>
+								<p><b>Website:</b> <?php echo $config[0]['websitename']; ?></p></p>
+								<a style="float: left;" class="btn btn-submit" href="<?php echo $config[0]['websitename']; ?>" target="_blank">View Website</a>
                             </div>
                         </div>
                     </div>
