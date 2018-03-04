@@ -15,7 +15,15 @@ if($query->num_rows()==1){
 	//if there is a user, then create session data
 	$row = $query->row();
 	$billid=$row->billid;
+	$amount=$row->amount;
 }
+
+$bill=array(
+      'billid'=>$billid,
+	  'subscription'=>$subscription,
+      'amount'=>$amount
+);
+
 $tenant="tenant";
 $config=array(
       'websitename'=>$websitename,
@@ -30,6 +38,7 @@ $user=array(
       'password'=>sha1($this->input->post('password')),
       'address'=>$this->input->post('address'),
       'city'=>$this->input->post('city'),
+	  'state'=>$this->input->post('state'),
 	  'zipcode'=>$this->input->post('zipcode'),
       'cnumber'=>$this->input->post('cnumber'),
 	  'conemail'=>$this->input->post('conemail'),
@@ -49,7 +58,7 @@ $config=array(
 $this->db->where('configid',$user['configid']);
 $this->db->update('config', $config);
 
-$this->createwebsite($config,$user,$userid);
+$this->createwebsite($config,$user,$userid,$bill);
 }
  
 public function email_check($email){
@@ -123,13 +132,13 @@ public function checkwebsitename(){
 
 }
 
-public function createwebsite($config,$user,$userid){
+public function createwebsite($config,$user,$userid,$bill){
 	$this->recurse_copy("C:/xampp/htdocs/multen/Templates/".$config['template'],"C:/xampp/htdocs/".$config[websitename]);
 	$this->uploadlogo($config);
 	$this->editconfig($config);
 	$this->createdatabase($config);
 	$this->createtable($config);
-	$this->inserttotable($config,$user,$userid);
+	$this->inserttotable($config,$user,$userid,$bill);
 	
 }
 
@@ -220,7 +229,7 @@ private function createtable($config){
 	$conn->query($sql);
 	
 	$sql = "CREATE TABLE bill (
-		billid int(50) NOT NULL,
+		billid int(20) NOT NULL,
 		subscription varchar(50) NOT NULL,
 		amount int(50) NOT NULL
 	)";
@@ -228,6 +237,19 @@ private function createtable($config){
 	
 	$sql="ALTER TABLE `bill`
 			ADD PRIMARY KEY (`billid`)";
+	
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE config (
+		configid int(20) NOT NULL,
+		websitename varchar(50) NOT NULL,
+		databasename varchar(50) NOT NULL,
+		template varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `config`
+			ADD PRIMARY KEY (`configid`)";
 	
 	$conn->query($sql);
 	
@@ -322,7 +344,7 @@ private function createtable($config){
 	$conn->close();
 }
 
-private function inserttotable($config,$user,$userid){
+private function inserttotable($config,$user,$userid,$bill){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -342,7 +364,14 @@ private function inserttotable($config,$user,$userid){
 	
 	$sql = "INSERT INTO bill (
 		`billid`, `subscription`, `amount`) VALUES
-		(1, 'trial', 0
+		(".$user['billid'].", '".$bill['subscription']."', ".$bill['amount']."
+	)";
+	
+	$conn->query($sql);
+	
+	$sql = "INSERT INTO config (
+		`configid`, `websitename`, `databasename`, `template`) VALUES
+		(".$user['configid'].", '".$config['websitename']."', '".$config['databasename']."', '".$config['template']."'
 	)";
 	
 	$conn->query($sql);
