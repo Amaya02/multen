@@ -171,6 +171,7 @@
                             <h4 class="card-title">User Profile</h4>
                         <div class="card card-chart">
                             <div class="card-body">
+								<p><b>Company Name:</b> <?php echo $metadata['companyname']; ?></p></p>
                                 <p><b>Email Address:</b> <?php echo $metadata['email']; ?></p></p>
 								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
 								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>

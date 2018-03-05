@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/signup.js'); ?>"></script>
-<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
 
 <style>
   body{
@@ -44,13 +44,13 @@
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-4">
-              <input required type="email" name="email" placeholder="Email Address" class="form-control">
+              <input required type="email" name="email" placeholder="Email Address" class="form-control" />
             </div>
 			<div class="col-sm-4">
-              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 15 characters">
+              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
             </div>
 			<div class="col-sm-2">
-				<input type="checkbox" onclick="myFunction()">Show Password
+				<input type="checkbox" onclick="myFunction()" />Show Password
 			</div>
           </div>
 
@@ -61,7 +61,7 @@
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-4">
-              <input required type="text" name="companyname" placeholder="Company Name" class="form-control">
+              <input required type="text" name="companyname" placeholder="Company Name" class="form-control" />
             </div>
           </div>
 
@@ -71,19 +71,19 @@
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-10">
-              <input required type="text" name="address" placeholder="Address" class="form-control">
+              <input required type="text" name="address" placeholder="Address" class="form-control" />
             </div>
           </div>
           <!-- Text input-->
           <div class="form-group">
             <div class="col-sm-4">
-              <input required type="text" name="city" placeholder="City" class="form-control">
+              <input required type="text" name="city" placeholder="City" class="form-control" />
             </div>
             <div class="col-sm-2">
-              <input required type="text" name="state" placeholder="State" class="form-control">
+              <input required type="text" name="state" placeholder="State" class="form-control" />
             </div>
             <div class="col-sm-4">
-              <input required type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+              <input required type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
             </div>
           </div>
 
@@ -93,10 +93,10 @@
           <!-- Text input-->
           <div class="form-group"> 
             <div class="col-sm-4">
-              <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+              <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
             </div>
             <div class="col-sm-4">
-              <input required type="email" name="conemail" placeholder="Email Address" class="form-control">
+              <input required type="email" name="conemail" placeholder="Email Address" class="form-control" />
             </div>
            </div>
 
@@ -127,7 +127,7 @@
             <legend>Payment Method</legend>
             <div class="form-group">
 				<div class="col-sm-8">
-					<img src="<?php echo base_url('assets/img/paypal.png'); ?>" alt="" class="pay" height="100">      
+					<img src="<?php echo base_url('assets/img/paypal.png'); ?>" alt="" class="pay" height="100" />      
 				</div>
 			</div>
 
@@ -136,19 +136,21 @@
 			<div class="form-group">
 			<div class="cc-selector-2">
                 <div class="col-sm-2">
-                   <input type="radio" name="template" value="template1"> Template 1
+                   <input class="checked" id="template1" type="radio" name="template" value="template1" /> Template 1
+				   <label class="drinkcard-cc template1" for="template1"></label>
                 </div>
                 <div class="col-sm-2">
-                  	 <input type="radio" name="template" value="template2"> Template 2
+                  	 <input class="checked" id="template2" type="radio" name="template" value="template2" /> Template 2
+					 <label class="drinkcard-cc template2" for="template2"></label>
                 </div>
 			</div>
 			</div>	
 			<div class="form-group">
 				<div class="col-sm-4">
-					<input required type="text" name="websitename" placeholder="Name of website" class="form-control">
+					<input required type="text" name="websitename" placeholder="Name of website" class="form-control" />
 				</div>
 				<div class="col-sm-4">
-					Upload your logo(size:200x60)<input required type="file" name="fileToUpload" id="fileToUpload">
+					Upload your logo(size:200x60)<input required type="file" name="fileToUpload" id="fileToUpload" />
 				</div>
 			</div>
 			<br/><br/>

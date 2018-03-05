@@ -14,6 +14,18 @@
     margin-right: auto;
  width: 40%;}
 
+ .template1{background-image:url("../img/t1.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+	
+.template2{background-image:url("../img/t2.jpg");
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+ 
 .trial{background-image:url("../img/trial.jpg");
 display: block;
     margin-left: auto;
@@ -53,6 +65,7 @@ display: block;
        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
             filter: brightness(1.8) grayscale(1) opacity(.7);
 }
+
 .drinkcard-cc:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);

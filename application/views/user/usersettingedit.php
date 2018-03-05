@@ -20,6 +20,17 @@
 </head>
 
 <body class="">
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper ">
         <div class="sidebar" data-color="grey">
             <!--
@@ -125,27 +136,27 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h5 class="title">Settings</h5>
                             </div>
                             <div class="card-body">
-                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
-                                    <div class="row">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>user/processedit" onsubmit="return(validate());">
+                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>User ID</label>
-                                                <input type="text" class="form-control" disabled="" value="1" />
+                                                <input readonly name="userid" type="text" class="form-control" value="<?php echo $metadata['userid']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email" value="amayalelis@yahoo.com" required />
-											</div>
+                                                <input required name="email" type="email" class="form-control" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
+                                            </div>
                                         </div>
 										<div class="col-md-4 pl-1">
-											<div class="form-group">
+                                            <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="secret" required />
+                                                <input readonly name="password" type="password" class="form-control" placeholder="Password" value="<?php echo $metadata['password']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +164,7 @@
 									    <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Company name</label>
-                                                <input type="text" class="form-control" placeholder="Company Name" value="mayacorp" required />
+                                                <input type="text" name="companyname" class="form-control" placeholder="Company Name" value="<?php echo $metadata['companyname']; ?>" required />
 											</div>
                                         </div>
                                     </div>
@@ -161,7 +172,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Address" value="Silang Cavite" required />
+                                                <input required type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $metadata['address']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -169,19 +180,19 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Cavite" required />
+                                                <input required type="text" name="city" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" class="form-control" placeholder="State" value="N/A" required />
+                                                <input required type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="4118" />
+                                                <input required type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -189,12 +200,18 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Contact Number</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="1235678" />
+                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
                                             </div>
                                         </div>
-  
+										<div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Addtional Email Address</label>
+                                                <input required type="email" name="conemail" placeholder="Email Address" class="form-control" value="<?php echo $metadata['conemail']; ?>" />
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-									<a href="" data-toggle="modal" data-target="#editModal" style="float: right;" class="btn btn-submit">Save</a>
+									 <button type="submit" style="float: right;" class="btn btn-success">Save</button>
                                 </form>
 								<a href="<?php echo base_url(); ?>user/setting" style="float: right;" class="btn btn-info">Back</a>
                             </div>
@@ -270,5 +287,15 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to update this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 
 </html>

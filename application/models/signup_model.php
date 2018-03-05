@@ -272,6 +272,11 @@ private function createtable($config){
 	
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `employer`
+			MODIFY `empid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE applicant (
 		appid int(20) NOT NULL,
 		email varchar(50) NOT NULL,
@@ -289,10 +294,7 @@ private function createtable($config){
 		religion varchar(50) NOT NULL,
 		gender varchar(50) NOT NULL,
 		status varchar(50) NOT NULL,
-		cnumber varchar(50) NOT NULL,
-		expid varchar(50) NOT NULL,
-		skillid varchar(50) NOT NULL,
-		educid varchar(50) NOT NULL
+		cnumber varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
@@ -301,8 +303,14 @@ private function createtable($config){
 	
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `applicant`
+			MODIFY `appid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE experience (
 		expid int(20) NOT NULL,
+		appid int(20) NOT NULL,
 		job varchar(50) NOT NULL,
 		years int(20) NOT NULL,
 		company varchar(50) NOT NULL
@@ -314,8 +322,14 @@ private function createtable($config){
 	
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `experience`
+			MODIFY `expid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE education (
 		educid int(20) NOT NULL,
+		appid int(20) NOT NULL,
 		level varchar(50) NOT NULL,
 		school varchar(50) NOT NULL,
 		address varchar(50) NOT NULL,
@@ -330,14 +344,80 @@ private function createtable($config){
 	
 	$conn->query($sql);
 	
+	$sql="ALTER TABLE `education`
+			MODIFY `educid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
 	$sql = "CREATE TABLE skill (
 		skillid int(20) NOT NULL,
+		appid int(20) NOT NULL,
 		skill varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
 	$sql="ALTER TABLE `skill`
 			ADD PRIMARY KEY (`skillid`)";
+	
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `skill`
+			MODIFY `skillid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE application (
+		appliid int(20) NOT NULL,
+		appid int(20) NOT NULL,
+		posid int(20) NOT NULL,
+		status varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `application`
+			ADD PRIMARY KEY (`appliid`)";
+	
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `application`
+			MODIFY `appliid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE position (
+		posid int(20) NOT NULL,
+		empid int(20) NOT NULL,
+		position varchar(50) NOT NULL,
+		status varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `position`
+			ADD PRIMARY KEY (`posid`)";
+	
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `position`
+			MODIFY `posid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE interview (
+		intid int(20) NOT NULL,
+		appliid int(20) NOT NULL,
+		date DATE NOT NULL,
+		venue varchar(50) NOT NULL,
+		status varchar(50) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `interview`
+			ADD PRIMARY KEY (`intid`)";
+	
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `interview`
+			MODIFY `intid` int(20) NOT NULL AUTO_INCREMENT";
 	
 	$conn->query($sql);
 	
