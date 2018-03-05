@@ -3,26 +3,26 @@
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
     <meta name="author" content="">
-	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>icon.png" />
     <title>MULTEN - Multi-tenant Man Power Agency</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
 	
     <!-- Custom fonts for this template -->
-    <link href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css' />
 	
     <!-- Custom styles for this template -->
-	<link type="text/css" href="<?php echo base_url('assets/css/agency.css'); ?>" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>">
+	<link type="text/css" href="<?php echo base_url('assets/css/agency.css'); ?>" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/signin.css'); ?>" />
 	
 	
 	
@@ -133,7 +133,7 @@
 				<div class="col-lg-6">
 					<div class="about-col">
 					<div class="img">
-						 <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/about/mission.jpg'); ?>" alt="">
+						 <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/about/mission.jpg'); ?>" alt="" />
 						 
 					</div>
 						<p class="text-muted">MULTEN aims to help every man power agency to keep their record and make it safe. It can also provide website for the agencies who doesn't have one. </p>
@@ -142,7 +142,7 @@
 				<div class="col-lg-6">
 					<div class="about-col">
 					<div class="img">
-						 <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/about/vision.jpg'); ?>" alt="">
+						 <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/about/vision.jpg'); ?>" alt="" />
 					</div>
 						<p class="text-muted">Enlightening our clients' future through providing exquisite solutions by way of our passion for innovation along with prolonged services</p>
 				    </div>
@@ -164,7 +164,7 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team1.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team1.jpg'); ?>" alt="" />
               <h4>Sophia Barbon</h4>
               <p class="text-muted">Quality Assurance Tester</p>
               <ul class="list-inline social-buttons">
@@ -188,7 +188,7 @@
           </div>
 		  <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team2.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team2.jpg'); ?>" alt="" />
               <h4>Hannah Mae Colopano</h4>
               <p class="text-muted">Front-end Developer</p>
               <ul class="list-inline social-buttons">
@@ -212,7 +212,7 @@
           </div>
 		  <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team3.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team3.jpg'); ?>" alt="" />
               <h4>Dean Jagmis</h4>
               <p class="text-muted">Back-end Developer</p>
               <ul class="list-inline social-buttons">
@@ -236,7 +236,7 @@
           </div>
 		  <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team4.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team4.jpg'); ?>" alt="" />
               <h4>Candy Amaya Lelis</h4>
               <p class="text-muted">Back-end Developer</p>
               <ul class="list-inline social-buttons">
@@ -260,7 +260,7 @@
           </div>
 		  <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team5.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team5.jpg'); ?>" alt="" />
               <h4>Rozalyn Oledan</h4>
               <p class="text-muted">Quality Assurance Tester</p>
               <ul class="list-inline social-buttons">
@@ -284,7 +284,7 @@
           </div>
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team6.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team6.jpg'); ?>" alt="" />
               <h4>Harvey Revillas</h4>
               <p class="text-muted">Front-end Developer</p>
               <ul class="list-inline social-buttons">
@@ -308,7 +308,7 @@
           </div>
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team7.jpg'); ?>" alt="">
+              <img class="mx-auto rounded-circle" src="<?php echo base_url('assets/img/team/Team7.jpg'); ?>" alt="" />
               <h4>Jeanette Irish Sarza</h4>
               <p class="text-muted">Front-end Developer</p>
               <ul class="list-inline social-buttons">
@@ -348,9 +348,9 @@
 		<form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
               <label for="email">Email:</label>
               <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
-              <br><label for="password">Password:</label>
+              <br/><label for="password">Password:</label>
               <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
-			  <br><input type="checkbox" onclick="myFunction()">Show Password
+			  <br/><input type="checkbox" onclick="myFunction()" />Show Password
         </div>
       </div>
        <div class="modal-footer">
