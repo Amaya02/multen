@@ -29,13 +29,13 @@ class login extends CI_Controller {
 			else{
 				// If user did validate,
 				// redirect to dashboard
-				redirect('user/dashboard');
+				redirect('user');
 			}
 		}
 		else{
 			// If user did validate,
 			// redirect to dashboard
-			redirect('admin/dashboard');
+			redirect('admin');
 		}
 	}
 	
