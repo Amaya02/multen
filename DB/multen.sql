@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2018 at 10:22 AM
+-- Generation Time: Mar 06, 2018 at 11:38 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `adminid` int(11) NOT NULL,
-  `email` varchar(29) NOT NULL,
-  `password` varchar(29) NOT NULL,
-  `username` varchar(29) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname`, `address`, `city`, `state`, `zipcode`, `cnum`) VALUES
-(0, 'adminamaya@yahoo.com', 'secret', 'amayaadmin', 'Candy Amaya', 'Lelis', 'silang', 'cavite', 'n/a', '4118', '09771273912');
+(0, 'adminamaya@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'amayaadmin', 'Candy Amaya', 'Lelis', 'silang', 'cavite', 'n/a', '4118', '09771273912');
 
 -- --------------------------------------------------------
 
