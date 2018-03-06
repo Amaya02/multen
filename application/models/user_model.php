@@ -13,7 +13,7 @@ class user_model extends CI_Model {
 	public function validateadmin(){
 		// grab user input
 		$email = $this->security->xss_clean($this->input->post('email'));
-		$password = $this->security->xss_clean($this->input->post('password'));
+		$password =  $this->security->xss_clean(sha1($this->input->post('password')));
 		
 		
 		//prep the query
