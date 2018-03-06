@@ -19,6 +19,17 @@
 </head>
 
 <body class="">
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper ">
         <div class="sidebar" data-color="grey">
             <!--

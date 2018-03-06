@@ -121,44 +121,6 @@
             <div class="panel-header panel-header-sm">
             </div>
             <div class="content">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="card">
-							<div class="card-header">
-								<h5 class="card-title">Skills and Experience</h5>
-							</div>
-							<div class="card-body">
-							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
-								<div class="form-group">
-                                    <label for="exampleInputExperience">Years of Experience</label>
-									<input type="text" name="expnum" placeholder="No. of experience" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                                    <br/><label for="exampleInputSkill">Skill</label>
-									<input type="text" name="skill" placeholder="Skill" class="form-control" />
-								</div>
-								<button type="submit" style="float: right;" class="btn btn-info">Search</button>
-							</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="card">
-							<div class="card-header">
-								<h5 class="card-title">Education</h5>
-							</div>
-							<div class="card-body">
-							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
-								<div class="form-group">
-                                    <label for="exampleInputSchool">School Graduated</label>
-									<input type="text" name="school" placeholder="School graduated" class="form-control" />
-                                    <br/><label for="exampleInputDegree">Degree</label>
-									<input type="text" name="degree" placeholder="Degree" class="form-control" />
-								</div>
-								<button type="submit" style="float: right;" class="btn btn-info">Search</button>
-							</form>
-							</div>
-						</div>
-					</div>
-				</div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -166,33 +128,29 @@
                                 <h4 class="card-title"> List of Applicants</h4>
                             </div>
                             <div class="card-body">
-								<div style="display: inline;">
-									<select id="company">
-										<option>Select company</option>
-										<option>Harvey Corporation</option>
-										<option>Amaya Corporation</option>
-										<option>Hannah Corporation</option>
-									</select>
-								</div>
 								<div style="display: inline;"> 
-									<select id="job">
-										<option>Select job</option>
-										<option>Software Analyst</option>
-										<option>Web Developer</option>
-										<option>Front end</option>
+									<select id="mySelector">
+										<option value="">Select job</option>
+										<?php
+											foreach($position as $post){
+											echo '	
+											<option value="'.$post['position'].'">'.$post['position'].'</option>
+											';
+											}
+										?>
 									</select>
 								</div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable">
                                         <thead class=" text-primary">
                                             <th>
-                                                Name
+                                                Job
                                             </th>
                                             <th>
                                                 Company
                                             </th>
                                             <th>
-                                                Job
+                                                Name
                                             </th>
 											<th>
                                                 
@@ -202,40 +160,24 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Applicant1
-                                                </td>
-                                                <td>
-                                                    Amaya Corporation
-                                                </td>
-                                                <td>
-													Software Analyst
+                                            <?php
+											foreach($applicants as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
+												<td>
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
 												<td>
-													<a href="" data-toggle="modal" data-target="#interviewModal" style="float: right;" class="btn btn-success">Interview</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Applicant2
-                                                </td>
-                                                <td>
-                                                    Hannah Corporation
-                                                </td>
-                                                <td>
-                                                    Multimedia Graphic Artist
-                                                </td>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('user/interviewapplicant/'.$post['posid'].'/'.$post['appid'].'/'.$post['appliid']).'">Interview</a>
+												</td>
 												<td>
-													<a href="" data-toggle="modal" data-target="#interviewModal" style="float: right;" class="btn btn-success">Interview</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$post['appid']).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -314,6 +256,6 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-
+<script src="<?php echo base_url('assets/js/table.js'); ?>"></script>
 
 </html>

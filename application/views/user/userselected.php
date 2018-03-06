@@ -128,33 +128,29 @@
                                 <h4 class="card-title"> List of Applicants</h4>
                             </div>
                             <div class="card-body">
-								<div style="display: inline;">
-									<select id="company">
-										<option>Select company</option>
-										<option>Harvey Corporation</option>
-										<option>Amaya Corporation</option>
-										<option>Hannah Corporation</option>
-									</select>
-								</div>
 								<div style="display: inline;"> 
-									<select id="job">
+									<select id="mySelector">
 										<option>Select job</option>
-										<option>IT</option>
-										<option>Communication</option>
-										<option>Arts</option>
+										<?php
+											foreach($position as $post){
+											echo '	
+											<option value="'.$post['position'].'">'.$post['position'].'</option>
+											';
+											}
+										?>
 									</select>
 								</div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable">
                                         <thead class=" text-primary">
                                             <th>
-                                                Name
+                                                Job
                                             </th>
                                             <th>
                                                 Company
                                             </th>
                                             <th>
-                                                Job
+                                                Name
                                             </th>
 											<th>
                                                 
@@ -164,40 +160,27 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Applicant1
-                                                </td>
-                                                <td>
-                                                    Amaya Corporation
-                                                </td>
-                                                <td>
-													Software Analyst
-                                                </td>
-                                                <td>
-                                                    <a href="" data-toggle="modal" data-target="#interviewModal" style="float: right;" class="btn btn-success">Interview</a>
-                                                </td>
-												<td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Applicant2
-                                                </td>
-                                                <td>
-                                                    Hannah Corporation
-                                                </td>
-                                                <td>
-                                                    Multimedia Graphic Artist
+                                            <?php
+											foreach($applicants as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
+												<td>
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
 												<td>
-                                                    <a href="" data-toggle="modal" data-target="#interviewModal" style="float: right;" class="btn btn-success">Interview</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-warning" style="float: right;" href="'.base_url('user/updatestatus/'.$post['appliid'].'/'.$status="preselection").'">Pre-select</a>
+												</td>
+												<td>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('user/interviewapplicant/'.$post['posid'].'/'.$post['appid'].'/'.$post['appliid']).'">Interview</a>
+												</td>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$post['appid']).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -205,8 +188,6 @@
                         </div>
                     </div>
                 </div>
-				<a href="" data-toggle="modal" data-target="#preModal" style="float: left;" class="btn btn-info">Pre-Select List</a>
-				<a href="" data-toggle="modal" data-target="#sendModal" style="float: left;" class="btn btn-warning">Send to Employer</a>
 				<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
             </div>
 			
@@ -316,5 +297,6 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/table.js'); ?>"></script>
 
 </html>

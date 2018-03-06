@@ -97,9 +97,16 @@ class admin extends CI_Controller {
 	{
 		// if the user is validated, then this function will run
 		$id=$this->input->post('adminid');
-		$this->user_model->updateadmin($id);
-		$this->session->set_flashdata('success_msg', 'Updated successfully');
-		redirect('admin/setting');
+		$email_check=$this->user_model->email_check($this->input->post('email'),$id);
+		if($email_check){
+			$this->user_model->updateadmin($id);
+			$this->session->set_flashdata('success_msg', 'Updated successfully');
+			redirect('admin/setting');
+		}
+		else{
+				$this->session->set_flashdata('error_msg', 'email already exist!');
+				redirect('admin/editaccount');
+			}
 	}
 	
 	private function check_isValidated(){

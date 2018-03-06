@@ -126,12 +126,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h5 class="title"><?php echo $metadata['companyname']; ?></h5>
                             </div>
                             <div class="card-body">
-								<p>Bill ID:</p>
-                                <p>Subsciption:</p>
-								<p>Amount:</p><br/>
+								<p><b>Bill ID:</b> <?php echo $bill[0]['billid']; ?></p>
+                                <p><b>Subsciption:</b> <?php echo $bill[0]['subscription']; ?></p>
+								<p><b>Amount:</b> $ <?php echo $bill[0]['amount']; ?></p><br/>
                             </div>
                         </div>
                     </div>

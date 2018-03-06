@@ -125,40 +125,37 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Search Results</h4>
+                                <h4 class="card-title"> Search Results for <?php echo $key ?></h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
+                                                ID No.
+                                            </th>
+                                            <th>
                                                 Applicant Name
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th>
-                                                
                                             </th>
                                             <th class="text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Amaya Lelis
+                                            <?php
+											foreach($result2 as $res){
+											echo '	<tr>	
+												<td>'.$res->appid.'</td>
+												<td>
+                                                    '.$res->fname.' '.$res->mname.' '.$res->lname.'
                                                 </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td class="text-right">
-													<a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$res->appid).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
 									
@@ -166,32 +163,30 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
+                                                ID No.
+                                            </th>
+                                            <th>
                                                 Company Name
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th>
-                                                
                                             </th>
                                             <th class="text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    
+                                            <?php
+											foreach($result1 as $res){
+											echo '	<tr>	
+												<td>'.$res->empid.'</td>
+												<td>
+                                                    '.$res->companyname.'
                                                 </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td class="text-right">    
-                                                </td>
-                                            </tr>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/employerview/'.$res->empid).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>

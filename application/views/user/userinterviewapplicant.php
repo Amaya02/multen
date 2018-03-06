@@ -128,34 +128,36 @@
 								<h5 class="card-title">Interview Details</h5>
 							</div>
 							<div class="card-body">
-							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action=''>
+							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url('user/processinterview/'.$appliid); ?>">
 								<div class="form-group">
-                                    <label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
+									<label for="exampleInputExperience">Applicant ID No.</label>
+									<input readonly type="text" name="appid" placeholder="ID" class="form-control" Value="<?php echo $id ?>" />
+									<label for="exampleInputExperience">Position ID No.</label>
+									<input readonly type="text" name="posid" placeholder="ID" class="form-control" Value="<?php echo $posid ?>" />
+                                    <br/><label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
 									<div style="display: inline;">
-										<select id="month">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-											<option>04</option>
+										<select name="month">
+											<option value="1">01</option>
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
 										</select>
-										<select id="day">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-											<option>04</option>
+										<select name="day">
+											<option value="1">01</option>
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
 										</select>
-										<select id="year">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-											<option>04</option>
+										<select name="year">
+											<option value="2018">2018</option>
 										</select>
 									</div>
                                     <br/><br/><label for="exampleInputExperience">Place of Interview</label>
-									<input type="text" name="place" placeholder="Placeof interview" class="form-control" />
+									<input required type="text" name="place" placeholder="Placeof interview" class="form-control" />
 								</div>
-								<a href="" data-toggle="modal" data-target="#saveinterviewModal" style="float: right;" class="btn btn-info">Submit</a>
+								 <button type="submit" style="float: right;" class="btn btn-success">Submit</button>
 							</form>
+							<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
 							</div>
 						</div>
 					</div>

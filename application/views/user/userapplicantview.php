@@ -130,9 +130,9 @@
 								<a href=""><i class="now-ui-icons shopping_credit-card"></i>Download Resume</a>
                             </div>
                             <div class="card-body">
-								<p>Email Address:</p>
-								<p>Username:</p>
-								<p>Password:</p>
+								<p><b>ID No:</b> <?php echo $app[0]['appid']; ?></p>
+								<p><b>Email Address:</b> <?php echo $app[0]['email']; ?></p>
+								<p><b>Username:</b> <?php echo $app[0]['username']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -142,14 +142,14 @@
                                 <h5 class="title">Basic Information</h5>
                             </div>
                             <div class="card-body">
-								<p>First Name:</p>
-								<p>Middle Name:</p>
-								<p>Last Name:</p>
-								<p>Nationality:</p>
-								<p>Birthdate:</p>
-								<p>Religion:</p>
-								<p>Gender:</p>
-								<p>Status:</p>
+								<p><b>First Name:</b> <?php echo $app[0]['fname']; ?></p>
+								<p><b>Middle Name:</b> <?php echo $app[0]['mname']; ?></p>
+								<p><b>Last Name:</b> <?php echo $app[0]['lname']; ?></p>
+								<p><b>Nationality:</b> <?php echo $app[0]['nationality']; ?></p>
+								<p><b>Birthdate:</b> <?php echo $app[0]['bday']; ?></p>
+								<p><b>Religion:</b> <?php echo $app[0]['religion']; ?></p>
+								<p><b>Gender:</b> <?php echo $app[0]['gender']; ?></p>
+								<p><b>Status:</b> <?php echo $app[0]['status']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -159,11 +159,11 @@
                                 <h5 class="title">Contact Information</h5>
                             </div>
                             <div class="card-body">
-								<p>Contact Number:</p>
-								<p>Address:</p>
-								<p>City:</p>
-								<p>State:</p>
-								<p>Zip Code:</p>
+								<p><b>Contact Number:</b> <?php echo $app[0]['cnumber']; ?></p>
+								<p><b>Address:</b> <?php echo $app[0]['address']; ?></p>
+								<p><b>City:</b> <?php echo $app[0]['city']; ?></p>
+								<p><b>State:</b> <?php echo $app[0]['state']; ?></p>
+								<p><b>Zip Code:</b> <?php echo $app[0]['zipcode']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -195,23 +195,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Elementary
-                                                </td>
-                                                <td>
-                                                    BSSPES
+                                             <?php
+											foreach($educ as $post){
+											echo '	<tr>	
+												<td>'.$post['level'].'</td>
+												<td>
+                                                    '.$post['school'].'
                                                 </td>
 												<td>
-													Silang Cavite
-												</td>
+                                                    '.$post['address'].'
+                                                </td>
                                                 <td>
-													2005-2011
+                                                    '.$post['startyear'].' - '.$post['endyear'].'
                                                 </td>
-                                                <td class=" text-right">
-                                                    9th Place
-                                                </td>
-                                            </tr>
+												<td class=" text-right">
+													'.$post['honor'].'
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -240,17 +243,20 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    IT Company
+                                            <?php
+											foreach($exp as $post){
+											echo '	<tr>	
+												<td>'.$post['company'].'</td>
+												<td>
+                                                    '.$post['job'].'
                                                 </td>
-                                                <td>
-                                                    Developer
+												<td class=" text-right">
+                                                    '.$post['years'].'
                                                 </td>
-                                                <td class=" text-right">
-													2 years
-                                                </td>
-                                            </tr>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -271,16 +277,16 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Good Communication Skill
+                                            <?php
+											foreach($skill as $post){
+											echo '	<tr>	
+												<td>
+                                                    '.$post['skill'].'
                                                 </td>
-                                            </tr>
-											<tr>
-                                                <td>
-                                                    Programming Languages: Java, C, PHP, C++
-                                                </td>
-                                            </tr>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>

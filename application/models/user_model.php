@@ -13,7 +13,7 @@ class user_model extends CI_Model {
 	public function validateadmin(){
 		// grab user input
 		$email = $this->security->xss_clean($this->input->post('email'));
-		$password = $this->security->xss_clean($this->input->post('password'));
+		$password =  $this->security->xss_clean(sha1($this->input->post('password')));
 		
 		
 		//prep the query
@@ -132,6 +132,7 @@ class user_model extends CI_Model {
 				'template' => $r['template']		
 			);
 			$config[] = $info;
+			$this->session->set_userdata($info);
 		}
 		
 		return $config;
@@ -179,6 +180,21 @@ class user_model extends CI_Model {
 		$this->session->set_userdata($admin);
 		$this->db->where('adminid',$id);
 		$this->db->update('admin', $admin);
+	}
+	
+	public function email_check($email,$id){
+		$this->db->select('*');
+		$this->db->from('admin');
+		$this->db->where('email',$email);
+		$this->db->where_not_in('adminid',$id);
+		$query=$this->db->get();
+ 
+		if($query->num_rows()>0){
+			return false;
+			}else{
+			return true;
+		}
+ 
 	}
 }
 

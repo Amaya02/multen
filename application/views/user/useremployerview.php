@@ -126,17 +126,17 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h5 class="title"><?php echo $emp[0]['companyname']; ?></h5>
                             </div>
                             <div class="card-body">
-                                <p>Email Address:</p>
-								<p>Password:</p><br/>
-								<p>Address:</p>
-								<p>City:</p>
-								<p>State:</p>
-								<p>Zip Code:</p><br/>
-								<p>Contact Number:</p>
-								<p>Additional Email Address:</p><br/>
+								<p><b>ID No:</b> <?php echo $emp[0]['empid']; ?></p>
+                                <p><b>Email Address:</b> <?php echo $emp[0]['email']; ?></p><br/>
+								<p><b>Address:</b> <?php echo $emp[0]['address']; ?></p>
+								<p><b>City:</b> <?php echo $emp[0]['city']; ?></p>
+								<p><b>State:</b> <?php echo $emp[0]['state']; ?></p>
+								<p><b>Zip Code:</b> <?php echo $emp[0]['zipcode']; ?></p><br/>
+								<p><b>Contact Number:</b> <?php echo $emp[0]['cnumber']; ?></p>
+								<p><b>Additional Email Address:</b> <?php echo $emp[0]['conemail']; ?></p><br/>
                             </div>
                         </div>
                     </div>

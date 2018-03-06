@@ -132,10 +132,10 @@
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
-                                                Company Name
+                                                ID No.
                                             </th>
                                             <th>
-                                                
+                                                Company Name
                                             </th>
                                             <th>
                                                 
@@ -145,34 +145,24 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Employer1
+                                            <?php
+											foreach($employers as $post){
+											echo '	<tr>	
+												<td>'.$post['empid'].'</td>
+												<td>
+                                                    '.$post['companyname'].'
                                                 </td>
                                                 <td>
                                                     
                                                 </td>
-                                                <td>
-                                                    <a href="<?php echo base_url(); ?>user/preselection" style="float: right;" class="btn btn-info">Manage Recruitment</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/employerview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Employer2
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <a href="<?php echo base_url(); ?>user/preselection" style="float: right;" class="btn btn-info">Manage Recruitment</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/employerview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/employerview/'.$post['empid']).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
+											
                                         </tbody>
                                     </table>
                                 </div>

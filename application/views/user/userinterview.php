@@ -20,6 +20,17 @@
 </head>
 
 <body class="">
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper ">
         <div class="sidebar" data-color="grey">
             <!--
@@ -128,33 +139,29 @@
                                 <h4 class="card-title">To be Interviewed</h4>
                             </div>
                             <div class="card-body">
-								<div style="display: inline;">
-									<select id="company">
-										<option>Select company</option>
-										<option>Harvey Corporation</option>
-										<option>Amaya Corporation</option>
-										<option>Hannah Corporation</option>
-									</select>
-								</div>
 								<div style="display: inline;"> 
-									<select id="job">
+									<select id="mySelector">
 										<option>Select job</option>
-										<option>Software Analyst</option>
-										<option>Web Developer</option>
-										<option>Front end</option>
+										<?php
+											foreach($position as $post){
+											echo '	
+											<option value="'.$post['position'].'">'.$post['position'].'</option>
+											';
+											}
+										?>
 									</select>
 								</div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable">
                                         <thead class=" text-primary">
                                             <th>
-                                                Name
+                                                Job
                                             </th>
                                             <th>
                                                 Company
                                             </th>
                                             <th>
-                                                Job
+                                                Name
                                             </th>
 											<th>
                                                 Date
@@ -170,52 +177,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Applicant1
-                                                </td>
-                                                <td>
-                                                    Amaya Corporation
-                                                </td>
-                                                <td>
-													Software Analyst
-                                                </td>
+                                            <?php
+											foreach($interview as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
 												<td>
-													02/28/18
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
+												<td>'.$post['date'].'</td>
+												<td>'.$post['venue'].'</td>
 												<td>
-													Building
-                                                </td>
+													<a style="float: right;" class="btn btn-success" href="'.base_url('user/interviewupdatestatus/'.$post['intid']).'">Done</a>
+												</td>
 												<td>
-													<a href="" data-toggle="modal" data-target="#doneModal" style="float: right;" class="btn btn-success">Done</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Applicant2
-                                                </td>
-                                                <td>
-                                                    Hannah Corporation
-                                                </td>
-                                                <td>
-                                                    Multimedia Graphic Artist
-                                                </td>
-												<td>
-													02/28/18
-                                                </td>
-												<td>
-													Building
-                                                </td>
-												<td>
-													<a href="" data-toggle="modal" data-target="#doneModal" style="float: right;" class="btn btn-success">Done</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$post['appid']).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -232,33 +213,17 @@
                                 <h4 class="card-title">Done</h4>
                             </div>
                             <div class="card-body">
-								<div style="display: inline;">
-									<select id="company">
-										<option>Select company</option>
-										<option>Harvey Corporation</option>
-										<option>Amaya Corporation</option>
-										<option>Hannah Corporation</option>
-									</select>
-								</div>
-								<div style="display: inline;"> 
-									<select id="job">
-										<option>Select job</option>
-										<option>Software Analyst</option>
-										<option>Web Developer</option>
-										<option>Front end</option>
-									</select>
-								</div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable">
                                         <thead class=" text-primary">
                                             <th>
-                                                Name
+                                                Job
                                             </th>
                                             <th>
                                                 Company
                                             </th>
                                             <th>
-                                                Job
+                                                Name
                                             </th>
 											<th>
                                                 Date
@@ -277,58 +242,29 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Applicant1
-                                                </td>
-                                                <td>
-                                                    Amaya Corporation
-                                                </td>
-                                                <td>
-													Software Analyst
-                                                </td>
+                                            <?php
+											foreach($interview2 as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
 												<td>
-													02/26/18
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
+												<td>'.$post['date'].'</td>
+												<td>'.$post['venue'].'</td>
 												<td>
-													Building
-                                                </td>
+													<a style="float: right;" class="btn btn-success" href="'.base_url('user/updatestatus/'.$post['appliid'].'/'.$status="selected").'">Pass</a>
+												</td>
 												<td>
-													<a href="" data-toggle="modal" data-target="#passModal" style="float: right;" class="btn btn-success">Pass</a>
-                                                </td>
+													<a style="float: right;" class="btn btn-danger" href="'.base_url('user/updatestatus/'.$post['appliid'].'/'.$status="failed").'">Fail</a>
+												</td>
 												<td>
-													<a href="" data-toggle="modal" data-target="#failModal" style="float: right;" class="btn btn-danger">Fail</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Applicant2
-                                                </td>
-                                                <td>
-                                                    Hannah Corporation
-                                                </td>
-                                                <td>
-                                                    Multimedia Graphic Artist
-                                                </td>
-												<td>
-													02/25/18
-                                                </td>
-												<td>
-													Building
-                                                </td>
-												<td>
-													<a href="" data-toggle="modal" data-target="#passModal" style="float: right;" class="btn btn-success">Pass</a>
-                                                </td>
-												<td>
-													<a href="" data-toggle="modal" data-target="#failModal" style="float: right;" class="btn btn-danger">Fail</a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="<?php echo base_url(); ?>user/applicantview" style="float: right;" class="btn btn-info">View Profile</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$post['appid']).'">View Profile</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -412,7 +348,7 @@
       </div>
     </div>
 	
-	<!-- Passed Modal-->
+	<!-- Failed Modal-->
     <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -446,6 +382,6 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects -->
 <script src="<?php echo base_url('assets/js/now-ui-dashboard.js'); ?>"></script>
-
+<script src="<?php echo base_url('assets/js/table.js'); ?>"></script>
 
 </html>
