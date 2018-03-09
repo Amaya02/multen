@@ -26,6 +26,17 @@
   </head>
 
   <body>
+  <?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
 <!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
        <div class="container">
@@ -92,7 +103,7 @@
       <div class="modal-body">
         <h1 style="text-align: center;">Welcome!</h1>
         <div class="form-group">
-    <form action='' method='post' name='process' autocomplete="off">
+    <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
               <label for="email">Email:</label>
               <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
               <br><label for="password">Password:</label>

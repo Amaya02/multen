@@ -25,6 +25,7 @@ class homepage_control extends CI_Controller {
 	
 	public function index()
 	{
+		$this->session->set_userdata('validated',false);
 		$data['posts'] = $this->user_model->getData();
 		$this->load->view('homepage',$data);
 	}
