@@ -99,7 +99,7 @@ CREATE TABLE `application` (
 --
 
 INSERT INTO `application` (`appliid`, `appid`, `posid`, `status`) VALUES
-(1, 1, 1, 'failed');
+(1, 1, 1, 'preselection');
 
 -- --------------------------------------------------------
 
