@@ -136,7 +136,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Company Name</h5>
+                                <h5 class="title">Settings</h5>
                             </div>
                             <div class="card-body">
                                 <form>
@@ -163,7 +163,7 @@
                                     <div class="row">
 									    <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Settings</label>
+                                                <label>Company name</label>
                                                 <input type="text" class="form-control" placeholder="Company Name" value="<?php echo $metadata['companyname']; ?>" disabled="" />
 											</div>
                                         </div>
