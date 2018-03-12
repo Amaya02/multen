@@ -48,11 +48,6 @@ section h3.section-subheading {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.signinheader{
-	color: white;
-	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
