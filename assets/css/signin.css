@@ -3,6 +3,13 @@ body {
 	overflow-x: auto;
 	color: black;
 }
+
+.ben {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
 #myImg1 {
     border-radius: 5px;
     cursor: pointer;

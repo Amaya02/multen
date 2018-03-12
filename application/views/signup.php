@@ -49,6 +49,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
 	<h1>Sign Up <small>MULTEN</small></h1>
+	<img id="benefits" src="<?php echo base_url('assets/img/benefits.jpg'); ?>" alt="benefits" class="ben">
 	<?php
                   $error_msg=$this->session->flashdata('error_msg');
                   if($error_msg){
