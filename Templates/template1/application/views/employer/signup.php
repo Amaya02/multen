@@ -36,6 +36,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <body>
 
+<?php
+                  $error_msg=$this->session->flashdata('error_msg');
+                  if($error_msg){
+                    echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+                   ?>
+
 <header id="header">
     <div class="container">
 	<img class="logo" src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo" />
@@ -54,7 +61,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <h2>Registration Form</h2>
 <p>Fill up the form to complete signing-up.</p>
 <div class="w3ls-form">
-<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="">
+<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php base_url();?>../signup/employerprocess">
 <ul class="fields">
 <div class="Refer_w3l">
 <h3>Your details</h3>
@@ -70,7 +77,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<li>	
 			<label class="w3ls-opt">Password :<span class="w3ls-star"> * </span></label>
 			<span class="w3ls-text w3ls-name">
-				<input type="password" name="pass" placeholder="Password" required />
+				 <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
 			</span>
 	</li>
 	
@@ -91,7 +98,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<input type="text" name="city" placeholder="City" required />
 			</span>
 			<span class="text">
-				<input type="text" name="state" placeholder="State/Province" required />
+				<input type="text" name="state" placeholder="State/Province"  />
 			</span>
 			<span class="text">
 				<input required type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
