@@ -68,7 +68,7 @@
 
 <header id="header">
     <div class="container">
-	<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo" />
+	<img class="logo" src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo" />
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>

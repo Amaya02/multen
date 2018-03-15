@@ -396,7 +396,7 @@ class tenant_model extends CI_Model {
 			'userid'=>$this->input->post('userid'),
 			'companyname'=>$this->input->post('companyname'),
 			'email'=>$this->input->post('email'),
-			'password'=>$this->input->post('password'),
+			'password'=>sha1($this->input->post('password')),
 			'address'=>$this->input->post('address'),
 			'city'=>$this->input->post('city'),
 			'state'=>$this->input->post('state'),

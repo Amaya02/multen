@@ -26,8 +26,6 @@ class signup extends CI_Controller {
 		if($check){
 			$check=$this->signup_model->checklogotype();
 			if($check){
-				$check=$this->signup_model->checklogosize();
-				if($check){
 					$check=$this->signup_model->checkwebsitename();
 					if($check){
 						$this->signup_model->register_user();
@@ -39,12 +37,6 @@ class signup extends CI_Controller {
 						$this->session->set_flashdata('error_msg', 'Website already exist!');
 						redirect('signup');
 					}
-				
-				}
-				else{
-					$this->session->set_flashdata('error_msg', 'Logo is too large!');
-					redirect('signup');
-				}
 			}
 			else{
 				$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
@@ -66,7 +58,7 @@ class signup extends CI_Controller {
 	
 	private function check_isValidated(){
 		$user = $this->input->post('email');
-		$pass = $this->input->post('password');
+		$pass = $this->input->post('pass');
 
 		if(strlen($user)==0 || strlen ($pass)==0){
 			$base=base_url();
