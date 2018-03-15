@@ -22,6 +22,16 @@ function myFunction(){
 	}
 }
 
+function myFunction2(){
+	var x=document.getElementById("pass");
+	if(x.type == "password"){
+			x.type="text";
+	}
+	else{
+		x.type="password";
+	}
+}
+
 function empty() {
     var x,y,z,a,b,c;
     x = document.getElementById("email1").value;

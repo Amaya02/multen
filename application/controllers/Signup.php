@@ -58,7 +58,7 @@ class signup extends CI_Controller {
 	
 	private function check_isValidated(){
 		$user = $this->input->post('email');
-		$pass = $this->input->post('password');
+		$pass = $this->input->post('pass');
 
 		if(strlen($user)==0 || strlen ($pass)==0){
 			$base=base_url();

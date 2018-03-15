@@ -71,10 +71,10 @@
                <input required type="email" name="email" placeholder="Email Address" class="form-control" />
             </div>
 			<div class="col-sm-4 required">
-              <input required type="password" name="password" id="password" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+              <input required type="password" name="pass" id="pass" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
             </div>
 			<div class="col-sm-2">
-				<input type="checkbox" onclick="myFunction()" />Show Password
+				<input type="checkbox" onclick="myFunction2()" />Show Password
 			</div>
           </div>
 
@@ -235,7 +235,7 @@
         <div class="form-group">
 		<form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
               <label for="email">Email:</label>
-              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
+              <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required />
               <br/><label for="password">Password:</label>
               <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
 			  <br/><input type="checkbox" onclick="myFunction()" />Show Password
@@ -265,5 +265,6 @@
   
 <script type="text/javascript" src="<?php echo base_url('assets/js/signup.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/signin.js'); ?>"></script>
+
 </body>
 </html>

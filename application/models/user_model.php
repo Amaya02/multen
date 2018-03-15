@@ -170,7 +170,7 @@ class user_model extends CI_Model {
 			'lname'=>$this->input->post('lname'),
 			'username'=>$this->input->post('username'),
 			'email'=>$this->input->post('email'),
-			'password'=>$this->input->post('password'),
+			'password'=>sha1($this->input->post('password')),
 			'address'=>$this->input->post('address'),
 			'city'=>$this->input->post('city'),
 			'state'=>$this->input->post('state'),

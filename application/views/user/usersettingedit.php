@@ -156,7 +156,7 @@
 										<div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input readonly name="password" type="password" class="form-control" placeholder="Password" value="<?php echo $metadata['password']; ?>" />
+                                                <input name="password" type="password" class="form-control" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 15 characters" value="<?php echo $metadata['password']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input required type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                                <input type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">

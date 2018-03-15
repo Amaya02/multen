@@ -35,7 +35,7 @@ $this->db->insert('config', $config);
 $user=array(
       'email'=>$this->input->post('email'),
       'companyname'=>$this->input->post('companyname'),
-      'password'=>sha1($this->input->post('password')),
+      'password'=>sha1($this->input->post('pass')),
       'address'=>$this->input->post('address'),
       'city'=>$this->input->post('city'),
 	  'state'=>$this->input->post('state'),

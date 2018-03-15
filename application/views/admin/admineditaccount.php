@@ -182,7 +182,7 @@
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" required />
+                                                <input type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
