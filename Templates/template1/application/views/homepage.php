@@ -124,14 +124,13 @@
         <h1 style="text-align: center;">Welcome!</h1>
 		<h3 style="text-align: center;">Sign up As</h3>
 		<br/>
-			<a href="<?php base_url();?>signup/employer" value="Signup" class="btn btn-default" data-toggle="modal" >Employer</a>
-			<a href="<?php base_url();?>signup/applicant" value="Signup" class="btn btn-default" data-toggle="modal" >Applicant</a>
+			<a href="<?php base_url();?>signup/employer" value="Signup" class="btn btn-default" >Employer</a>
+			<a href="<?php base_url();?>signup/applicant" value="Signup" class="btn btn-default" >Applicant</a>
 			
       </div>
        <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
         </div>
-    </form>
      </div>
     </div>
   </div>
