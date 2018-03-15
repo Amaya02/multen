@@ -26,7 +26,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?php echo base_url(); ?>employer/dashboard" class="simple-text">
-						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
+						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2" />
 					</a>
                 </div>
                 <ul class="nav">
@@ -157,7 +157,7 @@
                     <div class="col-md-12">
                         <div class="card card-user">
                             <div class="button-container mr-auto ml-auto">  
-                               <h4>Users Profile</h4>  
+                               <h4>User Profile</h4>  
                             </div>
                               <hr><hr>  
                             <div class="card-body">

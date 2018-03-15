@@ -54,7 +54,7 @@
               <a href="" data-toggle="modal" data-target="#demo-0" class="nav-link js-scroll-trigger">Sign in</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Sign up</a>
+              <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#demo-1">Sign up</a>
             </li>
           </ul>
         </div>
@@ -119,6 +119,31 @@
       <button type="Submit" value="Login" class="btn btn-success" data-toggle="modal" >Signin</button>
         </div>
     </form>
+     </div>
+    </div>
+  </div>
+  
+  <!-- Signup -->
+  <div class="modal fade" id="demo-1" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="signinheader">Sign Up</h2>
+        
+      </div>
+      <div style="text-align: center;">
+        <h1 style="text-align: center;">Welcome!</h1>
+		<h3 style="text-align: center;">Sign up As</h3>
+		<br/>
+			<a href="<?php base_url();?>signup/employer" value="Signup" class="btn btn-default">Employer</a>
+			<a href="<?php base_url();?>signup/applicant" value="Signup" class="btn btn-default">Applicant</a>
+			
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+        </div>
      </div>
     </div>
   </div>

@@ -26,7 +26,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?php echo base_url(); ?>applicant/dashboard" class="simple-text">
-						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" />
+						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2" />
 					</a>
                 </div>
                 <ul class="nav">

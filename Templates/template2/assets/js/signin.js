@@ -35,9 +35,9 @@ function empty() {
         alert("Please fill out all fields");
       	return false;
     };
+
 	$('#demo-1').modal('hide');
 	$('#demo-2').modal('show');
-  
 }
 
 function emptyPayment(){
@@ -51,4 +51,12 @@ function emptyPayment(){
     }
    	alert("Sign up completed");
    	$('#demo-2').modal('hide');
+}
+
+function checkCheckBoxes(theForm) {
+	var pay1= $("input:radio[name=selector1]:checked").length;
+    if(pay1<=0){
+    	alert ('Please choose a gender!');
+      	return false;
+    }
 }

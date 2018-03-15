@@ -70,3 +70,9 @@ p{margin-bottom:.3em;}
 }
 
 input.checked[type="radio"]{visibility:hidden;}
+
+.container{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
