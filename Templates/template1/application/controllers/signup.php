@@ -7,12 +7,9 @@ class signup extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
   	 	$this->load->model('user_model');
+		$this->load->model('employer_model');
+		$this->load->model('applicant_model');
         $this->load->library('session');
-	}
-	
-	public function index()
-	{
-		$this->load->view('signup');
 	}
 	
 	public function applicant(){
@@ -25,50 +22,55 @@ class signup extends CI_Controller {
 		$this->load->view('employer/signup',$data);
 	}
 	
-	public function process(){
+	public function employerprocess(){
 	
 	$this->check_isValidated();
 	
-	$email_check=$this->signup_model->email_check($this->input->post('email'));
+	$email_check=$this->employer_model->email_check($this->input->post('email'));
 	
 	if($email_check){
-		$check=$this->signup_model->checkcompanyname();
+		$check=$this->employer_model->checkcompanyname();
 		if($check){
-			$check=$this->signup_model->checklogotype();
-			if($check){
-					$check=$this->signup_model->checkwebsitename();
-					if($check){
-						$this->signup_model->register_user();
-						$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-						$base=base_url();
-						redirect($base);
-					}
-					else{
-						$this->session->set_flashdata('error_msg', 'Website already exist!');
-						redirect('signup');
-					}
-			}
-			else{
-				$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
-				redirect('signup');
-			}
+			$this->employer_model->register_user();
+			$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+			$base=base_url();
+			redirect($base);
 		}
 		else{
 			$this->session->set_flashdata('error_msg', 'Company Already Exist!');
-			redirect('signup');
+			redirect('signup/employer');
 		}
 	}
 	else{
-		$this->session->set_flashdata('error_msg', 'Email Already Exist');
-		redirect('signup');
+		$this->session->set_flashdata('error_msg', 'Email Already Exist!');
+		redirect('signup/employer');
+	}
+		
  
 	}
- 
+	
+	public function applicantprocess(){
+	
+	$this->check_isValidated();
+	
+	$email_check=$this->applicant_model->email_check($this->input->post('email'));
+	
+	if($email_check){
+		$this->applicant_model->register_user();
+		$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+		$base=base_url();
+		redirect($base);
+	}
+	else{
+		$this->session->set_flashdata('error_msg', 'Email Already Exist!');
+		redirect('signup/applicant');
+	}
+		
 	}
 	
 	private function check_isValidated(){
 		$user = $this->input->post('email');
-		$pass = $this->input->post('password');
+		$pass = $this->input->post('pass');
 
 		if(strlen($user)==0 || strlen ($pass)==0){
 			$base=base_url();
