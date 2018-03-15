@@ -73,7 +73,7 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
           <li><a href="" data-toggle="modal" data-target="#demo-0" >Sign In</a></li> 
-          <li><a href="">Sign Up</a></li>
+          <li><a href="" data-toggle="modal" data-target="#demo-1">Sign Up</a></li>
         </ul>
       </nav>
       <!-- #nav-menu-container -->
@@ -95,7 +95,7 @@
         <div class="form-group">
     <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
               <label for="email">Email:</label>
-              <input type="email" name="email" id="email" class="form-control required" placeholder="Enter email" required />
+              <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required />
               <br/><label for="password">Password:</label>
               <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required />
         <br/><input type="checkbox" onclick="myFunction()" />Show Password
@@ -104,6 +104,32 @@
        <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
       <button type="Submit" value="Login" class="btn btn-success" data-toggle="modal" >Signin</button>
+        </div>
+    </form>
+     </div>
+    </div>
+  </div>
+  
+  <!-- Signup -->
+  <div class="modal fade" id="demo-1" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="signinheader">Sign Up</h2>
+        
+      </div>
+      <div style="text-align: center;">
+        <h1 style="text-align: center;">Welcome!</h1>
+		<h3 style="text-align: center;">Sign up As</h3>
+		<br/>
+			<a href="<?php base_url();?>signup/employer" value="Signup" class="btn btn-default" data-toggle="modal" >Employer</a>
+			<a href="<?php base_url();?>signup/applicant" value="Signup" class="btn btn-default" data-toggle="modal" >Applicant</a>
+			
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
         </div>
     </form>
      </div>
