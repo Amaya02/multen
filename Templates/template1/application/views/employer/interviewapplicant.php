@@ -30,7 +30,7 @@
 					</a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="<?php echo base_url(); ?>employer/dashboard">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
@@ -54,7 +54,7 @@
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
+							<li class="nav-item  active"><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -67,7 +67,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Dashboard </a>
+                    <a class="navbar-brand"> Interview </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -106,82 +106,55 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">
-                 <div class="row">
-                   <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Applicants</h2>
-								<hr>
-                                <h5 class="card-category" >View Applicants</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/applicants">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Jobs</h2>
-                                <hr>
-                                <h5 class="card-category">View Jobs</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/jobs">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
-					<div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Recruitment</h2>
-                                <hr>
-                                <h5 class="card-category">Manage Recruitment</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/preselection">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
+			<div class="container-fluid">
+                <div class="row">
                     <div class="col-md-12">
-                        <div class="card card-user">
-                            <div class="button-container mr-auto ml-auto">  
-                               <h4>User Profile</h4>  
-                            </div>
-                              <hr><hr>  
-                            <div class="card-body">
-                                <p><b>Company Name:</b> <?php echo $metadata['companyname']; ?></p></p>
-                                <p><b>Email Address:</b> <?php echo $metadata['email']; ?></p></p>
-								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
-								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
-								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
-								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
-								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
-								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
-                            </div>
+                        <div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Interview Details</h5>
+							</div>
+							<div class="card-body">
+							<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>employer/interview">
+								<div class="form-group">
+									<label for="exampleInputExperience">Applicant ID No.</label>
+									<input readonly type="text" name="appid" placeholder="ID" class="form-control" Value="" />
+									<label for="exampleInputExperience">Position ID No.</label>
+									<input readonly type="text" name="posid" placeholder="ID" class="form-control" Value="" />
+                                    <br/><label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
+									<div style="display: inline;">
+										<select name="month">
+											<option value="1">01</option>
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
+										</select>
+										<select name="day">
+											<option value="1">01</option>
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
+										</select>
+										<select name="year">
+											<option value="2018">2018</option>
+										</select>
+									</div>
+                                    <br/><br/><label for="exampleInputExperience">Place of Interview</label>
+									<input required type="text" name="place" placeholder="Placeof interview" class="form-control" />
+								</div>
+								 <button type="submit" style="float: right;" class="btn btn-success">Submit</button>
+							</form>
+							<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
+							</div>
                         </div>
                     </div>
-                
-                </div>
-            </div>
-        </div>
-          
+                 </div>
+			</div>
+			</div>
+                  
             <footer class="footer">
                 <div class="container">
                     <nav>
                         <ul class="footer-menu">
-                          
     
                         </ul>
                         <p class="copyright text-center">
@@ -226,20 +199,9 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!--  Chartist Plugin  -->
 <script src="<?php echo base_url('assets/js/plugins/chartist.min.js'); ?>"></script>
-<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
-<script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
-<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.showNotification('top','right')();
-
-        	
-
-    	});
-	</script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 
 </html>

@@ -26,17 +26,17 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?php echo base_url(); ?>applicant/dashboard" class="simple-text">
-						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2" />
+						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2"  />
 					</a>
                 </div>
                 <ul class="nav">
-                    <li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/dashboard">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/profile">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>Profile</p>
@@ -73,7 +73,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Profile </a>
+                    <a class="navbar-brand"> Dashboard </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -112,147 +112,88 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">   
-                        <div class="card card-user">
-                             <div class="button-container mr-auto ml-auto">
-                                 <h4 class="text-center">Name of the applicant</h4>
-                              </div>
-                              <hr> <hr>
-                               <div class="card-body">
-								<p class="description text-center" >
-									<i class="fa fa-phone"></i>
-									<br/><i class="fa fa-envelope"></i>
-									<br/><i class="fa fa-home"></i>
-									<br/><i class="fa fa-paperclip"></i><a href="">Download Resume</a>
-								</p>   
+                <div class="container-fluid">
+                     <div class="row">
+                   <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h2 class="card-title">Applications</h2>
+								<hr>
+                                <h5 class="card-category" >View Applications</h5>
                             </div>
-                     </div> 
-                </div>                  
-                <div class="container-fluid">   
-                    <div class="card card-user">
-                            <div class="button-container mr-auto ml-auto">  
-                               <h4>Personal Information</h4>    
-                            </div>
-                              <hr> <hr>
-                        <div class="card-body">
-                            <p class="description text-left" >
-                                <b><br>Birthday:</b>  <?php echo $metadata['bday']; ?>
-                                <b><br>Nationality:</b> <?php echo $metadata['nationality']; ?>
-                                <b><br>Religion:</b> <?php echo $metadata['religion']; ?>
-                                <b><br>Gender:</b> <?php echo $metadata['gender']; ?>
-                                <b><br>Status:</b> <?php echo $metadata['status']; ?>
-                            </p>          
-                        </div> 
-                    </div> 
-                </div>  
-                <div class="container-fluid">                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4> Education</h4>
-                            </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Level
-                                            </th>
-                                            <th>
-                                                School
-                                            </th>
-                                            <th>
-                                                Address
-                                            </th>
-                                            <th>
-                                                Schoolyear
-                                            </th>
-                                            <th class=" text-right">
-                                                Honor
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                   
-                                                </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-                                                   
-                                                </td>
-                                                <td class=" text-right">
-                                                  
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            
+                            <div class="card-footer">
+							<a href="<?php echo base_url(); ?>applicant/applications">
+								<i class="nc-icon nc-stre-right"></i>
+							</a>
                             </div>
                         </div>
-                    </div> 
-                </div>  
-                <div class="container-fluid">  
-                <div class="row">
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h2 class="card-title">Interviews</h2>
+                                <hr>
+                                <h5 class="card-category">View Interviews</h5>
+                            </div>
+                            
+                            <div class="card-footer">
+							<a href="<?php echo base_url(); ?>applicant/interviews">
+								<i class="nc-icon nc-stre-right"></i>
+							</a>
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h2 class="card-title">Profile</h2>
+                                <hr>
+                                <h5 class="card-category">View My Profile</h5>
+                            </div>
+                            
+                            <div class="card-footer">
+							<a href="<?php echo base_url(); ?>applicant/profile">
+								<i class="nc-icon nc-stre-right"></i>
+							</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="button-container mr-auto ml-auto">  
-                                <h4> Experiences</h4>
+                                <h4>Saved Jobs</h4>
                             </div>
                                <div class="card-body table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                            <th>
-                                                Company
-                                            </th>
-                                            <th>
+                                             <th>
                                                 Job
                                             </th>
-                                            <th class=" text-right">
-                                                Years
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td class=" text-right">
-                                                    
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>               
-                <div class="container-fluid">   
-                    <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>Skills</h4>
-                            </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead class=" text-primary">
                                             <th>
-                                               Skills
+                                                Company Name
+                                            </th>
+											<th>
+                                                
+                                            </th>
+                                            <th class="text-right">
+                                                
                                             </th>
                                         </thead>
                                         <tbody>
                                              <tr>    
                                                 <td>
-                                                    
+                                                    System Analyst
+                                                </td>
+                                                <td>
+                                                   Emp1
+                                                </td>
+												<td>
+                                                   <a class="btn btn-warning" style="float: right;" href="">Unsave Job</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -260,13 +201,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-				<button type="button" style="float: right;" class="btn btn-info">Edit Profile</button><br/><br/>
-			</div>  
-			</div>
-                  
-
+                
+                </div>
+                 
+                </div>
+            </div>
             <footer class="footer">
                 <div class="container">
                     <nav>
@@ -285,7 +224,6 @@
             </footer>
         </div>
     </div>
-  
 	
 	<!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -321,5 +259,16 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+
+<script type="text/javascript">
+    	$(document).ready(function(){
+
+        	demo.showNotification('top','right')();
+
+        	
+
+    	});
+	</script>
 
 </html>

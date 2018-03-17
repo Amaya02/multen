@@ -30,7 +30,7 @@
 					</a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="<?php echo base_url(); ?>employer/dashboard">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
@@ -56,7 +56,7 @@
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
+							<li class="nav-item  active"><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
                     
 
@@ -67,7 +67,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Dashboard </a>
+                    <a class="navbar-brand"> Hired Applicants </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -107,81 +107,63 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-                 <div class="row">
-                   <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Applicants</h2>
-								<hr>
-                                <h5 class="card-category" >View Applicants</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/applicants">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Jobs</h2>
-                                <hr>
-                                <h5 class="card-category">View Jobs</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/jobs">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
-					<div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title">Recruitment</h2>
-                                <hr>
-                                <h5 class="card-category">Manage Recruitment</h5>
-                            </div>
-                            
-                            <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/preselection">
-								<i class="nc-icon nc-stre-right"></i>
-							</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card card-user">
+                            <div class="card strpied-tabled-with-hover">
                             <div class="button-container mr-auto ml-auto">  
-                               <h4>User Profile</h4>  
+                                <h4> List of Applicants</h4>
                             </div>
-                              <hr><hr>  
-                            <div class="card-body">
-                                <p><b>Company Name:</b> <?php echo $metadata['companyname']; ?></p></p>
-                                <p><b>Email Address:</b> <?php echo $metadata['email']; ?></p></p>
-								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
-								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
-								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
-								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
-								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
-								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
+                                <div class="card-body table-responsive">
+								 <div style="display: inline;"> 
+                                    <select id="mySelector">
+                                        <option value="">Select job</option>
+                                    </select>
+                                </div>
+                                    <table class="table table-hover table-striped">
+                                        <thead class=" text-primary">
+                                           <th>
+                                                Job
+                                            </th>
+                                            <th>
+                                                Company
+                                            </th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                
+                                            </th>
+                                            <th class="text-right">
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>    
+                                                <td>position</td>
+                                                <td>company</td>
+                                                <td>
+                                                    name
+                                                </td>
+												<td>
+                                                
+												</td>
+                                                <td>
+                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                             </div>
-                        </div>
-                    </div>
-                
+                      </div>
                 </div>
-            </div>
-        </div>
-          
+                  <div class="container-fluid">
+                     <button type="button" style="float: left;" class="btn btn-submit">Print List</button> <br>
+                  </div>
+            </div>             
+                  
+
             <footer class="footer">
                 <div class="container">
                     <nav>
                         <ul class="footer-menu">
-                          
     
                         </ul>
                         <p class="copyright text-center">
@@ -226,20 +208,9 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!--  Chartist Plugin  -->
 <script src="<?php echo base_url('assets/js/plugins/chartist.min.js'); ?>"></script>
-<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
-<script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-
-<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.showNotification('top','right')();
-
-        	
-
-    	});
-	</script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 
 </html>
