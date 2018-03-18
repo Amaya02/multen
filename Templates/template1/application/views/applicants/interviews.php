@@ -130,9 +130,6 @@
                                             <th>
                                                 Company
                                             </th>
-                                            <th>
-                                                Name
-                                            </th>
 											<th>
                                                 Date
                                             </th>
@@ -150,36 +147,30 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    System
-                                                </td>
-                                                <td>
-                                                   Emp1
-                                                </td>
+                                             <?php
+											foreach($job as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
+												<td>'.$post['date'].'</td>
+												<td>'.$post['venue'].'</td>
 												<td>
-                                                   Emp1
-                                                </td>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('applicant/acceptinterview/'.$post['intid']).'" onclick="return(validate());">Accept</a>
+												</td>
 												<td>
-                                                   Emp1
-                                                </td>
+													<a class="btn btn-danger" style="float: right;" href="'.base_url('applicant/declineinterview/'.$post['intid']).'" onclick="return(validate2());">Decline</a>
+												</td>
 												<td>
-                                                   Emp1
-                                                </td>
-												<td>
-                                                   <a class="btn btn-success" style="float: right;" href="">Accept</a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-danger" style="float: right;" href="">Decline</a>
-                                                </td>
-                                                <td class=" text-right">
-                                                  <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
 									<hr/>
-									<h5><b>Accepted</b></h5>
+									<h5><b>Ongoing</b></h5>
 									<hr/>
 									<table class="table table-hover table-striped">
                                         <thead class=" text-primary">
@@ -189,9 +180,6 @@
                                             <th>
                                                 Company
                                             </th>
-                                            <th>
-                                                Name
-                                            </th>
 											<th>
                                                 Date
                                             </th>
@@ -203,24 +191,20 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <td>
-                                                    System
-                                                </td>
-                                                <td>
-                                                   Emp1
-                                                </td>
+                                             <?php
+											foreach($job1 as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
+												<td>'.$post['date'].'</td>
+												<td>'.$post['venue'].'</td>
 												<td>
-                                                   Emp1
-                                                </td>
-												<td>
-                                                   Emp1
-                                                </td>
-												<td>
-                                                   Emp1
-                                                </td>
-                                                <td class=" text-right">
-                                                  <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
-                                                </td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
 									<hr/>
@@ -234,9 +218,6 @@
                                             <th>
                                                 Company
                                             </th>
-                                            <th>
-                                                Name
-                                            </th>
 											<th>
                                                 Date
                                             </th>
@@ -248,24 +229,20 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <td>
-                                                    System
-                                                </td>
-                                                <td>
-                                                   Emp1
-                                                </td>
+                                             <?php
+											foreach($job2 as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>'.$post['companyname'].'</td>
+												<td>'.$post['date'].'</td>
+												<td>'.$post['venue'].'</td>
 												<td>
-                                                   Emp1
-                                                </td>
-												<td>
-                                                   Emp1
-                                                </td>
-												<td>
-                                                   Emp1
-                                                </td>
-                                                <td class=" text-right">
-                                                  <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
-                                                </td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -310,7 +287,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -331,5 +308,22 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to accept interview?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+function validate2()
+{
+     var r=confirm("Do you want to decline interview?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

@@ -129,6 +129,9 @@
                                                 Company Name
                                             </th>
                                             <th>
+                                                Status
+                                            </th>
+											<th>
                                                 
                                             </th>
                                             <th class=" text-right">
@@ -136,20 +139,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    System
+                                             <?php
+											foreach($job as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>
+                                                    '.$post['companyname'].'
+                                                </td>
+												<td>
+                                                    '.$post['status'].'
                                                 </td>
                                                 <td>
-                                                   Emp1
+                                                    <a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
                                                 </td>
-                                                <td>
-                                                   <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
-                                                </td>
-                                                <td class=" text-right">
-                                                  <a class="btn btn-info" style="float: right;" href="">Withdraw</a>
-                                                </td>
-                                            </tr>
+												<td>
+													<a class="btn btn-warning" style="float: right;" href="'.base_url('applicant/withdrawjob/'.$post['appliid']).'" onclick="return(validate());">Withdraw</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -194,7 +203,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -215,5 +224,14 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to withdraw application?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

@@ -29,15 +29,22 @@ class signup extends CI_Controller {
 	$email_check=$this->employer_model->email_check($this->input->post('email'));
 	
 	if($email_check){
-		$check=$this->employer_model->checkcompanyname();
-		if($check){
-			$this->employer_model->register_user();
-			$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-			$base=base_url();
-			redirect($base);
+		$email_check1=$this->employer_model->email_check1($this->input->post('email'));
+		if($email_check1){
+			$check=$this->employer_model->checkcompanyname();
+			if($check){
+				$this->employer_model->register_user();
+				$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+				$base=base_url();
+				redirect($base);
+			}
+			else{
+				$this->session->set_flashdata('error_msg', 'Company Already Exist!');
+				redirect('signup/employer');
+			}
 		}
 		else{
-			$this->session->set_flashdata('error_msg', 'Company Already Exist!');
+			$this->session->set_flashdata('error_msg', 'Email Already Exist!');
 			redirect('signup/employer');
 		}
 	}
@@ -56,10 +63,17 @@ class signup extends CI_Controller {
 	$email_check=$this->applicant_model->email_check($this->input->post('email'));
 	
 	if($email_check){
-		$this->applicant_model->register_user();
-		$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-		$base=base_url();
-		redirect($base);
+		$email_check1=$this->applicant_model->email_check1($this->input->post('email'));
+		if($email_check1){
+			$this->applicant_model->register_user();
+			$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+			$base=base_url();
+			redirect($base);
+		}
+		else{
+			$this->session->set_flashdata('error_msg', 'Email Already Exist!');
+			redirect('signup/applicant');
+		}
 	}
 	else{
 		$this->session->set_flashdata('error_msg', 'Email Already Exist!');

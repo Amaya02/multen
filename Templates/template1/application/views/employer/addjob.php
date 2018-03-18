@@ -65,7 +65,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> View Job </a>
+                    <a class="navbar-brand"> Edit Job </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -107,62 +107,42 @@
                 <div class="container-fluid">
                  <div class="row">
                    <div class="col-lg-12">
-                        <div class="card card-chart">
+                        <div class="card">
                             <div class="card-header">
-                                <h2 class="card-title text-center"><?php echo $job[0]['position']; ?></h2>
-								<h5 class="card-category text-center"><?php echo $job[0]['companyname']; ?></h5>
-								<h5 class="card-category text-center"><i class="fa fa-map-marker"></i>
-								<?php echo $job[0]['address']; ?> <?php echo $job[0]['city']; ?> <?php echo $job[0]['state']; ?></h5>
-								<h5 class="card-category text-center">No. of applicants: <?php echo $job[0]['num']; ?></h5>
-								<hr>
-							</div>
-						</div>
-					</div>
-                    
-                    <div class="col-md-12">
-						<div class="card card-chart">
-						<div class="button-container mr-auto ml-auto">  
-                                <h4>List of Applicants</h4>
+                                <h5 class="title">Add Job</h5>
+                            </div>
+                            <div class="card-body">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>employer/saveaddjob" onsubmit="return(validate());">
+                                    <div class="row">
+										<div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Position</label><span style="color: red"> *</span>
+                                                <input required type="text" name="position" class="form-control" placeholder="Position" value="" />
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Status</label><span style="color: red"> *</span>
+                                               <br/>
+													<?php
+													$gen = array("Open","Close");
+													echo '<select name="status">';
+													foreach($gen as $gends){
+														echo "<option>{$gends}</option>";
+													}
+													echo '</select>';?>
+                                            </div>
+                                        </div>
+                                    </div>
+									<button type="submit" style="float: right;" class="btn btn-success">Add</button>
+                                </form>
+								<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
+                            </div>
                         </div>
-                       <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Applicant Name
-                                            </th>
-											<th>
-                                                
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                             <?php
-											foreach($job1 as $post){
-											echo '	<tr>	
-												<td>
-                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-												<td class="text-right">
-													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
-												</td>
-											</tr>
-											';
-											}
-										?>
-                                        </tbody>
-                                    </table>
-                                </div> 
-							</div>
-                
 					</div>
 				</div>
-					<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
             </div>
         </div>
 
@@ -218,5 +198,14 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to add this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

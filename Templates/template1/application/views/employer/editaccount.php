@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -114,24 +112,18 @@
                                 <h5 class="title">Settings</h5>
                             </div>
                             <div class="card-body">
-                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>employer/savesetting" onsubmit="return(validate());">
                                      <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Employer ID</label>
-                                                <input readonly name="userid" type="text" class="form-control" value="" />
+                                                <input readonly name="empid" type="text" class="form-control" value="<?php echo $metadata['empid']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input required name="email" type="email" class="form-control" placeholder="Email" value="" />
-                                            </div>
-                                        </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input readonly name="password" type="password" class="form-control" placeholder="Password" value="" />
+                                                <input required name="email" type="email" class="form-control" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +131,7 @@
 									    <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Company name</label>
-                                                <input type="text" name="companyname" class="form-control" placeholder="Company Name" value="" required />
+                                                <input required name="companyname" type="text" class="form-control" placeholder="Company Name" value="<?php echo $metadata['companyname']; ?>" />
 											</div>
                                         </div>
                                     </div>
@@ -147,7 +139,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input required type="text" name="address" class="form-control" placeholder="Address" value="" />
+                                                <input required name="address" type="text" class="form-control" placeholder="Address" value="<?php echo $metadata['address']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -155,19 +147,19 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input required type="text" name="city" class="form-control" placeholder="City" value="" />
+                                                <input required name="city" type="text" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input required type="text" name="state" class="form-control" placeholder="State" value="" />
+                                                <input required name="state" type="text" class="form-control"  placeholder="State" value="<?php echo $metadata['state']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input required type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="" />
+                                                <input required name="zipcode" type="text" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -175,16 +167,15 @@
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Contact Number</label>
-                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="" />
+                                                <input required name="cnumber" type="text" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
                                             </div>
                                         </div>
-										<div class="col-md-4 pr-1">
+                                        <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Addtional Email Address</label>
-                                                <input required type="email" name="conemail" placeholder="Email Address" class="form-control" value="" />
+                                                <input required type="email" name="conemail" placeholder="Email Address" class="form-control" value="<?php echo $metadata['conemail']; ?>" />
                                             </div>
                                         </div>
-                                        
                                     </div>
 									 <button type="submit" style="float: right;" class="btn btn-success">Save</button>
                                 </form>
@@ -227,7 +218,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -248,5 +239,14 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to update this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

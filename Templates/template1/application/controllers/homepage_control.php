@@ -25,9 +25,22 @@ class homepage_control extends CI_Controller {
 	
 	public function index()
 	{
-		$this->session->set_userdata('validated',false);
+		if($this->session->userdata('validatedapp')){
+			redirect('applicant/dashboard');
+		}
+		else if($this->session->userdata('validatedemp')){
+			redirect('employer/dashboard');
+		}
+		else{
+			$data['posts'] = $this->user_model->getData();
+			$this->load->view('homepage',$data);
+		}
+	}
+	
+	public function er404() {
 		$data['posts'] = $this->user_model->getData();
-		$this->load->view('homepage',$data);
+		 $this->output->set_status_header('404'); 
+		$this->load->view('errors/errorpage',$data);//loading in custom error view
 	}
 	
 }

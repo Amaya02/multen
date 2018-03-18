@@ -20,44 +20,63 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="<?php echo base_url(); ?>employer/dashboard" class="simple-text">
+                    <a href="<?php echo base_url(); ?>applicant/dashboard" class="simple-text">
 						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2" />
 					</a>
                 </div>
                 <ul class="nav">
                     <li>
-                        <a class="nav-link" href="<?php echo base_url(); ?>employer/dashboard">
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/dashboard">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="<?php echo base_url(); ?>employer/applicants">
-                            <i class="nc-icon nc-badge"></i>
-                            <p>Applicants</p>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/profile">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>Profile</p>
                         </a>
                     </li>
-                    <li class="nav-item  active">
-                        <a class="nav-link" href="<?php echo base_url(); ?>employer/jobs">
+                    <li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/applications">
+                            <i class="nc-icon nc-badge"></i>
+                            <p>Applications</p>
+                        </a>
+                    </li>
+					<li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/interviews">
+                            <i class="nc-icon nc-single-copy-04"></i>
+                            <p>Interviews</p>
+                        </a>
+                    </li>
+					<li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link" aria-expanded="false"  data-toggle="collapse" href="#collapseComponents"data-parent="#exampleAccordion"><i class="nc-icon nc-simple-add"></i>
-                                    <span class="notification">Recruitment</span></a>
-					</li>
-						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
-						</ul>
-                    
-
+					<li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>applicant/companyprofiles">
+                            <i class="nc-icon nc-single-02"></i>
+                            <p>Company Profiles</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -65,7 +84,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> View Job </a>
+                    <a class="navbar-brand"> Edit Profile </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -74,7 +93,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         
                         <ul class="navbar-nav ml-auto">
-                             <form role="search" action="<?php echo base_url(); ?>employer/search" method="get">
+                             <form role="search" action="<?php echo base_url(); ?>applicant/search" method="get">
                             <div class="input-group no-border">
                                 <input required type="text" name="keyword" value="" class="form-control" placeholder="Search..." />
 								
@@ -92,8 +111,8 @@
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="<?php echo base_url(); ?>employer/dashboard"><i class="nc-icon nc-circle-09"></i>Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>employer/setting"><i class="nc-icon nc-settings-gear-64"></i>Settings</a>
+                                    <a class="dropdown-item" href="<?php echo base_url(); ?>applicant/profile"><i class="nc-icon nc-circle-09"></i>Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>applicant/setting"><i class="nc-icon nc-settings-gear-64"></i>Settings</a>
                                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal"><i class="nc-icon nc-button-power"></i>Logout</a>
                                 </div>
                             </li>
@@ -104,51 +123,55 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">
-                 <div class="row">
-                   <div class="col-lg-12">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h2 class="card-title text-center"><?php echo $job[0]['position']; ?></h2>
-								<h5 class="card-category text-center"><?php echo $job[0]['companyname']; ?></h5>
-								<h5 class="card-category text-center"><i class="fa fa-map-marker"></i>
-								<?php echo $job[0]['address']; ?> <?php echo $job[0]['city']; ?> <?php echo $job[0]['state']; ?></h5>
-								<h5 class="card-category text-center">No. of applicants: <?php echo $job[0]['num']; ?></h5>
-								<hr>
-							</div>
-						</div>
+                <div class="container-fluid"> 
+					<div class="card">
+                        <ul class="ul1">
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/aboutme">About Me</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/education">Education</a></li>
+							<li class="li1 active1"><a href="<?php echo base_url(); ?>applicant/experiences">Experiences</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/skills">Skills</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/resume">Resume</a></li>
+						</ul>
 					</div>
-                    
-                    <div class="col-md-12">
-						<div class="card card-chart">
-						<div class="button-container mr-auto ml-auto">  
-                                <h4>List of Applicants</h4>
-                        </div>
-                       <div class="card-body table-responsive">
+                </div>     
+				<div class="container-fluid"> 
+					<div class="card card-user">
+						<div class="card-body">
+                               <div class="card-body table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
                                             <th>
-                                                Applicant Name
+                                                Company
+                                            </th>
+                                            <th>
+                                               Job
+                                            </th>
+                                            <th>
+                                                Years
                                             </th>
 											<th>
-                                                
+                                               
                                             </th>
-                                            <th class="text-right">
+											<th class=" text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <?php
-											foreach($job1 as $post){
+                                            <?php
+											foreach($exp as $post){
 											echo '	<tr>	
+												<td>'.$post['company'].'</td>
 												<td>
-                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
+                                                    '.$post['job'].'
                                                 </td>
-                                                <td>
-                                                    
+												<td>
+                                                    '.$post['years'].'
                                                 </td>
-												<td class="text-right">
-													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
+												<td>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('applicant/experience/edit/'.$post['expid']).'">Edit</a>
+												</td>
+												<td class=" text-right">
+													<a class="btn btn-danger" style="float: right;" href="'.base_url('applicant/deleteexp/'.$post['expid']).'" onclick="return(validate());">Remove</a>
 												</td>
 											</tr>
 											';
@@ -156,20 +179,23 @@
 										?>
                                         </tbody>
                                     </table>
-                                </div> 
-							</div>
-                
+                                </div>
+						</div>
+						<div class="card-footer">
+						<button type="button" style="float: left;" class="btn btn-info" onclick="window.history.back();">Back</button>
+							<a href="<?php echo base_url(); ?>applicant/experience/add" style="float: left;" class="btn btn-warning">Add</a><br/><br/>
+							
+						</div>
 					</div>
-				</div>
-					<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
-            </div>
-        </div>
+                </div>     
+			</div>
+                  
 
             <footer class="footer">
                 <div class="container">
                     <nav>
                         <ul class="footer-menu">
+                          
     
                         </ul>
                         <p class="copyright text-center">
@@ -183,6 +209,7 @@
             </footer>
         </div>
     </div>
+  
 	
 	<!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -197,7 +224,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -214,9 +241,18 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!--  Chartist Plugin  -->
 <script src="<?php echo base_url('assets/js/plugins/chartist.min.js'); ?>"></script>
-<!--  Notifications Plugin    -->
-<script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<!--  Notifications Plugin    -->
+<script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to remove this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

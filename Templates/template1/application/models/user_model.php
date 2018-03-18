@@ -16,6 +16,21 @@ class user_model extends CI_Model {
 		return $query->result();
 	}
 	
+	public function getWebsitename(){
+		$this->db->select('websitename');
+		$this->db->from('config');
+		//run the query
+		$query = $this->db->get();
+		$rs=$query->result_array();
+		foreach($rs as $r){
+					$info = array(
+					'websitename' => $r['websitename']
+					);
+					$applicant[] = $info;
+		}
+		return $applicant;
+	}
+	
 	public function validateapplicant(){
 		// grab user input
 		$email = $this->security->xss_clean($this->input->post('email'));
@@ -36,7 +51,6 @@ class user_model extends CI_Model {
 			$data = array(
 						'appid' => $row->appid,
 						'email' => $row->email,
-						'username' => $row->username,
 						'password' => $row->password,
 						'fname' => $row->fname,
 						'mname' => $row->mname,
@@ -51,7 +65,9 @@ class user_model extends CI_Model {
 						'gender' => $row->gender,
 						'status' => $row->status,
 						'cnumber' => $row->cnumber,
-						'validated' => true);
+						'resume' => $row->resume,
+						'validatedapp' => true,
+						'validatedemp' => false);
 			$this->session->set_userdata($data);
 			return true;
 		}
@@ -87,7 +103,8 @@ class user_model extends CI_Model {
 						'zipcode' => $row->zipcode,		
 						'cnumber' => $row->cnumber,	
 						'conemail' => $row->conemail,
-						'validated' => true);
+						'validatedapp' => false,
+						'validatedemp' => true);
 			$this->session->set_userdata($data);
 			return true;
 		}

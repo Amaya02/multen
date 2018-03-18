@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -109,15 +107,21 @@
                 <div class="container-fluid">   
                         <div class="card card-user">
                              <div class="button-container mr-auto ml-auto">
-                                 <h4 class="text-center">Name of the applicant</h4>
+                                 <h4 class="text-center"><?php echo $app[0]['fname']; ?> <?php echo $app[0]['mname']; ?> <?php echo $app[0]['lname']; ?></h4>
                               </div>
                               <hr> <hr>
                                <div class="card-body">
 								<p class="description text-center" >
-									<i class="fa fa-phone"></i>
-									<br/><i class="fa fa-envelope"></i>
-									<br/><i class="fa fa-home"></i>
-									<br/><i class="fa fa-paperclip"></i><a href="">Download Resume</a>
+									<i class="fa fa-phone"></i> <?php echo $app[0]['cnumber']; ?>
+									<br/><i class="fa fa-envelope"></i> <?php echo $app[0]['email']; ?>
+									<br/><i class="fa fa-home"></i>  <?php echo $app[0]['address']; ?>  <?php echo $app[0]['city']; ?>  <?php echo $app[0]['state']; ?>
+									  <?php echo $app[0]['zipcode']; ?>
+									<?php
+									$file = $app[0]['resume']; //Let say If I put the file name Bang.png
+									if($file!=""){
+										echo '<br/><i class="fa fa-paperclip"></i><a href="'.base_url('employer/downloadresume?nama='.$file).'">Download Resume</a>';
+									} ?>
+									
 								</p>   
                             </div>
                      </div> 
@@ -130,11 +134,11 @@
                               <hr> <hr>
                         <div class="card-body">
                             <p class="description text-left" >
-                                <b><br>Birthday:
-                                <b><br>Nationality:
-                                <b><br>Religion:
-                                <b><br>Gender:
-                                <b><br>Status:
+                                <b><br>Birthday:</b>  <?php echo $app[0]['bday']; ?>
+                                <b><br>Nationality:</b> <?php echo $app[0]['nationality']; ?>
+                                <b><br>Religion:</b> <?php echo $app[0]['religion']; ?>
+                                <b><br>Gender:</b> <?php echo $app[0]['gender']; ?>
+                                <b><br>Status:</b> <?php echo $app[0]['status']; ?>
                             </p>          
                         </div> 
                     </div> 
@@ -166,23 +170,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                             <?php
+											foreach($educ as $post){
+											echo '	<tr>	
+												<td>'.$post['level'].'</td>
+												<td>
+                                                    '.$post['school'].'
+                                                </td>
+												<td>
+                                                    '.$post['address'].'
                                                 </td>
                                                 <td>
-                                                   
+                                                    '.$post['startyear'].' - '.$post['endyear'].'
                                                 </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-                                                   
-                                                </td>
-                                                <td class=" text-right">
-                                                  
-                                                </td>
-                                            </tr>
+												<td>
+													'.$post['honor'].'
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -211,17 +218,20 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                             <?php
+											foreach($exp as $post){
+											echo '	<tr>	
+												<td>'.$post['company'].'</td>
+												<td>
+                                                    '.$post['job'].'
                                                 </td>
-                                                <td>
-                                                    
+												<td>
+                                                    '.$post['years'].'
                                                 </td>
-                                                <td class=" text-right">
-                                                    
-                                                </td>
-                                            </tr>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -244,11 +254,17 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                             <?php
+											foreach($skill as $post){
+											echo '	<tr>	
+												<td>
+                                                    '.$post['skill'].'
                                                 </td>
-                                            </tr>
+												
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -290,7 +306,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>
