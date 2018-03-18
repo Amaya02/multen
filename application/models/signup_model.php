@@ -76,6 +76,21 @@ public function email_check($email){
  
 }
 
+public function email_check1($email){
+ 
+  $this->db->select('*');
+  $this->db->from('admin');
+  $this->db->where('email',$email);
+  $query=$this->db->get();
+ 
+  if($query->num_rows()>0){
+    return false;
+  }else{
+    return true;
+  }
+ 
+}
+
 public function checkcompanyname(){
   $companyname=$this->input->post('companyname');
   $this->db->select('*');

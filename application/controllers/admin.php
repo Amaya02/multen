@@ -99,9 +99,16 @@ class admin extends CI_Controller {
 		$id=$this->input->post('adminid');
 		$email_check=$this->user_model->email_check($this->input->post('email'),$id);
 		if($email_check){
-			$this->user_model->updateadmin($id);
-			$this->session->set_flashdata('success_msg', 'Updated successfully');
-			redirect('admin/setting');
+			$email_check1=$this->user_model->email_check1($this->input->post('email'));
+			if($email_check1){
+				$this->user_model->updateadmin($id);
+				$this->session->set_flashdata('success_msg', 'Updated successfully');
+				redirect('admin/setting');
+			}
+			else{
+				$this->session->set_flashdata('error_msg', 'email already exist!');
+				redirect('admin/editaccount');
+			}
 		}
 		else{
 				$this->session->set_flashdata('error_msg', 'email already exist!');

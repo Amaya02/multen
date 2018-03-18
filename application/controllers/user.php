@@ -176,15 +176,23 @@ class user extends CI_Controller {
 		// if the user is validated, then this function will run
 		$id=$this->input->post('userid');
 		$email_check=$this->tenant_model->email_check($this->input->post('email'),$id);
+		
 		if($email_check){
-			$check=$this->tenant_model->checkcompanyname($id);
-			if($check){
-				$this->tenant_model->updateuser($id);
-				$this->session->set_flashdata('success_msg', 'Updated successfully');
-				redirect('user/setting');
+			$email_check1=$this->tenant_model->email_check1($this->input->post('email'));
+			if($email_check1){
+				$check=$this->tenant_model->checkcompanyname($id);
+				if($check){
+					$this->tenant_model->updateuser($id);
+					$this->session->set_flashdata('success_msg', 'Updated successfully');
+					redirect('user/setting');
+				}
+				else{
+					$this->session->set_flashdata('error_msg', 'Companyname already exist!');
+					redirect('user/editaccount');
+				}
 			}
 			else{
-				$this->session->set_flashdata('error_msg', 'Companyname already exist!');
+				$this->session->set_flashdata('error_msg', 'email already exist!');
 				redirect('user/editaccount');
 			}
 		}

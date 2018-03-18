@@ -391,6 +391,21 @@ class tenant_model extends CI_Model {
  
 	}
 	
+	public function email_check1($email){
+ 
+  $this->db->select('*');
+  $this->db->from('admin');
+  $this->db->where('email',$email);
+  $query=$this->db->get();
+ 
+  if($query->num_rows()>0){
+    return false;
+  }else{
+    return true;
+  }
+ 
+}
+	
 	public function updateuser($id){
 		$user=array(
 			'userid'=>$this->input->post('userid'),
