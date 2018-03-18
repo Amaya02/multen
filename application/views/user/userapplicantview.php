@@ -127,12 +127,16 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="title">Account Information</h5>
-								<a href=""><i class="now-ui-icons shopping_credit-card"></i>Download Resume</a>
+								<?php
+								$file = $app[0]['resume']; //Let say If I put the file name Bang.png
+								if($file!=""){
+									echo '<i class="now-ui-icons shopping_credit-card"></i><a href="'.base_url('user/downloadresume?nama='.$file).'">Download Resume</a><br/>';
+								}
+								?>
                             </div>
                             <div class="card-body">
 								<p><b>ID No:</b> <?php echo $app[0]['appid']; ?></p>
 								<p><b>Email Address:</b> <?php echo $app[0]['email']; ?></p>
-								<p><b>Username:</b> <?php echo $app[0]['username']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -327,7 +331,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>user/logout">Logout</a>
           </div>
         </div>
       </div>

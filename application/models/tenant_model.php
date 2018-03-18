@@ -126,7 +126,6 @@ class tenant_model extends CI_Model {
 					$info = array(
 					'appid' => $r['appid'],
 					'email' => $r['email'],
-					'username' => $r['username'],
 					'password' => $r['password'],
 					'fname' => $r['fname'],
 					'mname' => $r['mname'],
@@ -140,7 +139,8 @@ class tenant_model extends CI_Model {
 					'religion' => $r['religion'],
 					'gender' => $r['gender'],
 					'status' => $r['status'],
-					'cnumber' => $r['cnumber']
+					'cnumber' => $r['cnumber'],
+					'resume' => $r['resume']
 					);
 			
 					$applicant[] = $info;
@@ -300,7 +300,7 @@ class tenant_model extends CI_Model {
 			'appliid'=>$appliid,
 			'date'=>$date2,
 			'venue'=>$place,
-			'status'=>"ongoing"
+			'status'=>"pending"
 	  );
 		$db1->insert('interview', $interview);
 	}
@@ -407,6 +407,16 @@ class tenant_model extends CI_Model {
 		$this->session->set_userdata($user);
 		$this->db->where('userid',$id);
 		$this->db->update('users', $user);
+		
+		$users="root";
+		$password="";
+		$localhost="localhost";
+		$db1= $this->session->userdata('databasename');
+		$dsn1 = 'mysqli://root:@localhost/'.$this->session->userdata('databasename');
+		$db1 = $this->load->database($dsn1, true);     
+		
+		$db1->where('userid',$id);
+		$db1->update('agency', $user);
 	}
 	
 	public function deleteinterview($appliid){
@@ -420,5 +430,43 @@ class tenant_model extends CI_Model {
 		$db1->where('appliid',$appliid);
 		$db1->delete('interview');
 	}
+	
+	public function pass_check($userid){
+ 
+	  $this->db->select('*');
+	  $this->db->from('users');
+	  $pass=sha1($this->input->post('password'));
+	  $this->db->where('userid',$userid);
+	  $this->db->where('password',$pass);
+	  $query=$this->db->get();
+	  if($query->num_rows()>0){
+		return true;
+	  }else{
+		return false;
+	  }
+	 
+	}
+	
+	public function updatepassword($id){
+		$user=array(
+			'password'=>sha1($this->input->post('password2')),
+	  );
+		$this->session->set_userdata($user);
+		$this->db->where('userid',$id);
+		$this->db->update('users', $user);
+		
+		$users="root";
+		$password="";
+		$localhost="localhost";
+		$db1= $this->session->userdata('databasename');
+		$dsn1 = 'mysqli://root:@localhost/'.$this->session->userdata('databasename');
+		$db1 = $this->load->database($dsn1, true);     
+		
+		$db1->where('userid',$id);
+		$db1->update('agency', $user);
+	}
+	
+	
+	
 	
 }

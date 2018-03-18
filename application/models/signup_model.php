@@ -281,7 +281,6 @@ private function createtable($config){
 		appid int(20) NOT NULL,
 		email varchar(50) NOT NULL,
 		password varchar(50) NOT NULL,
-		username varchar(50) NOT NULL,
 		fname varchar(50) NOT NULL,
 		lname varchar(50) NOT NULL,
 		mname varchar(50) NOT NULL,
@@ -294,7 +293,8 @@ private function createtable($config){
 		religion varchar(50) NOT NULL,
 		gender varchar(50) NOT NULL,
 		status varchar(50) NOT NULL,
-		cnumber varchar(50) NOT NULL
+		cnumber varchar(50) NOT NULL,
+		resume varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
@@ -418,6 +418,23 @@ private function createtable($config){
 	
 	$sql="ALTER TABLE `interview`
 			MODIFY `intid` int(20) NOT NULL AUTO_INCREMENT";
+	
+	$conn->query($sql);
+	
+	$sql = "CREATE TABLE savedjobs (
+		saveid int(20) NOT NULL,
+		appid int(20) NOT NULL,
+		posid int(20) NOT NULL
+	)";
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `savedjobs`
+			ADD PRIMARY KEY (`saveid`)";
+	
+	$conn->query($sql);
+	
+	$sql="ALTER TABLE `savedjobs`
+			MODIFY `saveid` int(20) NOT NULL AUTO_INCREMENT";
 	
 	$conn->query($sql);
 	

@@ -202,10 +202,56 @@ class user extends CI_Controller {
 		$this->load->view('user/userselected',$data);
 	}
 	
+	public function downloadresume()
+	{
+		$filename= $_GET['nama'];
+		$configid = $this->session->userdata('configid');
+		$web=$this->user_model->getClientsConfig(array('configid'=>$configid));
+		$target_dir = "C:/xampp/htdocs/".$web[0]['websitename1']."/assets/resume/";
+		$path = $target_dir.$filename;
+		$size = filesize($path);
+		header('Content-Type: application/octet-stream');
+		header('Content-Length: '.$size);
+		header('Content-Disposition: attachment; filename='.$filename);
+		header('Content-Transfer-Encoding: binary');
+		$file = @ fopen($path, 'rb');
+		if ($file) {
+		fpassthru($file);
+		}
+	}
+	
+	public function editpass()
+	{
+		$data['metadata']=$this->session->userdata();
+		$this->load->view('user/userpassedit',$data);
+	
+	}
+	
+	public function processeditpass()
+	{
+		$userid = $this->session->userdata('userid');
+		$email_check=$this->tenant_model->pass_check($userid);
+		if($email_check){
+			$this->tenant_model->updatepassword($userid);
+			$this->session->set_flashdata('success_msg', 'Updated successfully');
+			redirect('user/setting');
+		}
+		else{
+				$this->session->set_flashdata('error_msg', 'Incorrect password!');
+				redirect('user/setting');
+			}
+	
+	}
+	
+	public function logout(){
+		$this->session->set_userdata('validateduser',false);
+		$base=base_url();
+		redirect($base);
+	}
+	
 	private function check_isValidated(){
-		if(! $this->session->userdata('validated')){
-			$base=base_url();
-			redirect($base);
+		if(! $this->session->userdata('validateduser')){
+			redirect('404_override');
 		}
 	}
 			

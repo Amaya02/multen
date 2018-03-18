@@ -153,12 +153,6 @@
                                                 <input type="email" class="form-control" disabled="" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
                                             </div>
                                         </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" value="<?php echo $metadata['password']; ?>" disabled="" />
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row">
 									    <div class="col-md-12">
@@ -213,6 +207,7 @@
 									
                                 </form>
 								<a href="<?php echo base_url(); ?>user/editaccount" style="float: right;" class="btn btn-info">Edit Account</a>
+								<a href="<?php echo base_url(); ?>user/editpass" style="float: right;" class="btn btn-warning">Change Password</a>
                             </div>
                         </div>
                     </div>
@@ -246,7 +241,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>user/logout">Logout</a>
           </div>
         </div>
       </div>

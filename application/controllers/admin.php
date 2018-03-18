@@ -109,10 +109,38 @@ class admin extends CI_Controller {
 			}
 	}
 	
+	public function editpass()
+	{
+		$data['metadata']=$this->session->userdata();
+		$this->load->view('admin/admineditpass',$data);
+	
+	}
+	
+	public function processeditpass()
+	{
+		$adminid = $this->session->userdata('adminid');
+		$email_check=$this->user_model->pass_check($adminid);
+		if($email_check){
+			$this->user_model->updatepassword($adminid);
+			$this->session->set_flashdata('success_msg', 'Updated successfully');
+			redirect('admin/setting');
+		}
+		else{
+				$this->session->set_flashdata('error_msg', 'Incorrect password!');
+				redirect('admin/setting');
+			}
+	
+	}
+	
+	public function logout(){
+		$this->session->set_userdata('validatedadmin',false);
+		$base=base_url();
+		redirect($base);
+	}
+	
 	private function check_isValidated(){
-		if(! $this->session->userdata('validated')){
-			$base=base_url();
-			redirect($base);
+		if(! $this->session->userdata('validatedadmin')){
+			redirect('404_override');
 		}
 	}
 	

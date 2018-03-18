@@ -39,7 +39,8 @@ class user_model extends CI_Model {
 						'state' => $row->state,
 						'zipcode' => $row->zipcode,
 						'cnum' => $row->cnum,
-						'validated' => true);
+						'validatedadmin' => true,
+						'validateduser' => false);
 			$this->session->set_userdata($data);
 			return true;
 		}
@@ -78,7 +79,8 @@ class user_model extends CI_Model {
 						'cnumber' => $row->cnumber,
 						'billid' => $row->billid,
 						'configid' => $row->configid,
-						'validated' => true);
+						'validatedadmin' => false,
+						'validateduser' => true);
 			$this->session->set_userdata($data);
 			return true;
 		}
@@ -129,7 +131,8 @@ class user_model extends CI_Model {
 				'configid' => $r['configid'],
 				'websitename' => $website.$r['websitename'],
 				'databasename' => $r['databasename'],
-				'template' => $r['template']		
+				'template' => $r['template'],
+				'websitename1' => $r['websitename']			
 			);
 			$config[] = $info;
 			$this->session->set_userdata($info);
@@ -195,6 +198,31 @@ class user_model extends CI_Model {
 			return true;
 		}
  
+	}
+	
+	public function pass_check($id){
+ 
+	  $this->db->select('*');
+	  $this->db->from('admin');
+	  $pass=sha1($this->input->post('password'));
+	  $this->db->where('adminid',$id);
+	  $this->db->where('password',$pass);
+	  $query=$this->db->get();
+	  if($query->num_rows()>0){
+		return true;
+	  }else{
+		return false;
+	  }
+	 
+	}
+	
+	public function updatepassword($id){
+		$user=array(
+			'password'=>sha1($this->input->post('password2')),
+	  );
+		$this->session->set_userdata($user);
+		$this->db->where('adminid',$id);
+		$this->db->update('admin', $user);
 	}
 }
 
