@@ -419,6 +419,7 @@ private function createtable($config){
 		appliid int(20) NOT NULL,
 		date DATE NOT NULL,
 		venue varchar(50) NOT NULL,
+		time varchar(50) NOT NULL,
 		status varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
