@@ -38,10 +38,9 @@ $user=array(
       'password'=>sha1($this->input->post('pass')),
       'address'=>$this->input->post('address'),
       'city'=>$this->input->post('city'),
-	  'state'=>$this->input->post('state'),
+	  'state'=>$_POST['state'],
 	  'zipcode'=>$this->input->post('zipcode'),
       'cnumber'=>$this->input->post('cnumber'),
-	  'conemail'=>$this->input->post('conemail'),
 	  'billid'=>$billid,
 	  'configid'=>$this->db->insert_id()
 	  
@@ -232,7 +231,6 @@ private function createtable($config){
 		state varchar(50) NOT NULL,
 		zipcode varchar(50) NOT NULL,
 		cnumber varchar(50) NOT NULL,
-		conemail varchar(50) NOT NULL,
 		billid int(50) NOT NULL,
 		configid int(50) NOT NULL
 	)";
@@ -277,8 +275,7 @@ private function createtable($config){
 		city varchar(50) NOT NULL,
 		state varchar(50) NOT NULL,
 		zipcode varchar(50) NOT NULL,
-		cnumber varchar(50) NOT NULL,
-		conemail varchar(50) NOT NULL
+		cnumber varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
@@ -467,9 +464,9 @@ private function inserttotable($config,$user,$userid,$bill){
 		die("Connection failed:" . $conn->connect_error);
 	}
 	$sql = "INSERT INTO agency (
-		`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
+		`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `billid`, `configid`) VALUES
 		(".$userid.", '".$user['email']."', '".$user['password']."', '".$user['companyname']."', '".$user['address']."', '".$user['city']."'
-		, '".$user['state']."', '".$user['zipcode']."', '".$user['cnumber']."', '".$user['conemail']."', ".$user['billid'].", ".$user['configid']."
+		, '".$user['state']."', '".$user['zipcode']."', '".$user['cnumber']."', ".$user['billid'].", ".$user['configid']."
 	)";
 	
 	$conn->query($sql);

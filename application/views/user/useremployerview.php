@@ -135,8 +135,7 @@
 								<p><b>City:</b> <?php echo $emp[0]['city']; ?></p>
 								<p><b>State:</b> <?php echo $emp[0]['state']; ?></p>
 								<p><b>Zip Code:</b> <?php echo $emp[0]['zipcode']; ?></p><br/>
-								<p><b>Contact Number:</b> <?php echo $emp[0]['cnumber']; ?></p>
-								<p><b>Additional Email Address:</b> <?php echo $emp[0]['conemail']; ?></p><br/>
+								<p><b>Contact Number:</b> <?php echo $emp[0]['cnumber']; ?></p><br/>
                             </div>
                         </div>
                     </div>

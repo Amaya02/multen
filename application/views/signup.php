@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-    .required:after { content:" * required field"; color: red; }
+    .required { color: red; }
 </style>
 
 <title>MULTEN - Multi-tenant Man Power Agency</title>
@@ -69,10 +69,12 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <div class="col-sm-4 required">
+            <div class="col-sm-4">
+				<label>Email Address:</label><span class="required"> * </span>
                <input required type="email" name="email" placeholder="Email Address" class="form-control" />
             </div>
-			<div class="col-sm-4 required">
+			<div class="col-sm-4">
+				<label>Password:</label><span class="required"> * </span>
               <input required type="password" name="pass" id="pass" placeholder="Password" class="form-control" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
             </div>
 			<div class="col-sm-2">
@@ -86,7 +88,8 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <div class="col-sm-4 required">
+            <div class="col-sm-4">
+				<label>Company Name:</label><span class="required"> * </span>
               <input required type="text" name="companyname" placeholder="Company Name" class="form-control" />
             </div>
           </div>
@@ -96,19 +99,31 @@
           <legend>Address Details</legend>
           <!-- Text input-->
           <div class="form-group">
-            <div class="col-sm-10 required">
+            <div class="col-sm-10">
+				<label>Address:</label><span class="required"> * </span>
               <input required type="text" name="address" placeholder="Address" class="form-control" />
             </div>
           </div>
           <!-- Text input-->
           <div class="form-group">
-            <div class="col-sm-4 required">
-              <input required type="text" name="city" placeholder="City" class="form-control" />
+            <div class="col-sm-4">
+				<label>City:</label>
+              <input type="text" name="city" placeholder="City" class="form-control" />
+            </div>
+            <div class="col-sm-4">
+				<label>State/Region:</label><span class="required"> * </span>
+				<?php
+				$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+					"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+					"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+				echo '<select name="state" class="form-control">';
+				foreach($state as $sta){
+					echo '<option value="'.$sta.'">'.$sta.'</option>';
+				}
+				echo '</select>';?>
             </div>
             <div class="col-sm-2">
-              <input type="text" name="state" placeholder="State" class="form-control" />
-            </div>
-            <div class="col-sm-4 required">
+				<label>Zip Code:</label><span class="required"> * </span>
               <input required type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
             </div>
           </div>
@@ -118,16 +133,15 @@
           <legend>Contact Information</legend>
           <!-- Text input-->
           <div class="form-group"> 
-            <div class="col-sm-4 required">
+            <div class="col-sm-4">
+			  <label>Contact Number:</label><span class="required"> * </span>
               <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-            </div>
-            <div class="col-sm-4 required">
-              <input required type="email" name="conemail" placeholder="Email Address" class="form-control" />
             </div>
            </div>
 
 <!-- Subscription -->
-            <legend>Subscription<small> choose your subscription</small></legend>
+            <legend>Subscription<small> choose your subscription </small></legend>
+			<label>Subscription:</label><span class="required"> * </span>
 			<div class="form-group">
             <div class="cc-selector-2">
                 <div class="col-sm-2">
@@ -159,6 +173,7 @@
 
 <!-- Website -->
             <legend>Create your Website <small>choose template for your website</small></legend>
+			<label>Template:</label><span class="required"> * </span>
 			<div class="form-group">
                 <div class="col-sm-6">
                    <input id="template1" type="radio" name="template" value="template1" /> Template 1
@@ -173,13 +188,13 @@
 			</div>
 			<br/>
 			<div class="form-group">
-				<div class="col-sm-4 required">
+				<div class="col-sm-4">
+					<label>Name of Website:</label><span class="required"> * </span>
 					<input required type="text" name="websitename" placeholder="Name of website" class="form-control" />
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-4 required">
-					<h4>Upload your logo</h4><input required type="file" name="fileToUpload" id="fileToUpload" />
+				<div class="col-sm-4">
+					<label>Logo:</label><span class="required"> * </span>
+					<input required type="file" name="fileToUpload" id="fileToUpload" />
 				</div>
 			</div>
 			<br/><br/>

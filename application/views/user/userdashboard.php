@@ -176,9 +176,8 @@
 								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
 								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
 								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
-								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
-								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
-								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
+								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p>
+								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p><br/>
 								<p><b>Website:</b> <?php echo $config[0]['websitename']; ?></p></p>
 								<a style="float: left;" class="btn btn-submit" href="<?php echo $config[0]['websitename']; ?>" target="_blank">View Website</a>
                             </div>

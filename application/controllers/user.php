@@ -117,6 +117,7 @@ class user extends CI_Controller {
 		if($posid == NULL && $appid==NULL && $appliid==NULL){
 			redirect('user/interview');
 		}
+		$data['metadata']=$this->session->userdata();
 		$data['appliid']=$appliid;
 		$data['id']=$appid;
 		$data['posid']=$posid;

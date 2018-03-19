@@ -136,24 +136,53 @@
 									<input readonly type="text" name="posid" placeholder="ID" class="form-control" Value="<?php echo $posid ?>" />
                                     <br/><label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
 									<div style="display: inline;">
-										<select name="month">
-											<option value="1">01</option>
-											<option value="2">02</option>
-											<option value="3">03</option>
-											<option value="4">04</option>
-										</select>
-										<select name="day">
-											<option value="1">01</option>
-											<option value="2">02</option>
-											<option value="3">03</option>
-											<option value="4">04</option>
-										</select>
-										<select name="year">
-											<option value="2018">2018</option>
-										</select>
+										<?php
+											$start = 1;
+											$end = 12;
+											$months = array(" ","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+												"December");
+											echo '<select name="month">';
+											for($i = $start; $i <= $end; $i++){
+												echo "<option value='".$i."'>{$months[$i]}</option>";
+											}
+											echo '</select>';?>
+										<?php
+										$start = 1;
+										$end = 31;
+										echo '<select name="day">';
+										for($i = $start; $i <= $end; $i++){
+											echo "<option>{$i}</option>";
+										}
+										echo '</select>';?>
+										<?php
+										$start = intval(date('Y'));
+										$end = intval(date('Y'));
+										echo '<select name="year">';
+										for($i = $start; $i <= $end; $i++){
+											echo "<option>{$i}</option>";
+										}
+										echo '</select>';?>
+									</div>
+									<br/><br/><label for="exampleInputDate">Time of Interview</label><br/>
+									<div style="display: inline;">
+									<?php
+										$start = 1;
+										$end = 12;
+										echo '<select name="time1">';
+										for($i = $start; $i <= $end; $i++){
+											echo "<option>{$i}</option>";
+										}
+										echo '</select>';?>
+									<?php
+										$time = array("AM","PM");
+										echo '<select name="time2">';
+										foreach($time as $t){
+											echo "<option value='".$t."'>{$t}</option>";
+										}
+										echo '</select>';?>
 									</div>
                                     <br/><br/><label for="exampleInputExperience">Place of Interview</label>
-									<input required type="text" name="place" placeholder="Placeof interview" class="form-control" />
+									<input readonly type="text" name="place" placeholder="Place of interview" class="form-control" value="<?php echo $metadata['address'].' '.$metadata['city']?>" />
 								</div>
 								 <button type="submit" style="float: right;" class="btn btn-success">Submit</button>
 							</form>
