@@ -180,7 +180,15 @@
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" class="form-control" disabled="" placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                                <?php
+												$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+													"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+													"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+												echo '<select name="state" class="form-control" disabled="">';
+												foreach($state as $sta){
+													echo "<option value='".$sta."'"; if (!empty($metadata['state']) && $metadata['state'] == $sta)  echo 'selected = "selected"'; echo">{$sta}</option>";
+												}
+												echo '</select>';?>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
@@ -195,12 +203,6 @@
                                             <div class="form-group">
                                                 <label>Contact Number</label>
                                                 <input disabled="" type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Addtional Email Address</label>
-                                                <input disabled="" type="email" name="conemail" placeholder="Email Address" class="form-control" value="<?php echo $metadata['conemail']; ?>" />
                                             </div>
                                         </div>
                                     </div>
