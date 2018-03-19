@@ -108,7 +108,7 @@
           <div class="form-group">
             <div class="col-sm-4">
 				<label>City:</label>
-              <input required type="text" name="city" placeholder="City" class="form-control" />
+              <input type="text" name="city" placeholder="City" class="form-control" />
             </div>
             <div class="col-sm-4">
 				<label>State/Region:</label><span class="required"> * </span>
