@@ -136,11 +136,11 @@
                               <hr> <hr>
                         <div class="card-body">
                             <p class="description text-left" >
-                                <b><br>Birthday:
-                                <b><br>Nationality:
-                                <b><br>Religion:
-                                <b><br>Gender:
-                                <b><br>Status:
+                                <b><br>Birthday:</b>  <?php echo $metadata['bday']; ?>
+                                <b><br>Nationality:</b> <?php echo $metadata['nationality']; ?>
+                                <b><br>Religion:</b> <?php echo $metadata['religion']; ?>
+                                <b><br>Gender:</b> <?php echo $metadata['gender']; ?>
+                                <b><br>Status:</b> <?php echo $metadata['status']; ?>
                             </p>          
                         </div> 
                     </div> 

@@ -152,9 +152,6 @@
                                             <th>
                                                 Name
                                             </th>
-											<th>
-                                                
-                                            </th>
                                             <th class="text-right">
                                                 
                                             </th>
@@ -168,12 +165,6 @@
 												<td>
                                                     '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
-												<td>
-													<a class="btn btn-warning" style="float: right;" href="'.base_url('user/updatestatus/'.$post['appliid'].'/'.$status="preselection").'">Pre-select</a>
-												</td>
-												<td>
-													<a class="btn btn-success" style="float: right;" href="'.base_url('user/interviewapplicant/'.$post['posid'].'/'.$post['appid'].'/'.$post['appliid']).'">Interview</a>
-												</td>
 												<td>
 													<a class="btn btn-info" style="float: right;" href="'.base_url('user/applicantview/'.$post['appid']).'">View Profile</a>
 												</td>
@@ -219,7 +210,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>user/logout">Logout</a>
           </div>
         </div>
       </div>

@@ -36,6 +36,19 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <body>
 
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
+
+
 <header id="header">
     <div class="container">
 	<img class="logo" src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo" />
@@ -71,13 +84,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<label class="w3ls-opt">Password :<span class="w3ls-star"> * </span></label>
 			<span class="w3ls-text w3ls-name">
 				<input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
-			</span>
-	</li>
-	
-	<li>	
-			<label class="w3ls-opt">Username :<span class="w3ls-star"> * </span></label>
-			<span class="w3ls-text w3ls-name">
-				<input type="text" name="username" placeholder="Username" required />
 			</span>
 	</li>
 		
@@ -170,10 +176,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</span>
 								<span class="agile_sub-label">
 									<select name="year" class="month">
-										<option value="2014">2018</option>
-										<option value="2014">2017</option>
-										<option value="2014">2016</option>
-										<option value="2014">2015</option>
+										<option value="2018">2018</option>
+										<option value="2017">2017</option>
+										<option value="2016">2016</option>
+										<option value="2015">2015</option>
 										<option value="2014">2014</option>
 										<option value="2013">2013</option>
 										<option value="2012">2012</option>
@@ -288,13 +294,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</span> </li>
 								<li><label class="w3ls-opt">Religion :<span class="w3ls-star"> * </span></label>	
 							<div class="w3ls-text w3ls-name">
-								<span class="agile_sub-label">
-									<select name="religion" class="day">
-										<option value="Roman Catholic"> Roman Catholic </option>
-									
-									</select>
-									
-								</span>
+								<input required type="text" name="religion" placeholder="Religion" />
 								</li>
 								<div class="wthree-text">
 						<h4>Gender</h4>

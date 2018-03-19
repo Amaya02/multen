@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2018 at 11:35 AM
+-- Generation Time: Mar 18, 2018 at 10:29 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -46,7 +46,7 @@ CREATE TABLE `agency` (
 --
 
 INSERT INTO `agency` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
-(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Amaya Corporation', 'St. Magallanes', 'Makati', 'N/A', '4118', '09771273912', 'contactus@yahoo.com', 1, 1);
+(1, 'tenant1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Jobstreet', 'St. Magallanes', 'Makati', '', '4118', '09123456789', 'contactus@yahoo.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,6 @@ CREATE TABLE `applicant` (
   `appid` int(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `mname` varchar(50) NOT NULL,
@@ -71,15 +70,16 @@ CREATE TABLE `applicant` (
   `religion` varchar(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `cnumber` varchar(50) NOT NULL
+  `cnumber` varchar(50) NOT NULL,
+  `resume` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`appid`, `email`, `password`, `username`, `fname`, `lname`, `mname`, `address`, `city`, `state`, `zipcode`, `nationality`, `bday`, `religion`, `gender`, `status`, `cnumber`) VALUES
-(1, 'app1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'app1', 'amaya', 'lelis', 'de castro', 'Manila', 'manila city', 'manila state', '1234', 'filipino', '1999-02-02', 'roman catholic', 'female', 'single', '09771273912');
+INSERT INTO `applicant` (`appid`, `email`, `password`, `fname`, `lname`, `mname`, `address`, `city`, `state`, `zipcode`, `nationality`, `bday`, `religion`, `gender`, `status`, `cnumber`, `resume`) VALUES
+(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Candy Amaya', 'Lelis', 'de Castro', 'St. Magallanes', 'Makati', 'N/A', '4118', 'Filipino', '1999-02-02', 'Roman Catholic', 'Female', 'Single', '09771273912', '');
 
 -- --------------------------------------------------------
 
@@ -93,13 +93,6 @@ CREATE TABLE `application` (
   `posid` int(20) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `application`
---
-
-INSERT INTO `application` (`appliid`, `appid`, `posid`, `status`) VALUES
-(1, 1, 1, 'preselection');
 
 -- --------------------------------------------------------
 
@@ -138,7 +131,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`configid`, `websitename`, `databasename`, `template`) VALUES
-(1, 'AmayaCorporation', 'tenant1', 'template1');
+(1, 'jobstreet', 'tenant1', 'template1');
 
 -- --------------------------------------------------------
 
@@ -181,7 +174,7 @@ CREATE TABLE `employer` (
 --
 
 INSERT INTO `employer` (`empid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`) VALUES
-(1, 'emp@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'employer1', 'pasay', 'pasay city', 'pasay state', '4567', '09890', 'conus@yahoo.com');
+(1, 'emp1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'employer 1', 'Manila', 'Manila', 'Manila', '4118', '09', 'contact@yahoo.com');
 
 -- --------------------------------------------------------
 
@@ -224,12 +217,17 @@ CREATE TABLE `position` (
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `position`
+-- Table structure for table `savedjobs`
 --
 
-INSERT INTO `position` (`posid`, `empid`, `position`, `status`) VALUES
-(1, 1, 'System Analyst', 'open');
+CREATE TABLE `savedjobs` (
+  `saveid` int(20) NOT NULL,
+  `appid` int(20) NOT NULL,
+  `posid` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -308,6 +306,12 @@ ALTER TABLE `position`
   ADD PRIMARY KEY (`posid`);
 
 --
+-- Indexes for table `savedjobs`
+--
+ALTER TABLE `savedjobs`
+  ADD PRIMARY KEY (`saveid`);
+
+--
 -- Indexes for table `skill`
 --
 ALTER TABLE `skill`
@@ -326,7 +330,7 @@ ALTER TABLE `applicant`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-  MODIFY `appliid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `appliid` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `education`
 --
@@ -351,7 +355,12 @@ ALTER TABLE `interview`
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `posid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `posid` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `savedjobs`
+--
+ALTER TABLE `savedjobs`
+  MODIFY `saveid` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `skill`
 --

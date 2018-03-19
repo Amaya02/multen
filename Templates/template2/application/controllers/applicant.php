@@ -13,11 +13,11 @@ class applicant extends CI_Controller {
 	{
 		$data['posts'] = $this->user_model->getData();
 		$this->load->view('applicants/applicantdashboard',$data);
-	
 	}
 	
 	public function profile()
 	{
+		$data['metadata']=$this->session->userdata();
 		$data['posts'] = $this->user_model->getData();
 		$this->load->view('applicants/applicantprofile',$data);
 	

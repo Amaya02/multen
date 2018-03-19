@@ -11,10 +11,9 @@ class employer extends CI_Controller {
 	}
 	public function dashboard()
 	{
+		$data['metadata']=$this->session->userdata();
 		$data['posts'] = $this->user_model->getData();
 		$this->load->view('employer/employerdashboard',$data);
-
-		
 	}
 	
 	public function applicants(){

@@ -22,29 +22,36 @@ class signup extends CI_Controller {
 	$email_check=$this->signup_model->email_check($this->input->post('email'));
 	
 	if($email_check){
+		$email_check1=$this->signup_model->email_check1($this->input->post('email'));
+		if($email_check1){
 		$check=$this->signup_model->checkcompanyname();
-		if($check){
-			$check=$this->signup_model->checklogotype();
 			if($check){
-					$check=$this->signup_model->checkwebsitename();
-					if($check){
-						$this->signup_model->register_user();
-						$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-						$base=base_url();
-						redirect($base);
-					}
-					else{
-						$this->session->set_flashdata('error_msg', 'Website already exist!');
-						redirect('signup');
-					}
+				$check=$this->signup_model->checklogotype();
+				if($check){
+						$check=$this->signup_model->checkwebsitename();
+						if($check){
+							$this->signup_model->register_user();
+							$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+							$base=base_url();
+							redirect($base);
+						}
+						else{
+							$this->session->set_flashdata('error_msg', 'Website already exist!');
+							redirect('signup');
+						}
+				}
+				else{
+					$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
+					redirect('signup');
+				}
 			}
 			else{
-				$this->session->set_flashdata('error_msg', 'Logo is not a valid image!');
+				$this->session->set_flashdata('error_msg', 'Company Already Exist!');
 				redirect('signup');
 			}
 		}
 		else{
-			$this->session->set_flashdata('error_msg', 'Company Already Exist!');
+			$this->session->set_flashdata('error_msg', 'Email Already Exist');
 			redirect('signup');
 		}
 	}

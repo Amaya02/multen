@@ -153,12 +153,6 @@
                                                 <input required name="email" type="email" class="form-control" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
                                             </div>
                                         </div>
-										<div class="col-md-4 pl-1">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input name="password" type="password" class="form-control" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 15 characters" value="<?php echo $metadata['password']; ?>" />
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row">
 									    <div class="col-md-12">
@@ -247,7 +241,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>user/logout">Logout</a>
           </div>
         </div>
       </div>

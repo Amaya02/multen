@@ -161,14 +161,14 @@
                             </div>
                               <hr><hr>  
                             <div class="card-body">
-                                <p><b>Company Name:</b> </p>
-                                <p><b>Email Address:</b> </p><br/>
-								<p><b>Address: </p>
-								<p><b>City:</b> </p>
-								<p><b>State:</b> </p>
-								<p><b>Zip Code:</b> </p><br/>
-								<p><b>Contact Number:</b> </p>
-								<p><b>Additional Email Address:</b> </p><br/>
+                                <p><b>Company Name:</b> <?php echo $metadata['companyname']; ?></p></p>
+                                <p><b>Email Address:</b> <?php echo $metadata['email']; ?></p></p>
+								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
+								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
+								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
+								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
+								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
+								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
                             </div>
                         </div>
                     </div>

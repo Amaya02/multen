@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2018 at 11:34 AM
+-- Generation Time: Mar 18, 2018 at 10:29 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -87,8 +87,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`configid`, `websitename`, `databasename`, `template`) VALUES
-(1, 'AmayaCorporation', 'tenant1', 'template1'),
-(2, 'corporate', 'tenant2', 'template2');
+(1, 'jobstreet', 'tenant1', 'template1');
 
 -- --------------------------------------------------------
 
@@ -116,8 +115,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
-(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Amaya Corporation', 'St. Magallanes', 'Makati', 'N/A', '4118', '09771273912', 'contactus@yahoo.com', 1, 1),
-(2, 'amaya@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'dasd', 'sad', 'asd', 'sad', '123', '09', 'amaya@yahoo.com', 2, 2);
+(1, 'tenant1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Jobstreet', 'St. Magallanes', 'Makati', '', '4118', '09123456789', 'contactus@yahoo.com', 1, 1);
 
 --
 -- Indexes for dumped tables
