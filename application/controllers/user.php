@@ -132,8 +132,9 @@ class user extends CI_Controller {
 		$month=$_POST['month'];
 		$day=$_POST['day'];
 		$year=$_POST['year'];
+		$time=$_POST['time1'].$_POST['time2'];
 		$place=$this->input->post('place');
-		$this->tenant_model->insertinterview($appliid,$month,$day,$year,$place);
+		$this->tenant_model->insertinterview($appliid,$month,$day,$year,$place,$time);
 		$status = "interview";
 		$this->tenant_model->updatestatus($appliid,$status);
 		$this->session->set_flashdata('success_msg', 'Interview created successfully');

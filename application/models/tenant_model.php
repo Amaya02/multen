@@ -35,8 +35,7 @@ class tenant_model extends CI_Model {
 				'city' => $r['city'],
 				'state' => $r['state'],
 				'zipcode' => $r['zipcode'],		
-				'cnumber' => $r['cnumber'],	
-				'conemail' => $r['conemail']			
+				'cnumber' => $r['cnumber']		
 			);
 			$employer[] = $info;
 		}
@@ -286,7 +285,7 @@ class tenant_model extends CI_Model {
 		return $bill;
 	}
 	
-	public function insertinterview($appliid,$month,$day,$year,$place){
+	public function insertinterview($appliid,$month,$day,$year,$place,$time){
 		$user="root";
 		$password="";
 		$localhost="localhost";
@@ -300,6 +299,7 @@ class tenant_model extends CI_Model {
 			'appliid'=>$appliid,
 			'date'=>$date2,
 			'venue'=>$place,
+			'time'=>$time,
 			'status'=>"pending"
 	  );
 		$db1->insert('interview', $interview);
