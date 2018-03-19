@@ -153,7 +153,16 @@
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input required name="state" type="text" class="form-control"  placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                                <br/>
+												<?php
+												$gen = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+													"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+													"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+												echo '<select name="state" class="form-control" >';
+												foreach($gen as $gends){
+													echo "<option value='".$gends."'"; if (!empty($metadata['state']) && $metadata['state'] == $gends)  echo 'selected = "selected"'; echo">{$gends}</option>";
+												}
+												echo '</select>';?>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
@@ -168,12 +177,6 @@
                                             <div class="form-group">
                                                 <label>Contact Number</label>
                                                 <input required name="cnumber" type="text" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 pr-1">
-                                            <div class="form-group">
-                                                <label>Addtional Email Address</label>
-                                                <input required type="email" name="conemail" placeholder="Email Address" class="form-control" value="<?php echo $metadata['conemail']; ?>" />
                                             </div>
                                         </div>
                                     </div>

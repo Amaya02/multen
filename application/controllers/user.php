@@ -108,7 +108,7 @@ class user extends CI_Controller {
 			$this->tenant_model->deleteinterview($appliid);
 		}
 		$this->tenant_model->updatestatus($appliid,$status);
-		redirect('user/preselection');
+		redirect('user/interview');
 	}
 	
 	public function interviewapplicant($posid,$appid,$appliid)

@@ -22,18 +22,21 @@ class employer extends CI_Controller {
 		$empid = $this->session->userdata('empid');
 		$pos = $this->employer_model->getjobs(array('empid'=>$empid));
 		$job = [];
+		$count=0;
 		for($i=0; $i<count($pos) ; $i++){
 			$posid = $pos[$i]['posid'];
-			$appli = $this->employer_model->getapplication(array('posid'=>$posid));
+			$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status !='=>'hired'));
 			for($j=0; $j<count($appli) ; $j++){
-				$appid = $appli[0]['appid'];
+				$appid = $appli[$j]['appid'];
 				$app = $this->employer_model->getapplicant(array('appid'=>$appid));
-				$job[$i]['appid'] = $app[0]['appid'];
-				$job[$i]['fname'] = $app[0]['fname'];
-				$job[$i]['mname'] = $app[0]['mname'];
-				$job[$i]['lname'] = $app[0]['lname'];
-				$job[$i]['posid'] = $pos[$i]['posid'];
-				$job[$i]['position'] = $pos[$i]['position'];
+				$job[$count]['appid'] = $app[0]['appid'];
+				$job[$count]['appliid'] = $appli[$j]['appliid'];
+				$job[$count]['fname'] = $app[0]['fname'];
+				$job[$count]['mname'] = $app[0]['mname'];
+				$job[$count]['lname'] = $app[0]['lname'];
+				$job[$count]['posid'] = $pos[$i]['posid'];
+				$job[$count]['position'] = $pos[$i]['position'];
+				$count++;
 			}
 		}
 		$data['job'] = $job;
@@ -67,12 +70,14 @@ class employer extends CI_Controller {
 		$job[0]['address'] = $this->session->userdata('address');
 		$job[0]['city'] = $this->session->userdata('city');
 		$job[0]['state'] = $this->session->userdata('state');
+		$job[0]['jobdesc'] = $pos[0]['jobdesc'];
+		$job[0]['jobreq'] = $pos[0]['jobreq'];
 		$appli = $this->employer_model->getapplication(array('posid'=>$posid));
 		$job[0]['num'] = count($appli);
 		$job1 = [];
-		$appli = $this->employer_model->getapplication(array('posid'=>$posid));
+		$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status !='=>'hired'));
 		for($i=0; $i<count($appli) ; $i++){
-			$appid = $appli[0]['appid'];
+			$appid = $appli[$i]['appid'];
 			$app = $this->employer_model->getapplicant(array('appid'=>$appid));
 			$job1[$i]['appid'] = $app[0]['appid'];
 			$job1[$i]['fname'] = $app[0]['fname'];
@@ -145,19 +150,21 @@ class employer extends CI_Controller {
 		$empid = $this->session->userdata('empid');
 		$pos = $this->employer_model->getjobs(array('empid'=>$empid));
 		$job = [];
+		$count=0;
 		for($i=0; $i<count($pos) ; $i++){
 			$posid = $pos[$i]['posid'];
-			$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status'=>"selected"));
+			$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status'=>'selected'));
 			for($j=0; $j<count($appli) ; $j++){
-				$appid = $appli[0]['appid'];
+				$appid = $appli[$j]['appid'];
 				$app = $this->employer_model->getapplicant(array('appid'=>$appid));
-				$job[$i]['appid'] = $app[0]['appid'];
-				$job[$i]['appliid'] = $appli[$j]['appliid'];
-				$job[$i]['fname'] = $app[0]['fname'];
-				$job[$i]['mname'] = $app[0]['mname'];
-				$job[$i]['lname'] = $app[0]['lname'];
-				$job[$i]['posid'] = $pos[$i]['posid'];
-				$job[$i]['position'] = $pos[$i]['position'];
+				$job[$count]['appid'] = $app[0]['appid'];
+				$job[$count]['appliid'] = $appli[$j]['appliid'];
+				$job[$count]['fname'] = $app[0]['fname'];
+				$job[$count]['mname'] = $app[0]['mname'];
+				$job[$count]['lname'] = $app[0]['lname'];
+				$job[$count]['posid'] = $pos[$i]['posid'];
+				$job[$count]['position'] = $pos[$i]['position'];
+				$count++;
 			}
 		}
 		$data['job'] = $job;
@@ -181,19 +188,21 @@ class employer extends CI_Controller {
 		$empid = $this->session->userdata('empid');
 		$pos = $this->employer_model->getjobs(array('empid'=>$empid));
 		$job = [];
+		$count=0;
 		for($i=0; $i<count($pos) ; $i++){
 			$posid = $pos[$i]['posid'];
-			$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status'=>"hired"));
+			$appli = $this->employer_model->getapplication(array('posid'=>$posid,'status'=>'hired'));
 			for($j=0; $j<count($appli) ; $j++){
-				$appid = $appli[0]['appid'];
+				$appid = $appli[$j]['appid'];
 				$app = $this->employer_model->getapplicant(array('appid'=>$appid));
-				$job[$i]['appid'] = $app[0]['appid'];
-				$job[$i]['appliid'] = $appli[$j]['appliid'];
-				$job[$i]['fname'] = $app[0]['fname'];
-				$job[$i]['mname'] = $app[0]['mname'];
-				$job[$i]['lname'] = $app[0]['lname'];
-				$job[$i]['posid'] = $pos[$i]['posid'];
-				$job[$i]['position'] = $pos[$i]['position'];
+				$job[$count]['appid'] = $app[0]['appid'];
+				$job[$count]['appliid'] = $appli[$j]['appliid'];
+				$job[$count]['fname'] = $app[0]['fname'];
+				$job[$count]['mname'] = $app[0]['mname'];
+				$job[$count]['lname'] = $app[0]['lname'];
+				$job[$count]['posid'] = $pos[$i]['posid'];
+				$job[$count]['position'] = $pos[$i]['position'];
+				$count++;
 			}
 		}
 		$data['job'] = $job;
@@ -288,25 +297,8 @@ class employer extends CI_Controller {
 		$data['posts'] = $this->user_model->getData();
 		$keyword = $this->input->get('keyword');
 		$empid = $this->session->userdata('empid');
-		$pos = $this->employer_model->getjobs(array('empid'=>$empid));
-		$posi = $this->employer_model->searchjob($keyword);
+		$posi = $this->employer_model->searchjob($keyword,$empid);
 		$data['result2'] = $posi;
-		$job = [];
-		for($i=0; $i<count($pos) ; $i++){
-			$posid = $pos[$i]['posid'];
-			$appli = $this->employer_model->getapplication(array('posid'=>$posid));
-			for($j=0; $j<count($appli) ; $j++){
-				$appid = $appli[0]['appid'];
-				$app = $this->employer_model->searchapplicant($keyword);
-				for($x=0; $x<count($app) ; $x++){
-					$job[$i]['appid'] = $app[$x]['appid'];
-					$job[$i]['fname'] = $app[$x]['fname'];
-					$job[$i]['mname'] = $app[$x]['mname'];
-					$job[$i]['lname'] = $app[$x]['lname'];
-				}
-			}
-		}
-		$data['result'] = $job;
 		$data['key']=$keyword;
 		$this->load->view('employer/search',$data);
 	}

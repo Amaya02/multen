@@ -117,9 +117,8 @@
 								<p><b>Address:</b> <?php echo $company[0]['address']; ?></p>
 								<p><b>City:</b> <?php echo $company[0]['city']; ?></p>
 								<p><b>State:</b> <?php echo $company[0]['state']; ?></p>
-								<p><b>Zip Code:</b> <?php echo $company[0]['zipcode']; ?></p><br/>
-								<p><b>Contact Number:</b> <?php echo $company[0]['cnumber']; ?></p>
-								<p><b>Additional Email Address:</b> <?php echo $company[0]['conemail']; ?></p><br/>
+								<p><b>Zip Code:</b> <?php echo $company[0]['zipcode']; ?></p>
+								<p><b>Contact Number:</b> <?php echo $company[0]['cnumber']; ?></p><br/>
 								<p><b>Website:</b> <?php echo $configs[0]['websitename'] ?></p>
 								<a style="float: left;" class="btn btn-submit" href="<?php echo $configs[0]['websitename'] ; ?>" target="_blank">View Website</a>
                             </div>

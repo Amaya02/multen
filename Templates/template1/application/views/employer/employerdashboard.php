@@ -146,7 +146,7 @@
                             </div>
                             
                             <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/preselection">
+							<a href="<?php echo base_url(); ?>employer/selected">
 								<i class="nc-icon nc-stre-right"></i>
 							</a>
                             </div>
@@ -164,9 +164,8 @@
 								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
 								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
 								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
-								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
-								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
-								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
+								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p>
+								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p><br/>
                             </div>
                         </div>
                     </div>

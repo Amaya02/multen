@@ -17,8 +17,7 @@ class employer_model extends CI_Model {
 		'city'=>$this->input->post('city'),
 		'state'=>$this->input->post('state'),
 		'zipcode'=>$this->input->post('zipcode'),
-		'cnumber'=>$this->input->post('number'),
-		'conemail'=>$this->input->post('conemail')
+		'cnumber'=>$this->input->post('number')
 		);
 		$this->db->insert('employer', $employer);
 	}
@@ -96,7 +95,9 @@ class employer_model extends CI_Model {
 				'posid' => $r['posid'],
 				'empid' => $r['empid'],
 				'position' => $r['position'],
-				'status' => $r['status']
+				'status' => $r['status'],
+				'jobreq' => $r['jobreq'],
+				'jobdesc' => $r['jobdesc']
 			);
 			$users[] = $info;
 		}
@@ -125,7 +126,7 @@ class employer_model extends CI_Model {
 		return $users;
 	}
 	
-	public function getapplicant(){
+	public function getapplicant($condition=null){
 		$users = array();
 		$this->db->select('*');
 		$this->db->from('applicant');
@@ -150,7 +151,8 @@ class employer_model extends CI_Model {
 			'gender' => $r['gender'],
 			'status' => $r['status'],
 			'cnumber' => $r['cnumber'],
-			'resume' =>  $r['resume']
+			'resume' =>  $r['resume'],
+			'picture' =>  $r['picture']
 			);
 			
 			$users[] = $info;
@@ -227,7 +229,9 @@ class employer_model extends CI_Model {
 	public function updatejob($id){
 		$user=array(
 			'position' =>$this->input->post('position'),
-			'status' => $_POST['status']
+			'status' => $_POST['status'],
+			'jobreq' => $this->input->post('jobreq'),
+			'jobdesc' => $this->input->post('jobdesc')
 	  );
 		$this->db->where('posid',$id);
 		$this->db->update('position', $user);
@@ -246,7 +250,9 @@ class employer_model extends CI_Model {
 		$user=array(
 			'empid' => $empid,
 			'position' =>$this->input->post('position'),
-			'status' => $_POST['status']
+			'status' => $_POST['status'],
+			'jobreq' => $this->input->post('jobreq'),
+			'jobdesc' => $this->input->post('jobdesc')
 	  );
 		$this->db->insert('position', $user);
 	}
@@ -285,8 +291,9 @@ class employer_model extends CI_Model {
 		return $users;
 	}
 	
-	public function searchjob($keyword){
+	public function searchjob($keyword,$id){
 		$users = array();
+		$this->db->where('empid',$id);
 		$this->db->like('position',$keyword);
 		$query = $this->db->get('position');
 		$rs=$query->result_array();
@@ -311,8 +318,7 @@ class employer_model extends CI_Model {
 			'city'=>$this->input->post('city'),
 			'state'=>$this->input->post('state'),
 			'zipcode'=>$this->input->post('zipcode'),
-			'cnumber'=>$this->input->post('cnumber'),
-			'conemail'=>$this->input->post('conemail')
+			'cnumber'=>$this->input->post('cnumber')
 	  );
 		$this->session->set_userdata($user);
 		$this->db->where('empid',$id);

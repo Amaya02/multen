@@ -115,6 +115,11 @@
                 <div class="container-fluid">   
                         <div class="card card-user">
                              <div class="button-container mr-auto ml-auto">
+								<?php
+									$file = $metadata['picture']; //Let say If I put the file name Bang.png
+									if($file!=""){
+										echo '<img src="'.base_url('assets/img/picture/'.$file).'" alt="" class="pic center" />';
+									} ?>
                                  <h4 class="text-center"><?php echo $metadata['fname']; ?> <?php echo $metadata['mname']; ?> <?php echo $metadata['lname']; ?></h4>
                               </div>
                               <hr> <hr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2018 at 11:38 AM
+-- Generation Time: Mar 19, 2018 at 02:10 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname`, `address`, `city`, `state`, `zipcode`, `cnum`) VALUES
-(0, 'adminamaya@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'amayaadmin', 'Candy Amaya', 'Lelis', 'silang', 'cavite', 'n/a', '4118', '09771273912');
+(0, 'admin@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'myadmin', 'Admin', 'Account', 'Ermita', 'Manila', 'National Capital Region (NCR)', '1234', '09123456789');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,6 @@ CREATE TABLE `users` (
   `state` varchar(50) NOT NULL,
   `zipcode` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
-  `conemail` varchar(50) NOT NULL,
   `billid` int(50) NOT NULL,
   `configid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

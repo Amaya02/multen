@@ -137,6 +137,21 @@
 				<div class="container-fluid"> 
 					<div class="card card-user">
 						<div class="card-body">
+							<?php
+								$file = $metadata['picture']; //Let say If I put the file name Bang.png
+								if($file!=""){
+									echo '<img src="'.base_url('assets/img/picture/'.$file).'" alt="" class="pic" /><br/><br/>
+										<a class="btn btn-danger" style="float: left;" href="'.base_url('applicant/removepicture?nama='.$file).'" onclick="return(validate());">Remove</a><br/><br/>';
+								}
+								else{
+								echo '<form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="'.base_url('applicant/uploadpicture').'">
+										<b>You dont have profile picture</b><br/>
+										(.jpg, .jpeg, .png, .gif)(Recommended size: 150x150) <br/><input required type="file" name="fileToUpload" id="fileToUpload" /><br/><br/>
+										<button type="Submit" value="upload" class="btn btn-success" >Upload</button><br/><br/>
+										</form>';
+									
+								}
+								?>
 							<b>Name:</b> <?php echo $metadata['fname']; ?> <?php echo $metadata['mname']; ?> <?php echo $metadata['lname']; ?>
 							<b><br>Contact No:</b> <?php echo $metadata['cnumber']; ?>
 							<b><br>Email:</b> <?php echo $metadata['email']; ?>
@@ -212,5 +227,14 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to remove this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

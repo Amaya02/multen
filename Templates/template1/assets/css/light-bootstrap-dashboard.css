@@ -116,6 +116,19 @@ button.close {
     width:200px;height:50px;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.pic{
+	background-size:contain;
+    background-repeat:no-repeat;
+    width:150px;height:150px;
+}
+
 h1,
 .h1,
 h2,

@@ -97,7 +97,8 @@ class tenant_model extends CI_Model {
 					'position'=> $r['position'],
 					'companyname'=> $r['companyname'],
 					'date'=> $r['date'],
-					'venue'=> $r['venue']
+					'venue'=> $r['venue'],
+					'time'=> $r['time']
 					);
 			
 					$applicant[] = $info;
@@ -139,7 +140,8 @@ class tenant_model extends CI_Model {
 					'gender' => $r['gender'],
 					'status' => $r['status'],
 					'cnumber' => $r['cnumber'],
-					'resume' => $r['resume']
+					'resume' => $r['resume'],
+					'picture' => $r['picture']
 					);
 			
 					$applicant[] = $info;
@@ -411,13 +413,11 @@ class tenant_model extends CI_Model {
 			'userid'=>$this->input->post('userid'),
 			'companyname'=>$this->input->post('companyname'),
 			'email'=>$this->input->post('email'),
-			'password'=>sha1($this->input->post('password')),
 			'address'=>$this->input->post('address'),
 			'city'=>$this->input->post('city'),
 			'state'=>$this->input->post('state'),
 			'zipcode'=>$this->input->post('zipcode'),
-			'cnumber'=>$this->input->post('cnumber'),
-			'conemail'=>$this->input->post('conemail')
+			'cnumber'=>$this->input->post('cnumber')
 	  );
 		$this->session->set_userdata($user);
 		$this->db->where('userid',$id);

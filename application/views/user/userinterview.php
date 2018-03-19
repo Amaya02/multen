@@ -167,6 +167,9 @@
                                                 Date
                                             </th>
 											<th>
+                                                Time
+                                            </th>
+											<th>
                                                 Place
                                             </th>
 											<th>
@@ -186,6 +189,7 @@
                                                     '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
 												<td>'.$post['date'].'</td>
+												<td>'.$post['time'].'</td>
 												<td>'.$post['venue'].'</td>
 												<td>
 													<a style="float: right;" class="btn btn-success" href="'.base_url('user/interviewupdatestatus/'.$post['intid']).'">Done</a>
@@ -229,6 +233,9 @@
                                                 Date
                                             </th>
 											<th>
+                                               Time
+                                            </th>
+											<th>
                                                 Place
                                             </th>
 											<th>
@@ -251,6 +258,7 @@
                                                     '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
 												<td>'.$post['date'].'</td>
+												<td>'.$post['time'].'</td>
 												<td>'.$post['venue'].'</td>
 												<td>
 													<a style="float: right;" class="btn btn-success" href="'.base_url('user/updatestatus/'.$post['appliid'].'/'.$status="selected").'">Pass</a>
