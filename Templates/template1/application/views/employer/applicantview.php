@@ -107,6 +107,11 @@
                 <div class="container-fluid">   
                         <div class="card card-user">
                              <div class="button-container mr-auto ml-auto">
+							 <?php
+									$file = $app[0]['picture']; //Let say If I put the file name Bang.png
+									if($file!=""){
+										echo '<img src="'.base_url('assets/img/picture/'.$file).'" alt="" class="pic center" />';
+									} ?>
                                  <h4 class="text-center"><?php echo $app[0]['fname']; ?> <?php echo $app[0]['mname']; ?> <?php echo $app[0]['lname']; ?></h4>
                               </div>
                               <hr> <hr>

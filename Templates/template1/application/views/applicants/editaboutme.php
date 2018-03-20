@@ -141,8 +141,8 @@
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
-                                                <label>Middle Name</label><span style="color: red"> *</span>
-                                                <input required type="text" name="mname" class="form-control" placeholder="Middle Name" value="<?php echo $metadata['mname']; ?>" />
+                                                <label>Middle Name</label>
+                                                <input type="text" name="mname" class="form-control" placeholder="Middle Name" value="<?php echo $metadata['mname']; ?>" />
                                             </div>
                                         </div>
 										<div class="col-md-4 pl-1">
@@ -163,20 +163,29 @@
                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
-                                                <label>City</label><span style="color: red"> *</span>
-                                                <input required type="text" name="city" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" />
+                                                <label>City</label>
+                                                <input type="text" name="city" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label><span style="color: red"> *</span>
-                                                <input required type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                                <br/>
+												<?php
+												$gen = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+													"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+													"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+												echo '<select name="state" class="form-control">';
+												foreach($gen as $gends){
+													echo "<option value='".$gends."'"; if (!empty($metadata['state']) && $metadata['state'] == $gends)  echo 'selected = "selected"'; echo">{$gends}</option>";
+												}
+												echo '</select>';?>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
-                                                <label>Zip Code</label><span style="color: red"> *</span>
-                                                <input required type="text" name="zipcode" name="zipcode" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
+                                                <label>Zip Code</label>
+                                                <input type="text" name="zipcode" name="zipcode" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -186,9 +195,25 @@
                                                 <label>Nationality</label><span style="color: red"> *</span>
                                                 <br/>
 												<?php
-													$gen = array("American","Filipino" , "Japanese");
-													echo '<select name="nationality">';
-													foreach($gen as $gends){
+												$gen = array('Afghan','Albanian','Algerian','American','Andorran','Angolan','Antiguans','Argentinean','Armenian','Australian','Austrian',
+												'Azerbaijani','Bahamian','Bahraini','Bangladeshi','Barbadian','Barbudans','Batswana','Belarusian','Belgian','Belizean','Beninese',
+												'Bhutanese','Bolivian','Bosnian','Brazilian','British','Bruneian','Bulgarian','Burkinabe','Burmese','Burundian','Cambodian','Cameroonian',
+												'Canadian','Cape Verdean','Central African','Chadian','Chilean','Chinese','Colombian','Comoran','Congolese','Costa Rican','Croatian',
+												'Cuban','Cypriot','Czech','Danish','Djibouti','Dominican','Dutch','East Timorese','Ecuadorean','Egyptian','Emirian','Equatorial Guinean',
+												'Eritrean','Estonian','Ethiopian','Fijian','Filipino','Finnish','French','Gabonese','Gambian','Georgian','German','Ghanaian','Greek',
+												'Grenadian','Guatemalan','Guinea-Bissauan','Guinean','Guyanese','Haitian','Herzegovinian','Honduran','Hungarian','Icelander','Indian',
+												'Indonesian','Iranian','Iraqi','Irish','Israeli','Italian','Ivorian','Jamaican','Japanese','Jordanian','Kazakhstani','Kenyan',
+												'Kittian and Nevisian','Kuwaiti','Kyrgyz','Laotian','Latvian','Lebanese','Liberian','Libyan','Liechtensteiner','Lithuanian',
+												'Luxembourger','Macedonian','Malagasy','Malawian','Malaysian','Maldivan','Malian','Maltese','Marshallese','Mauritanian','Mauritian',
+												'Mexican','Micronesian','Moldovan','Monacan','Mongolian','Moroccan','Mosotho','Motswana','Mozambican','Namibian','Nauruan','Nepalese',
+												'Netherlander','New Zealander','Ni-Vanuatu','Nicaraguan','Nigerian','Nigerien','North Korean','Northern Irish','Norwegian','Omani',
+												'Pakistani','Palauan','Panamanian','Papua New Guinean','Paraguayan','Peruvian','Polish','Portuguese','Qatari','Romanian','Russian',
+												'Rwandan','Saint Lucian','Salvadoran','Samoan','San Marinese','Sao Tomean','Saudi','Scottish','Senegalese','Serbian','Seychellois',
+												'Sierra Leonean','Singaporean','Slovakian','Slovenian','Solomon Islander','Somali','South African','South Korean','Spanish','Sri Lankan',
+												'Sudanese','Surinamer','Swazi','Swedish','Swiss','Syrian','Taiwanese','Tajik','Tanzanian','Thai','Togolese','Tongan','Trinidadian or Tobagonian','Tunisian',
+												'Turkish','Tuvaluan','Ugandan','Ukrainian','Uruguayan','Uzbekistani','Venezuelan','Vietnamese','Welsh','Yemenite','Zambian','Zimbabwean');
+												echo '<select name="nationality" class="form-control">';
+												foreach($gen as $gends){
 														echo "<option value='".$gends."'"; if (!empty($metadata['nationality']) && $metadata['nationality'] == $gends)  echo 'selected = "selected"'; echo">{$gends}</option>";
 													}
 													echo '</select>';?>
@@ -206,7 +231,7 @@
                                                 <br/>
 												<?php
 													$gen = array("Single","Married" , "Widow");
-													echo '<select name="status">';
+													echo '<select name="status" class="form-control">';
 													foreach($gen as $gends){
 														echo "<option value='".$gends."'"; if (!empty($metadata['status']) && $metadata['status'] == $gends)  echo 'selected = "selected"'; echo">{$gends}</option>";
 													}
@@ -259,7 +284,7 @@
 												<br/>
 													<?php
 													$gen = array("Male","Female");
-													echo '<select name="gender">';
+													echo '<select name="gender" class="form-control">';
 													foreach($gen as $gends){
 														echo "<option value='".$gends."'"; if (!empty($metadata['gender']) && $metadata['gender'] == $gends)  echo 'selected = "selected"'; echo">{$gends}</option>";
 													}

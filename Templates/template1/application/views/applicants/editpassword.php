@@ -133,8 +133,9 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>New Password</label><span style="color: red"> *</span>
-                                                <input required type="password" name="password2" class="form-control" placeholder="password" value="" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
-                                            </div>
+                                                <input required type="password" name="password2" id="password2" class="form-control" placeholder="password" value="" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+												<input type="checkbox" onclick="myFunction2()" />Show Password
+											</div>
                                         </div>
                                     </div>
 									<button type="submit" style="float: right;" class="btn btn-success">Save</button>
@@ -210,6 +211,15 @@ function validate()
       return true;
     else
       return false;
+}
+function myFunction2(){
+	var x=document.getElementById("password2");
+	if(x.type == "password"){
+			x.type="text";
+	}
+	else{
+		x.type="password";
+	}
 }
 </script>
 

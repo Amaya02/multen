@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 10:29 AM
+-- Generation Time: Mar 19, 2018 at 02:07 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname`, `address`, `city`, `state`, `zipcode`, `cnum`) VALUES
-(0, 'adminamaya@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'amayaadmin', 'Candy Amaya', 'Lelis', 'silang', 'cavite', 'n/a', '4118', '09771273912');
+(0, 'admin@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'myadmin', 'Admin', 'Account', 'Ermita', 'Manila', 'National Capital Region (NCR)', '1234', '09123456789');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`configid`, `websitename`, `databasename`, `template`) VALUES
-(1, 'jobstreet', 'tenant1', 'template1');
+(1, 'mywebsite', 'tenant1', 'template1');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,6 @@ CREATE TABLE `users` (
   `state` varchar(50) NOT NULL,
   `zipcode` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
-  `conemail` varchar(50) NOT NULL,
   `billid` int(50) NOT NULL,
   `configid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -114,8 +113,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
-(1, 'tenant1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Jobstreet', 'St. Magallanes', 'Makati', '', '4118', '09123456789', 'contactus@yahoo.com', 1, 1);
+INSERT INTO `users` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `billid`, `configid`) VALUES
+(1, 'tenant1@yahoo.com', 'ca771caf60ab211d827f17a043e13668c225f5b6', 'Corporation', 'St. Magallanes', 'Makati', 'National Capital Region (NCR)', '1234', '09123456789', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -153,12 +152,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `configid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `configid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

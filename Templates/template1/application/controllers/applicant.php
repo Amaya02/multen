@@ -28,6 +28,19 @@ class applicant extends CI_Controller {
 			
 		}
 		$data['job'] = $job;
+
+		$pend = $this->applicant_model->getinterview(array('status'=>'pending'));
+		$job1 = [];
+		$count=0;
+		for($i=0; $i<count($pend) ; $i++){
+			$appliid = $pend[$i]['appliid'];
+			$appli = $this->applicant_model->getapplication(array('appliid'=>$appliid));
+			$appid2 = $appli[0]['appid'];
+			if($appid2==$appid){
+				$count=$count+1;
+			}
+		}
+		$data['count']=$count;
 		$this->load->view('applicants/applicantdashboard',$data);
 	}
 	
@@ -184,6 +197,25 @@ class applicant extends CI_Controller {
 	
 	}
 	
+	public function uploadpicture()
+	{
+		$appid = $this->session->userdata('appid');
+		$data['posts'] = $this->user_model->getData();
+		$webs = $this->user_model->getWebsitename();
+		$check=$this->applicant_model->checkpicturetype();
+		if($check){
+			$this->applicant_model->uploadpicture($webs[0]['websitename'],$appid);
+			$this->applicant_model->updatepicture($appid);
+			$this->session->set_flashdata('success_msg', 'Uploaded successfully');
+			redirect('applicant/aboutme');
+		}
+		else{
+				$this->session->set_flashdata('error_msg', 'Invalid file type!');
+				redirect('applicant/aboutme');
+			}
+	
+	}
+	
 	public function downloadresume()
 	{
 		$filename= $_GET['nama'];
@@ -212,6 +244,20 @@ class applicant extends CI_Controller {
 		$this->applicant_model->removeresume($appid);
 		$this->session->set_flashdata('success_msg', 'Removed successfully');
 			redirect('applicant/resume');
+		
+	}
+	
+	public function removepicture()
+	{
+		$filename= $_GET['nama'];
+		$webs = $this->user_model->getWebsitename();
+		$target_dir = "C:/xampp/htdocs/".$webs[0]['websitename']."/assets/img/picture/";
+		$path = $target_dir.$filename;
+		unlink($path);
+		$appid = $this->session->userdata('appid');
+		$this->applicant_model->removepicture($appid);
+		$this->session->set_flashdata('success_msg', 'Removed successfully');
+			redirect('applicant/aboutme');
 		
 	}
 	
@@ -330,6 +376,7 @@ class applicant extends CI_Controller {
 	public function interviews()
 	{
 		$data['posts'] = $this->user_model->getData();
+		$appid = $this->session->userdata('appid');
 		$pend = $this->applicant_model->getinterview(array('status'=>'pending'));
 		$accept = $this->applicant_model->getinterview(array('status' =>'ongoing'));
 		$done = $this->applicant_model->getinterview(array('status' =>'done'));
@@ -341,62 +388,77 @@ class applicant extends CI_Controller {
 		for($i=0; $i<count($pend) ; $i++){
 			$appliid = $pend[$i]['appliid'];
 			$appli = $this->applicant_model->getapplication(array('appliid'=>$appliid));
-			$posid = $appli[0]['posid'];
-			$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
-			$empid = $pos[0]['empid'];
-			$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
-			$job[$i]['position'] = $pos[0]['position'];
-			$job[$i]['posid'] = $pos[0]['posid'];
-			$job[$i]['companyname'] = $emp[0]['companyname'];
-			$job[$i]['date'] = $pend[$i]['date'];
-			$job[$i]['venue'] = $pend[$i]['venue'];
-			$job[$i]['intid'] = $pend[$i]['intid'];
+			$appid2 = $appli[0]['appid'];
+			if($appid2==$appid){
+				$posid = $appli[0]['posid'];
+				$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
+				$empid = $pos[0]['empid'];
+				$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
+				$job[$i]['position'] = $pos[0]['position'];
+				$job[$i]['posid'] = $pos[0]['posid'];
+				$job[$i]['companyname'] = $emp[0]['companyname'];
+				$job[$i]['date'] = $pend[$i]['date'];
+				$job[$i]['venue'] = $pend[$i]['venue'];
+				$job[$i]['time'] = $pend[$i]['time'];
+				$job[$i]['intid'] = $pend[$i]['intid'];
+			}
 			
 		}
 		for($i=0; $i<count($accept) ; $i++){
 			$appliid = $accept[$i]['appliid'];
 			$appli = $this->applicant_model->getapplication(array('appliid'=>$appliid));
-			$posid = $appli[0]['posid'];
-			$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
-			$empid = $pos[0]['empid'];
-			$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
-			$job1[$i]['position'] = $pos[0]['position'];
-			$job1[$i]['posid'] = $pos[0]['posid'];
-			$job1[$i]['companyname'] = $emp[0]['companyname'];
-			$job1[$i]['date'] = $accept[$i]['date'];
-			$job1[$i]['venue'] = $accept[$i]['venue'];
-			$job1[$i]['intid'] = $accept[$i]['intid'];
+			$appid2 = $appli[0]['appid'];
+			if($appid2==$appid){
+				$posid = $appli[0]['posid'];
+				$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
+				$empid = $pos[0]['empid'];
+				$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
+				$job1[$i]['position'] = $pos[0]['position'];
+				$job1[$i]['posid'] = $pos[0]['posid'];
+				$job1[$i]['companyname'] = $emp[0]['companyname'];
+				$job1[$i]['date'] = $accept[$i]['date'];
+				$job1[$i]['venue'] = $accept[$i]['venue'];
+				$job1[$i]['time'] = $accept[$i]['time'];
+				$job1[$i]['intid'] = $accept[$i]['intid'];
+			}
 			
 		}
 		for($i=0; $i<count($done) ; $i++){
 			$appliid = $done[$i]['appliid'];
 			$appli = $this->applicant_model->getapplication(array('appliid'=>$appliid));
-			$posid = $appli[0]['posid'];
-			$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
-			$empid = $pos[0]['empid'];
-			$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
-			$job3[$i]['position'] = $pos[0]['position'];
-			$job3[$i]['posid'] = $pos[0]['posid'];
-			$job3[$i]['companyname'] = $emp[0]['companyname'];
-			$job3[$i]['date'] = $done[$i]['date'];
-			$job3[$i]['venue'] = $done[$i]['venue'];
-			$job3[$i]['intid'] = $done[$i]['intid'];
+			$appid2 = $appli[0]['appid'];
+			if($appid2==$appid){
+				$posid = $appli[0]['posid'];
+				$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
+				$empid = $pos[0]['empid'];
+				$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
+				$job3[$i]['position'] = $pos[0]['position'];
+				$job3[$i]['posid'] = $pos[0]['posid'];
+				$job3[$i]['companyname'] = $emp[0]['companyname'];
+				$job3[$i]['date'] = $done[$i]['date'];
+				$job3[$i]['venue'] = $done[$i]['venue'];
+				$job3[$i]['time'] = $done[$i]['time'];
+				$job3[$i]['intid'] = $done[$i]['intid'];
+			}
 			
 		}
 		
 		for($i=0; $i<count($decline) ; $i++){
 			$appliid =$decline[$i]['appliid'];
 			$appli = $this->applicant_model->getapplication(array('appliid'=>$appliid));
-			$posid = $appli[0]['posid'];
-			$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
-			$empid = $pos[0]['empid'];
-			$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
-			$job2[$i]['position'] = $pos[0]['position'];
-			$job2[$i]['posid'] = $pos[0]['posid'];
-			$job2[$i]['companyname'] = $emp[0]['companyname'];
-			$job2[$i]['date'] = $decline[$i]['date'];
-			$job2[$i]['venue'] = $decline[$i]['venue'];
-			$job2[$i]['intid'] = $decline[$i]['intid'];
+			$appid2 = $appli[0]['appid'];
+			if($appid2==$appid){
+				$posid = $appli[0]['posid'];
+				$pos = $this->applicant_model->getjobs(array('posid'=>$posid));
+				$empid = $pos[0]['empid'];
+				$emp = $this->applicant_model->getemployers(array('empid'=>$empid));
+				$job2[$i]['position'] = $pos[0]['position'];
+				$job2[$i]['posid'] = $pos[0]['posid'];
+				$job2[$i]['companyname'] = $emp[0]['companyname'];
+				$job2[$i]['date'] = $decline[$i]['date'];
+				$job2[$i]['venue'] = $decline[$i]['venue'];
+				$job2[$i]['intid'] = $decline[$i]['intid'];
+			}
 			
 		}
 		$data['job'] = $job;
@@ -451,6 +513,8 @@ class applicant extends CI_Controller {
 		$job[0]['address'] = $emp[0]['address'];
 		$job[0]['city'] = $emp[0]['city'];
 		$job[0]['state'] = $emp[0]['state'];
+		$job[0]['jobdesc'] = $pos[0]['jobdesc'];
+		$job[0]['jobreq'] = $pos[0]['jobreq'];
 		$appli = $this->applicant_model->getapplication(array('posid'=>$posid));
 		$job[0]['num'] = count($appli);
 		$data['job']=$job;

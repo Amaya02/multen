@@ -134,6 +134,9 @@
                                                 Date
                                             </th>
 											<th>
+                                                Time
+                                            </th>
+											<th>
                                                 Place
                                             </th>
 											<th>
@@ -153,6 +156,7 @@
 												<td>'.$post['position'].'</td>
 												<td>'.$post['companyname'].'</td>
 												<td>'.$post['date'].'</td>
+												<td>'.$post['time'].'</td>
 												<td>'.$post['venue'].'</td>
 												<td>
 													<a class="btn btn-success" style="float: right;" href="'.base_url('applicant/acceptinterview/'.$post['intid']).'" onclick="return(validate());">Accept</a>
@@ -184,6 +188,9 @@
                                                 Date
                                             </th>
 											<th>
+                                                Time
+                                            </th>
+											<th>
                                                 Place
                                             </th>
                                             <th class=" text-right">
@@ -197,6 +204,7 @@
 												<td>'.$post['position'].'</td>
 												<td>'.$post['companyname'].'</td>
 												<td>'.$post['date'].'</td>
+												<td>'.$post['time'].'</td>
 												<td>'.$post['venue'].'</td>
 												<td>
 													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
@@ -222,6 +230,9 @@
                                                 Date
                                             </th>
 											<th>
+                                                Time
+                                            </th>
+											<th>
                                                 Place
                                             </th>
                                             <th class=" text-right">
@@ -235,6 +246,7 @@
 												<td>'.$post['position'].'</td>
 												<td>'.$post['companyname'].'</td>
 												<td>'.$post['date'].'</td>
+												<td>'.$post['time'].'</td>
 												<td>'.$post['venue'].'</td>
 												<td>
 													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>

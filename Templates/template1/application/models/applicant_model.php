@@ -27,7 +27,8 @@ class applicant_model extends CI_Model {
 			'gender' => $_POST["selector1"],
 			'status' => $_POST['status'],
 			'cnumber' => $this->input->post('number'),
-			'resume' => ""
+			'resume' => "",
+			'picture' => ""
 		);
 		$this->db->insert('applicant', $applicant);
 	}
@@ -110,7 +111,9 @@ class applicant_model extends CI_Model {
 				'posid' => $r['posid'],
 				'empid' => $r['empid'],
 				'position' => $r['position'],
-				'status' => $r['status']
+				'status' => $r['status'],
+				'jobreq' => $r['jobreq'],
+				'jobdesc' => $r['jobdesc']
 			);
 			$users[] = $info;
 		}
@@ -136,8 +139,7 @@ class applicant_model extends CI_Model {
 				'city' => $r['city'],
 				'state' => $r['state'],
 				'zipcode' => $r['zipcode'],		
-				'cnumber' => $r['cnumber'],	
-				'conemail' => $r['conemail']			
+				'cnumber' => $r['cnumber']			
 			);
 			$users[] = $info;
 		}
@@ -215,6 +217,8 @@ class applicant_model extends CI_Model {
 	}
 	
 	public function updateaboutme($id){
+		$target_file= $target_dir.basename($_FILES["fileToUpload"]["name"]);
+		$imageFileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		$date = $_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
 		$date2=date("Y-m-d",strtotime($date));
 		$user=array(
@@ -442,6 +446,7 @@ class applicant_model extends CI_Model {
 				'intid' => $r['intid'],
 				'appliid' => $r['appliid'],
 				'venue' => $r['venue'],
+				'time' => $r['time'],
 				'date' => $r['date'],
 				'status' => $r['status']
 			);
@@ -531,6 +536,48 @@ class applicant_model extends CI_Model {
 		}
 		
 		return $users;
+	}
+	
+	public function updatepicture($id){
+		$target_file= $target_dir.basename($_FILES["fileToUpload"]["name"]);
+		$imageFileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		$user=array(
+			'picture' =>"picture".$id.".".$imageFileType
+		);
+		$this->session->set_userdata('picture',"picture".$id.".".$imageFileType);
+		$this->db->where('appid',$id);
+		$this->db->update('applicant', $user);
+	}
+	
+	public function removepicture($id){
+		$user=array(
+			'picture' =>""
+		);
+		$this->session->set_userdata('picture',"");
+		$this->db->where('appid',$id);
+		$this->db->update('applicant', $user);
+	}
+	
+	public function checkpicturetype(){
+	$file= $_FILES["fileToUpload"]["name"];
+	$file=strtolower($file);
+	$imageFileType=pathinfo($file,PATHINFO_EXTENSION);
+	if($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif"){
+		return false;
+	}
+	else{
+		return true;
+	}
+
+	}
+	
+	public function uploadpicture($web,$appid){
+	$target_dir = "C:/xampp/htdocs/".$web."/assets/img/picture/";
+	$target_file= $target_dir.basename($_FILES["fileToUpload"]["name"]);
+	$uploadOk=1;
+	$imageFileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	$newfilename="picture".$appid;
+	move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$target_dir.$newfilename.".".$imageFileType);
 	}
            
 }

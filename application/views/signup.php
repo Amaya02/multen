@@ -49,7 +49,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
 	<h1>Sign Up <small>MULTEN</small></h1>
-	<p><span class="fa fa-check"></span>&nbsp; 	Management your records</p>
+	<p><span class="fa fa-check"></span>&nbsp; 	Manage your records</p>
 					<p><span class="fa fa-check"></span>&nbsp; 	Create your own website</p>
 					<p><span class="fa fa-check"></span>&nbsp; 	Secure your records</p>
 	<?php
@@ -123,8 +123,8 @@
 				echo '</select>';?>
             </div>
             <div class="col-sm-2">
-				<label>Zip Code:</label><span class="required"> * </span>
-              <input required type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+				<label>Zip Code:</label>
+              <input type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
             </div>
           </div>
 

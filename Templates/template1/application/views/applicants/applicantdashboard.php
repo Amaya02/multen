@@ -160,6 +160,17 @@
                             </div>
                         </div>
                     </div>
+					<?php
+					if($count!=0){
+					echo '
+						<div class="col-lg-12">
+                        <div class="card card-chart">
+                            <div class="card-body">
+                                <h4 class="card-title">Your have a pending interview!</h4>
+                            </div>
+                        </div>
+						</div>';
+					} ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="button-container mr-auto ml-auto">  

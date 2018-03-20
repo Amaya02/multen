@@ -108,7 +108,6 @@ class user_model extends CI_Model {
 				'state' => $r['state'],
 				'zipcode' => $r['zipcode'],		
 				'cnumber' => $r['cnumber'],	
-				'conemail' => $r['conemail'],
 				'billid' => $r['billid'],	
 				'configid' => $r['configid'],			
 			);
@@ -173,7 +172,6 @@ class user_model extends CI_Model {
 			'lname'=>$this->input->post('lname'),
 			'username'=>$this->input->post('username'),
 			'email'=>$this->input->post('email'),
-			'password'=>sha1($this->input->post('password')),
 			'address'=>$this->input->post('address'),
 			'city'=>$this->input->post('city'),
 			'state'=>$this->input->post('state'),

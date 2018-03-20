@@ -306,7 +306,8 @@ private function createtable($config){
 		gender varchar(50) NOT NULL,
 		status varchar(50) NOT NULL,
 		cnumber varchar(50) NOT NULL,
-		resume varchar(50) NOT NULL
+		resume varchar(50) NOT NULL,
+		picture varchar(50) NOT NULL
 	)";
 	$conn->query($sql);
 	
@@ -400,6 +401,8 @@ private function createtable($config){
 		posid int(20) NOT NULL,
 		empid int(20) NOT NULL,
 		position varchar(50) NOT NULL,
+		jobdesc varchar(500) NOT NULL,
+		jobreq varchar(500) NOT NULL,
 		status varchar(50) NOT NULL
 	)";
 	$conn->query($sql);

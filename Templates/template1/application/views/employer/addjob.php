@@ -136,6 +136,24 @@
                                             </div>
                                         </div>
                                     </div>
+									<div class="row">
+										<div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Job Description</label><span style="color: red"> *</span><br/>
+                                                <textarea required rows="4" cols="70" name="jobdesc" 
+												pattern=".{1,500}" title="Maximum of 500 characters"></textarea>
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Job Requirements</label><span style="color: red"> *</span><br/>
+                                                <textarea required rows="4" cols="70" name="jobreq"
+												pattern=".{1,500}" title="Maximum of 500 characters" ></textarea>
+                                            </div>
+                                        </div>
+									</div>
 									<button type="submit" style="float: right;" class="btn btn-success">Add</button>
                                 </form>
 								<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>

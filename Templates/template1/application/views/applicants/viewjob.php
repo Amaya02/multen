@@ -144,6 +144,26 @@
                             </div>
                         </div>
                     </div>
+					<div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h4 class="text-center">Job Description</h4><hr/>
+							</div>
+							<div class="card-body">
+                                <p class="text-center"><?php echo $job[0]['jobdesc']; ?></p><br/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h4 class="text-center">Job Requirements</h4><hr/>
+							</div>
+							<div class="card-body">
+                                <p class="text-center"><?php echo $job[0]['jobreq']; ?></p><br/>
+							</div>
+						</div>
+					</div>
 				</div>
 				<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>

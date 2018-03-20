@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
+                                                <label for="exampleInputEmail1">Email address</label><span style="color: red"> *</span>
                                                 <input required name="email" type="email" class="form-control" placeholder="Email" value="<?php echo $metadata['email']; ?>" />
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                     <div class="row">
 									    <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Company name</label>
+                                                <label>Company name</label><span style="color: red"> *</span>
                                                 <input type="text" name="companyname" class="form-control" placeholder="Company Name" value="<?php echo $metadata['companyname']; ?>" required />
 											</div>
                                         </div>
@@ -165,7 +165,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Address</label>
+                                                <label>Address</label><span style="color: red"> *</span>
                                                 <input required type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $metadata['address']; ?>" />
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
-                                                <label>State</label>
+                                                <label>State</label><span style="color: red"> *</span>
                                                 <?php
 												$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
 													"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
@@ -194,14 +194,14 @@
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input required type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
+                                                <input type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
-                                                <label>Contact Number</label>
+                                                <label>Contact Number</label><span style="color: red"> *</span>
                                                 <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
                                             </div>
                                         </div>
@@ -292,6 +292,7 @@ function validate()
     else
       return false;
 }
+
 </script>
 
 </html>

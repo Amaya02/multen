@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 10:29 AM
+-- Generation Time: Mar 19, 2018 at 02:07 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -36,7 +36,6 @@ CREATE TABLE `agency` (
   `state` varchar(50) NOT NULL,
   `zipcode` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
-  `conemail` varchar(50) NOT NULL,
   `billid` int(50) NOT NULL,
   `configid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -45,8 +44,8 @@ CREATE TABLE `agency` (
 -- Dumping data for table `agency`
 --
 
-INSERT INTO `agency` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`, `billid`, `configid`) VALUES
-(1, 'tenant1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Jobstreet', 'St. Magallanes', 'Makati', '', '4118', '09123456789', 'contactus@yahoo.com', 1, 1);
+INSERT INTO `agency` (`userid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `billid`, `configid`) VALUES
+(1, 'tenant1@yahoo.com', 'ca771caf60ab211d827f17a043e13668c225f5b6', 'Corporation', 'St. Magallanes', 'Makati', 'National Capital Region (NCR)', '1234', '09123456789', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -71,15 +70,17 @@ CREATE TABLE `applicant` (
   `gender` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
-  `resume` varchar(50) NOT NULL
+  `resume` varchar(50) NOT NULL,
+  `picture` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`appid`, `email`, `password`, `fname`, `lname`, `mname`, `address`, `city`, `state`, `zipcode`, `nationality`, `bday`, `religion`, `gender`, `status`, `cnumber`, `resume`) VALUES
-(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Candy Amaya', 'Lelis', 'de Castro', 'St. Magallanes', 'Makati', 'N/A', '4118', 'Filipino', '1999-02-02', 'Roman Catholic', 'Female', 'Single', '09771273912', '');
+INSERT INTO `applicant` (`appid`, `email`, `password`, `fname`, `lname`, `mname`, `address`, `city`, `state`, `zipcode`, `nationality`, `bday`, `religion`, `gender`, `status`, `cnumber`, `resume`, `picture`) VALUES
+(1, 'amayalelis@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Candy Amaya', 'Lelis', 'de Castro', 'Blk 19 Lt 21 Anahaw 1', 'Silang Cavite', 'Calabarzon', '4118', 'Filipino', '1999-02-02', 'Roman Catholic', 'Female', 'Single', '09771273912', 'resume1.pdf', 'picture1.jpg'),
+(2, 'john@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'John', 'Cruz', 'Loyd', '12 St. Ave', 'Pasig City', 'National Capital Region (NCR)', '1234', 'Filipino', '1980-01-01', 'Iglesha', 'Male', 'Married', '09123456789', '', '');
 
 -- --------------------------------------------------------
 
@@ -93,6 +94,14 @@ CREATE TABLE `application` (
   `posid` int(20) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `application`
+--
+
+INSERT INTO `application` (`appliid`, `appid`, `posid`, `status`) VALUES
+(1, 1, 1, 'hired'),
+(2, 2, 1, 'preselection');
 
 -- --------------------------------------------------------
 
@@ -131,7 +140,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`configid`, `websitename`, `databasename`, `template`) VALUES
-(1, 'jobstreet', 'tenant1', 'template1');
+(1, 'mywebsite', 'tenant1', 'template1');
 
 -- --------------------------------------------------------
 
@@ -150,6 +159,14 @@ CREATE TABLE `education` (
   `honor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`educid`, `appid`, `level`, `school`, `address`, `startyear`, `endyear`, `honor`) VALUES
+(1, 1, 'High School', 'Philippine Christian University', 'Dasmarinas City Cavite', '2011', '2015', '5th Honorable Mention'),
+(2, 1, 'Bachelor/College', 'Technological University of the Philippines', 'Ermita Manila', '2015', '2019', 'Dean\'s Lister - 2nd year 2nd semester');
+
 -- --------------------------------------------------------
 
 --
@@ -165,16 +182,16 @@ CREATE TABLE `employer` (
   `city` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `zipcode` varchar(50) NOT NULL,
-  `cnumber` varchar(50) NOT NULL,
-  `conemail` varchar(50) NOT NULL
+  `cnumber` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employer`
 --
 
-INSERT INTO `employer` (`empid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`, `conemail`) VALUES
-(1, 'emp1@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'employer 1', 'Manila', 'Manila', 'Manila', '4118', '09', 'contact@yahoo.com');
+INSERT INTO `employer` (`empid`, `email`, `password`, `companyname`, `address`, `city`, `state`, `zipcode`, `cnumber`) VALUES
+(1, 'infoman@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'Information Solution Inc', 'St. 12', 'Quezon City', 'National Capital Region (NCR)', '1234', '09123456789'),
+(2, 'itcompany@gmail.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'IT Tech Company', 'St. Villanueva', 'Pasig City', 'National Capital Region (NCR)', '1234', '09123456789');
 
 -- --------------------------------------------------------
 
@@ -201,6 +218,7 @@ CREATE TABLE `interview` (
   `appliid` int(20) NOT NULL,
   `date` date NOT NULL,
   `venue` varchar(50) NOT NULL,
+  `time` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -214,8 +232,19 @@ CREATE TABLE `position` (
   `posid` int(20) NOT NULL,
   `empid` int(20) NOT NULL,
   `position` varchar(50) NOT NULL,
+  `jobdesc` varchar(500) NOT NULL,
+  `jobreq` varchar(500) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `position`
+--
+
+INSERT INTO `position` (`posid`, `empid`, `position`, `jobdesc`, `jobreq`, `status`) VALUES
+(1, 1, 'Web Developer', 'The role is responsible for designing, coding and modifying websites, from layout to function and according to a client\'s specifications. Strive to create visually appealing sites that feature user-friendly design and clear navigation.', 'Regular exposure to business stakeholders and executive management, as well as the authority and scope to apply your expertise to many interesting technical problems.\r\nCandidate must have a strong understanding of UI, cross-browser compatibility, general web functions and standards.\r\nThe position requires constant communication with colleagues.', 'Open'),
+(2, 1, 'Front end Developer', 'A front-end web developer is probably what most people think of as a “web developer”. A front-end web developer is responsible for implementing visual elements that users see and interact with in a web application. They are usually supported by back-end web developers, who are responsible for server-side application logic and integration of the work front-end developers do.', 'Develop new user-facing features\r\nBuild reusable code and libraries for future use\r\nEnsure the technical feasibility of UI/UX designs\r\nOptimize application for maximum speed and scalability\r\nAssure that all user input is validated before submitting to back-end\r\nCollaborate with other team members and stakeholders', 'Open'),
+(4, 2, 'Backend Developer', 'A back-end web developer is responsible for server-side web application logic and integration of the work front-end web developers do. Back-end developers usually write web services and APIs used by front-end developers and mobile application developers.', 'Integration of user-facing elements developed by a front-end developers with server side logic\r\nBuilding reusable code and libraries for future use\r\nOptimization of the application for maximum speed and scalability\r\nImplementation of security and data protection\r\nDesign and implementation of data storage solutions', 'Open');
 
 -- --------------------------------------------------------
 
@@ -229,6 +258,13 @@ CREATE TABLE `savedjobs` (
   `posid` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `savedjobs`
+--
+
+INSERT INTO `savedjobs` (`saveid`, `appid`, `posid`) VALUES
+(2, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -240,6 +276,17 @@ CREATE TABLE `skill` (
   `appid` int(20) NOT NULL,
   `skill` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skill`
+--
+
+INSERT INTO `skill` (`skillid`, `appid`, `skill`) VALUES
+(1, 1, 'PHP'),
+(2, 1, 'HTML'),
+(3, 1, 'CSS'),
+(4, 1, 'JAVA'),
+(5, 1, 'C Language');
 
 --
 -- Indexes for dumped tables
@@ -325,22 +372,22 @@ ALTER TABLE `skill`
 -- AUTO_INCREMENT for table `applicant`
 --
 ALTER TABLE `applicant`
-  MODIFY `appid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `appid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-  MODIFY `appliid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `appliid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `educid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `educid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `employer`
 --
 ALTER TABLE `employer`
-  MODIFY `empid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `empid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `experience`
 --
@@ -350,22 +397,22 @@ ALTER TABLE `experience`
 -- AUTO_INCREMENT for table `interview`
 --
 ALTER TABLE `interview`
-  MODIFY `intid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `intid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `posid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `posid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `savedjobs`
 --
 ALTER TABLE `savedjobs`
-  MODIFY `saveid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `saveid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `skillid` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `skillid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

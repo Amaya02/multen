@@ -110,37 +110,6 @@
                                 <h4> Search results for <?php echo $key ?></h4>
                             </div>
                                 <div class="card-body table-responsive">
-								 
-                                    <table class="table table-hover table-striped">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Applicant Name
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-											foreach($result as $post){
-											echo '	<tr>	
-												<td>'.$post['fname'].' '.$post['mname'].' '.$post['lname'].'</td>
-												<td>
-												
-												</td>
-												<td>
-													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
-												</td>
-											</tr>
-											';
-											}
-										?>
-                                        </tbody>
-                                    </table>
-									<hr/>
 									<table class="table table-hover table-striped">
                                         <thead class=" text-primary">
                                            <th>

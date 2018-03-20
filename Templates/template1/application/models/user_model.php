@@ -66,6 +66,7 @@ class user_model extends CI_Model {
 						'status' => $row->status,
 						'cnumber' => $row->cnumber,
 						'resume' => $row->resume,
+						'picture' => $row->picture,
 						'validatedapp' => true,
 						'validatedemp' => false);
 			$this->session->set_userdata($data);
@@ -102,7 +103,6 @@ class user_model extends CI_Model {
 						'state' => $row->state,
 						'zipcode' => $row->zipcode,		
 						'cnumber' => $row->cnumber,	
-						'conemail' => $row->conemail,
 						'validatedapp' => false,
 						'validatedemp' => true);
 			$this->session->set_userdata($data);

@@ -78,6 +78,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<label class="w3ls-opt">Password :<span class="w3ls-star"> * </span></label>
 			<span class="w3ls-text w3ls-name">
 				 <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+				<input type="checkbox" onclick="myFunction2()" />Show Password
 			</span>
 	</li>
 	
@@ -89,19 +90,32 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</li>
 
 	<li>
-		<label class="w3ls-opt">Address: <span class="w3ls-star"> * </span> </label>
+		<label class="w3ls-opt">Address (City and Zip Code not required): <span class="w3ls-star"> * </span> </label>
 		<div class="adderss">
 			<span class="text">
 				<input type="text" name="address" placeholder="Street address" required />
 			</span>
 			<span class="text">
-				<input type="text" name="city" placeholder="City" required />
+				<input type="text" name="city" placeholder="City"  />
 			</span>
 			<span class="text">
-				<input type="text" name="state" placeholder="State/Province"  />
+				<input type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 			</span>
-			<span class="text">
-				<input required type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+		</div>
+	</li>
+	<li>
+		<label class="w3ls-opt">State :<span class="w3ls-star"> * </span></label>
+		<div class="w3ls-text w3ls-name">
+			<span class="agile_sub-label">
+				<?php
+				$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+					"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+					"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+				echo '<select name="state" class="month">';
+				foreach($state as $sta){
+					echo '<option value="'.$sta.'">'.$sta.'</option>';
+				}
+				echo '</select>';?>
 			</span>
 		</div>
 	</li>
@@ -110,14 +124,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<span class="w3ls-text w3ls-name">
 				<input type="text" name="number" placeholder="Phone number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required />
 			</span>
-	</li>
-	<li>	
-		<div class="mail">
-			<label class="w3ls-opt">Contact Email :<span class="w3ls-star"> * </span></label>
-			<span class="w3ls-text w3ls-name">
-				<input type="email" name="conemail" placeholder="Enter e-mail" required />
-			</span>
-		</div>
 	</li>
 	
 	</div>

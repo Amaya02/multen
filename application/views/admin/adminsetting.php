@@ -176,7 +176,15 @@
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" name="state" class="form-control" disabled="" placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                                <?php
+												$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+													"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+													"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+												echo '<select name="state" class="form-control" disabled="">';
+												foreach($state as $sta){
+													echo "<option value='".$sta."'"; if (!empty($metadata['state']) && $metadata['state'] == $sta)  echo 'selected = "selected"'; echo">{$sta}</option>";
+												}
+												echo '</select>';?>
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
