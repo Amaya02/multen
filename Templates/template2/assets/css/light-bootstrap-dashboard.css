@@ -16,6 +16,34 @@
 
 /*      light colors         */
 
+.ul1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.li1 {
+    float: left;
+}
+
+.li1 a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.li1 a:hover {
+    background-color: #111;
+}
+
+.active1 {
+    background-color: #4CAF50;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -86,6 +114,19 @@ button.close {
 	background-size:contain;
     background-repeat:no-repeat;
     width:200px;height:50px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.pic{
+	background-size:contain;
+    background-repeat:no-repeat;
+    width:150px;height:150px;
 }
 
 h1,

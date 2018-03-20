@@ -20,6 +20,17 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
@@ -36,7 +47,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/profile">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>Profile</p>
@@ -54,7 +65,7 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
@@ -73,7 +84,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Edit Profile </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -112,38 +123,55 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
-                            </div>
+                <div class="container-fluid"> 
+					<div class="card">
+                        <ul class="ul1">
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/aboutme">About Me</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/education">Education</a></li>
+							<li class="li1 active1"><a href="<?php echo base_url(); ?>applicant/experiences">Experiences</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/skills">Skills</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/resume">Resume</a></li>
+						</ul>
+					</div>
+                </div>     
+				<div class="container-fluid"> 
+					<div class="card card-user">
+						<div class="card-body">
                                <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
+                                    <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
                                             <th>
                                                 Company
                                             </th>
-											<th>
-                                                Status
+                                            <th>
+                                               Job
                                             </th>
-                                            <th class="text-right">
+                                            <th>
+                                                Years
+                                            </th>
+											<th>
+                                               
+                                            </th>
+											<th class=" text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
                                             <?php
-											foreach($job as $post){
+											foreach($exp as $post){
 											echo '	<tr>	
-												<td>'.$post['position'].'</td>
-												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
+												<td>'.$post['company'].'</td>
 												<td>
-													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
+                                                    '.$post['job'].'
+                                                </td>
+												<td>
+                                                    '.$post['years'].'
+                                                </td>
+												<td>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('applicant/experience/edit/'.$post['expid']).'">Edit</a>
+												</td>
+												<td class=" text-right">
+													<a class="btn btn-danger" style="float: right;" href="'.base_url('applicant/deleteexp/'.$post['expid']).'" onclick="return(validate());">Remove</a>
 												</td>
 											</tr>
 											';
@@ -151,13 +179,15 @@
 										?>
                                         </tbody>
                                     </table>
-                            </div>
-								
-                            </div>
-                        </div>
-                    </div> 
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-                </div>  
+                                </div>
+						</div>
+						<div class="card-footer">
+						<button type="button" style="float: left;" class="btn btn-info" onclick="window.history.back();">Back</button>
+							<a href="<?php echo base_url(); ?>applicant/experience/add" style="float: left;" class="btn btn-warning">Add</a><br/><br/>
+							
+						</div>
+					</div>
+                </div>     
 			</div>
                   
 
@@ -215,5 +245,14 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to remove this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

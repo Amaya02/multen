@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li class="nav-item  active"><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -112,18 +110,10 @@
                                 <h4> List of Applicants</h4>
                             </div>
                                 <div class="card-body table-responsive">
-								 <div style="display: inline;"> 
-                                    <select id="mySelector">
-                                        <option value="">Select job</option>
-                                    </select>
-                                </div>
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
                                            <th>
                                                 Job
-                                            </th>
-                                            <th>
-                                                Company
                                             </th>
                                             <th>
                                                 Name
@@ -136,19 +126,25 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>    
-                                                <td>position</td>
-                                                <td>company</td>
-                                                <td>
-                                                    name
+                                            <?php
+											foreach($job as $post){
+											echo '	<tr>
+												<td>
+                                                    '.$post['position'].'
                                                 </td>
 												<td>
-                                                
-												</td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
-                                            </tr>
+												<td>
+                                                    
+                                                </td>
+												<td class="text-right">
+													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                             </div>
@@ -191,7 +187,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>

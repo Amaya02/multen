@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -111,16 +109,35 @@
                    <div class="col-lg-12">
                         <div class="card card-chart">
                             <div class="card-header">
-                                <h2 class="card-title text-center">Job Name</h2>
-								<h5 class="card-category text-center">Company Name</h5>
-								<h5 class="card-category text-center"><i class="fa fa-map-marker"></i>Address</h5>
+                                <h2 class="card-title text-center"><?php echo $job[0]['position']; ?></h2>
+								<h5 class="card-category text-center"><?php echo $job[0]['companyname']; ?></h5>
+								<h5 class="card-category text-center"><i class="fa fa-map-marker"></i>
+								<?php echo $job[0]['address']; ?> <?php echo $job[0]['city']; ?> <?php echo $job[0]['state']; ?></h5>
+								<h5 class="card-category text-center">No. of applicants: <?php echo $job[0]['num']; ?></h5>
 								<hr>
-                            </div>
-                            <div class="card-footer">
-							
-                            </div>
-                        </div>
-                    </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h4 class="text-center">Job Description</h4><hr/>
+							</div>
+							<div class="card-body">
+                                <p class="text-center"><?php echo $job[0]['jobdesc']; ?></p><br/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h4 class="text-center">Job Requirements</h4><hr/>
+							</div>
+							<div class="card-body">
+                                <p class="text-center"><?php echo $job[0]['jobreq']; ?></p><br/>
+							</div>
+						</div>
+					</div>
                     
                     <div class="col-md-12">
 						<div class="card card-chart">
@@ -128,16 +145,8 @@
                                 <h4>List of Applicants</h4>
                         </div>
                        <div class="card-body table-responsive">
-								<div style="display: inline;"> 
-									<select id="mySelector">
-										<option value="">Select job</option>
-									</select>
-								</div>
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                             <th>
-                                                ID No.
-                                            </th>
                                             <th>
                                                 Applicant Name
                                             </th>
@@ -149,34 +158,22 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    123
-                                                </td>
-                                                <td>
-                                                   Amaya
-                                                </td>
+                                             <?php
+											foreach($job1 as $post){
+											echo '	<tr>	
 												<td>
-                                                   
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
+                                                    
                                                 </td>
-                                            </tr>
-											<tr>    
-                                                <td>
-                                                    3
-                                                </td>
-                                                <td>
-                                                   maya
-                                                </td>
-												<td>
-                                                   
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
-                                                </td>
-                                            </tr>
+												<td class="text-right">
+													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div> 
@@ -220,7 +217,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>

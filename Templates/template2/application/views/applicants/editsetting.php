@@ -54,7 +54,7 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
@@ -73,7 +73,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Edit Account </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -112,52 +112,85 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">                
+			<div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
+                            <div class="card-header">
+                                <h5 class="title">Edit Account</h5>
                             </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
-                                            <th>
-                                                Company
-                                            </th>
-											<th>
-                                                Status
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-											foreach($job as $post){
-											echo '	<tr>	
-												<td>'.$post['position'].'</td>
-												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
-												<td>
-													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
-												</td>
-											</tr>
-											';
-											}
-										?>
-                                        </tbody>
-                                    </table>
-                            </div>
-								
+                            <div class="card-body">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>applicant/savesetting" onsubmit="return(validate());">
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>First Name</label><span style="color: red"> *</span>
+                                                <input required type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $metadata['fname']; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>Middle Name</label><span style="color: red"> *</span>
+                                                <input required type="text" name="mname" class="form-control" placeholder="Middle Name" value="<?php echo $metadata['mname']; ?>" />
+                                            </div>
+                                        </div>
+										<div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Last Name</label><span style="color: red"> *</span>
+                                                <input required type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $metadata['lname']; ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label><span style="color: red"> *</span>
+                                                <input required type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $metadata['address']; ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>City</label><span style="color: red"> *</span>
+                                                <input required type="text" name="city" class="form-control" placeholder="City" value="<?php echo $metadata['city']; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>State</label><span style="color: red"> *</span>
+                                                <input required type="text" name="state" class="form-control" placeholder="State" value="<?php echo $metadata['state']; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Zip Code</label><span style="color: red"> *</span>
+                                                <input required type="text" name="zipcode" name="zipcode" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Contact Number</label><span style="color: red"> *</span>
+                                                <input required type="text" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber']; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Email Address</label><span style="color: red"> *</span>
+                                                <input required type="email" name="email" placeholder="Email Address" class="form-control" value="<?php echo $metadata['email']; ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+									<button type="submit" style="float: right;" class="btn btn-success">Save</button>
+                                </form>
+								<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
                             </div>
                         </div>
-                    </div> 
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-                </div>  
+                    </div>
+                 </div>
+			</div>
 			</div>
                   
 
@@ -215,5 +248,15 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to update this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 
 </html>

@@ -20,6 +20,17 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
@@ -53,8 +64,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li  class="nav-item  active"><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -67,7 +76,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Pre Selection </a>
+                    <a class="navbar-brand"> Settings </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -106,61 +115,42 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">
-                            <div class="card strpied-tabled-with-hover">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4> List of Applicants</h4>
+			<div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Edit Password</h5>
                             </div>
-                                <div class="card-body table-responsive">
-								<div style="display: inline;"> 
-                                    <select id="mySelector">
-                                        <option value="">Select job</option>
-                                    </select>
-                                </div>
-                                    <table class="table table-hover table-striped">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
-                                            <th>
-                                                Company
-                                            </th>
-                                            <th>
-                                                Name
-                                            </th>
-                                            <th>
-                                                
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>    
-                                                <td>position</td>
-                                                <td>company</td>
-                                                <td>
-                                                    name
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-success" style="float: right;" href="<?php echo base_url(); ?>employer/interviewapplicant">Interview</a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="card-body">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>employer/savepassword" onsubmit="return(validate());">
+                                    <div class="row">
+										<div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Current Password</label><span style="color: red"> *</span>
+                                                <input required type="password" name="password" class="form-control" placeholder="password" value="" />
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>New Password</label><span style="color: red"> *</span>
+                                                <input required type="password" name="password2" id="password2" class="form-control" placeholder="password" value="" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+												<input type="checkbox" onclick="myFunction2()" />Show Password
+											</div>
+                                        </div>
+                                    </div>
+									<button type="submit" style="float: right;" class="btn btn-success">Save</button>
+                                </form>
+								<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
                             </div>
-                      </div>
-                </div>
-                  <div class="container-fluid">
-                     <button type="button" style="float: left;" class="btn btn-submit">Print List</button> <br>
-                  </div>
-
-            </div>             
+                        </div>
+                    </div>
+                 </div>
+			</div>
+			</div>
                   
-
             <footer class="footer">
                 <div class="container">
                     <nav>
@@ -192,7 +182,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -213,5 +203,23 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to update this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+function myFunction2(){
+	var x=document.getElementById("password2");
+	if(x.type == "password"){
+			x.type="text";
+	}
+	else{
+		x.type="password";
+	}
+}
+</script>
 </html>

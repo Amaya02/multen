@@ -160,6 +160,17 @@
                             </div>
                         </div>
                     </div>
+					<?php
+					if($count!=0){
+					echo '
+						<div class="col-lg-12">
+                        <div class="card card-chart">
+                            <div class="card-body">
+                                <h4 class="card-title">Your have a pending interview!</h4>
+                            </div>
+                        </div>
+						</div>';
+					} ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="button-container mr-auto ml-auto">  
@@ -175,6 +186,9 @@
                                                 Company Name
                                             </th>
 											<th>
+                                                Status
+                                            </th>
+											<th>
                                                 
                                             </th>
                                             <th class="text-right">
@@ -182,20 +196,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    System Analyst
-                                                </td>
-                                                <td>
-                                                   Emp1
+                                             <?php
+											foreach($job as $post){
+											echo '	<tr>	
+												<td>'.$post['position'].'</td>
+												<td>
+                                                    '.$post['companyname'].'
                                                 </td>
 												<td>
-                                                   <a class="btn btn-warning" style="float: right;" href="">Unsave Job</a>
+                                                    '.$post['status'].'
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewjob">View Job</a>
+                                                    <a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
                                                 </td>
-                                            </tr>
+												<td>
+													<a class="btn btn-warning" style="float: right;" href="'.base_url('applicant/unsavejob/'.$post['posid']).'">Unsave</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -238,7 +258,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>
