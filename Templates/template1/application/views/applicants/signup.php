@@ -89,10 +89,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</li>
 		
 	<li>
-		<label class="w3ls-opt">Name :<span class="w3ls-star"> * </span></label>
+		<label class="w3ls-opt">Name (Middle Name not required) :<span class="w3ls-star"> * </span></label>
 		<div class="w3ls-name">	
 			<input type="text" name="fname"  placeholder="First Name" required />
-			<input type="text" name="mname"  placeholder="Middle Name" required />
+			<input type="text" name="mname"  placeholder="Middle Name" />
 			<input type="text" name="lname"  placeholder="Last Name" required />
 		</div>
 	</li>
@@ -103,7 +103,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</span>
 	</li>
 	<li>
-		<label class="w3ls-opt">Address (City not required): <span class="w3ls-star"> * </span> </label>
+		<label class="w3ls-opt">Address (City and Zip Code not required): <span class="w3ls-star"> * </span> </label>
 		<div class="adderss">
 			<span class="text">
 				<input type="text" name="address" placeholder="Street address" required />
@@ -112,7 +112,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<input type="text" name="city" placeholder="City" />
 			</span>
 			<span class="text">
-				<input required type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+				<input type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 			</span>
 		</div>
 	</li>

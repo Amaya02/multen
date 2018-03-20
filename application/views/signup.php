@@ -123,8 +123,8 @@
 				echo '</select>';?>
             </div>
             <div class="col-sm-2">
-				<label>Zip Code:</label><span class="required"> * </span>
-              <input required type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+				<label>Zip Code:</label>
+              <input type="text" name="zipcode" placeholder="Zip Code" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
             </div>
           </div>
 

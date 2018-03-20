@@ -193,8 +193,8 @@
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
-                                                <label>Zip Code</label><span style="color: red"> *</span>
-                                                <input required type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
+                                                <label>Zip Code</label>
+                                                <input type="text" name="zipcode" name="cnumber" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -292,6 +292,7 @@ function validate()
     else
       return false;
 }
+
 </script>
 
 </html>

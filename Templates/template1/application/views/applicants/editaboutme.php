@@ -141,8 +141,8 @@
                                         </div>
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
-                                                <label>Middle Name</label><span style="color: red"> *</span>
-                                                <input required type="text" name="mname" class="form-control" placeholder="Middle Name" value="<?php echo $metadata['mname']; ?>" />
+                                                <label>Middle Name</label>
+                                                <input type="text" name="mname" class="form-control" placeholder="Middle Name" value="<?php echo $metadata['mname']; ?>" />
                                             </div>
                                         </div>
 										<div class="col-md-4 pl-1">
@@ -184,8 +184,8 @@
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
-                                                <label>Zip Code</label><span style="color: red"> *</span>
-                                                <input required type="text" name="zipcode" name="zipcode" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
+                                                <label>Zip Code</label>
+                                                <input type="text" name="zipcode" name="zipcode" placeholder="Phone Number" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['zipcode']; ?>" />
                                             </div>
                                         </div>
                                     </div>
