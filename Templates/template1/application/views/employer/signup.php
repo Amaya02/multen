@@ -78,6 +78,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<label class="w3ls-opt">Password :<span class="w3ls-star"> * </span></label>
 			<span class="w3ls-text w3ls-name">
 				 <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+				<input type="checkbox" onclick="myFunction2()" />Show Password
 			</span>
 	</li>
 	
