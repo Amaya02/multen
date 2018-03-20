@@ -73,7 +73,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Company </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -133,16 +133,19 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>    
-												<td>emp1</td>
-                                                
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>applicant/viewcompany">View Company</a>
-                                                </td>
-                                            </tr>
+                                            <?php
+											foreach($employer as $post){
+											echo '	<tr>	
+												<td>'.$post['companyname'].'</td>
+												<td>
+												</td>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewemployer/'.$post['empid']).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                             </div>
@@ -188,7 +191,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>

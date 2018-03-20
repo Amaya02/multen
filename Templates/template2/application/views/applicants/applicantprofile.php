@@ -115,15 +115,26 @@
                 <div class="container-fluid">   
                         <div class="card card-user">
                              <div class="button-container mr-auto ml-auto">
-                                 <h4 class="text-center">Name of the applicant</h4>
+								<?php
+									$file = $metadata['picture']; //Let say If I put the file name Bang.png
+									if($file!=""){
+										echo '<img src="'.base_url('assets/img/picture/'.$file).'" alt="" class="pic center" />';
+									} ?>
+                                 <h4 class="text-center"><?php echo $metadata['fname']; ?> <?php echo $metadata['mname']; ?> <?php echo $metadata['lname']; ?></h4>
                               </div>
                               <hr> <hr>
                                <div class="card-body">
 								<p class="description text-center" >
-									<i class="fa fa-phone"></i>
-									<br/><i class="fa fa-envelope"></i>
-									<br/><i class="fa fa-home"></i>
-									<br/><i class="fa fa-paperclip"></i><a href="">Download Resume</a>
+									<i class="fa fa-phone"></i> <?php echo $metadata['cnumber']; ?>
+									<br/><i class="fa fa-envelope"></i> <?php echo $metadata['email']; ?>
+									<br/><i class="fa fa-home"></i>  <?php echo $metadata['address']; ?>  <?php echo $metadata['city']; ?>  <?php echo $metadata['state']; ?>
+									  <?php echo $metadata['zipcode']; ?>
+									<?php
+									$file = $metadata['resume']; //Let say If I put the file name Bang.png
+									if($file!=""){
+										echo '<br/><i class="fa fa-paperclip"></i><a href="'.base_url('applicant/downloadresume?nama='.$file).'">Download Resume</a>';
+									} ?>
+									
 								</p>   
                             </div>
                      </div> 
@@ -172,23 +183,26 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                             <?php
+											foreach($educ as $post){
+											echo '	<tr>	
+												<td>'.$post['level'].'</td>
+												<td>
+                                                    '.$post['school'].'
+                                                </td>
+												<td>
+                                                    '.$post['address'].'
                                                 </td>
                                                 <td>
-                                                   
+                                                    '.$post['startyear'].' - '.$post['endyear'].'
                                                 </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-                                                   
-                                                </td>
-                                                <td class=" text-right">
-                                                  
-                                                </td>
-                                            </tr>
+												<td>
+													'.$post['honor'].'
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -217,17 +231,20 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                            <?php
+											foreach($exp as $post){
+											echo '	<tr>	
+												<td>'.$post['company'].'</td>
+												<td>
+                                                    '.$post['job'].'
                                                 </td>
-                                                <td>
-                                                    
+												<td>
+                                                    '.$post['years'].'
                                                 </td>
-                                                <td class=" text-right">
-                                                    
-                                                </td>
-                                            </tr>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -246,15 +263,21 @@
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
                                             <th>
-                                               Skills
+                                               Skill
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    
+                                             <?php
+											foreach($skill as $post){
+											echo '	<tr>	
+												<td>
+                                                    '.$post['skill'].'
                                                 </td>
-                                            </tr>
+												
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -262,7 +285,7 @@
                         </div>
                     </div>
 				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-				<button type="button" style="float: right;" class="btn btn-info">Edit Profile</button><br/><br/>
+				<a href="<?php echo base_url(); ?>applicant/aboutme" style="float: right;" class="btn btn-info">Edit Profile</a><br/><br/>
 			</div>  
 			</div>
                   
@@ -300,7 +323,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
           </div>
         </div>
       </div>

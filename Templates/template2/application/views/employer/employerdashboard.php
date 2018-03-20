@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -148,7 +146,7 @@
                             </div>
                             
                             <div class="card-footer">
-							<a href="<?php echo base_url(); ?>employer/preselection">
+							<a href="<?php echo base_url(); ?>employer/selected">
 								<i class="nc-icon nc-stre-right"></i>
 							</a>
                             </div>
@@ -166,9 +164,8 @@
 								<p><b>Address</b>: <?php echo $metadata['address']; ?></p></p>
 								<p><b>City:</b> <?php echo $metadata['city']; ?></p></p>
 								<p><b>State:</b> <?php echo $metadata['state']; ?></p></p>
-								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p><br/>
-								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p>
-								<p><b>Additional Email Address:</b> <?php echo $metadata['conemail']; ?></p></p><br/>
+								<p><b>Zip Code:</b> <?php echo $metadata['zipcode']; ?></p></p>
+								<p><b>Contact Number:</b> <?php echo $metadata['cnumber']; ?></p></p><br/>
                             </div>
                         </div>
                     </div>
@@ -209,7 +206,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>

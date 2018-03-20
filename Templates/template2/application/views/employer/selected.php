@@ -53,8 +53,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li class="nav-item  active"><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -111,19 +109,11 @@
                             <div class="button-container mr-auto ml-auto">  
                                 <h4> List of Applicants</h4>
                             </div>
-                                <div class="card-body table-responsive">
-                                <div style="display: inline;"> 
-                                    <select id="mySelector">
-                                        <option value="">Select job</option>
-                                    </select>
-                                </div>								
-                                    <table class="table table-hover table-striped">
+                                <div class="card-body table-responsive">							
+                                    <table class="table table-hover table-striped" id="myTable">
                                         <thead class=" text-primary">
                                             <th>
-                                                Job
-                                            </th>
-                                            <th>
-                                                Company
+												Job
                                             </th>
                                             <th>
                                                 Name
@@ -139,23 +129,29 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>    
-                                                <td>position</td>
-                                                <td>company</td>
-                                                <td>
-                                                    name
+                                            <?php
+											foreach($job as $post){
+											echo '	<tr>
+												<td>
+                                                    '.$post['position'].'
                                                 </td>
-                                                <td>
-                                                <a class="btn btn-warning" style="float: right;" href="<?php echo base_url(); ?>employer/preselection">Pre-Select</a>
+												<td>
+                                                    '.$post['fname'].' '.$post['mname'].' '.$post['lname'].'
                                                 </td>
-                                                <td>
-                                                    <a class="btn btn-success" style="float: right;" href="<?php echo base_url(); ?>employer/interviewapplicant">Interview</a>
-                                                </td>
-                                                  
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/applicantview">View Profile</a>
-                                                </td>
-                                            </tr>
+                                          
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/applicantview/'.$post['appid']).'">View</a>
+												</td>
+												<td>
+													<a class="btn btn-warning" style="float: right;" href="'.base_url('employer/preselect/'.$post['appliid']).'" onclick="return(validate());">Pre-Select</a>
+												</td>
+												<td class="text-right">
+													<a class="btn btn-success" style="float: right;" href="'.base_url('employer/hire/'.$post['appliid']).'" onclick="return(validate2());">Hire</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                             </div>
@@ -198,7 +194,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -219,5 +215,22 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Move applicant to pre-selection?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+function validate2()
+{
+     var r=confirm("Hire this applicant?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

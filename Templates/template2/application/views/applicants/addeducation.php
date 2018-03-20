@@ -36,7 +36,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/profile">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>Profile</p>
@@ -54,7 +54,7 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
@@ -73,7 +73,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Edit Profile </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -112,52 +112,106 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">                
+			<div class="container-fluid"> 
+					<div class="card">
+                        <ul class="ul1">
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/aboutme">About Me</a></li>
+							<li class="li1 active1"><a href="<?php echo base_url(); ?>applicant/education">Education</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/experiences">Experiences</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/skills">Skills</a></li>
+							<li class="li1"><a href="<?php echo base_url(); ?>applicant/resume">Resume</a></li>
+						</ul>
+					</div>
+                </div>  
+			<div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
+                            <div class="card-header">
+                                <h5 class="title">Add Education</h5>
                             </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
-                                            <th>
-                                                Company
-                                            </th>
-											<th>
-                                                Status
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-											foreach($job as $post){
-											echo '	<tr>	
-												<td>'.$post['position'].'</td>
-												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
-												<td>
-													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
-												</td>
-											</tr>
-											';
-											}
-										?>
-                                        </tbody>
-                                    </table>
-                            </div>
-								
+                            <div class="card-body">
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action="<?php echo base_url(); ?>applicant/saveaddeduc" onsubmit="return(validate());">
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Level</label><span style="color: red"> *</span>
+												<br/>
+                                                <span>
+													<select name="level">
+														<option value="High School">High School</option>
+														<option value="Vocational/Short Course">Vocational/Short Course</option>
+														<option value="Bachelor/College">Bachelor/College</option>
+														<option value="Post Graduate/Master">Post Graduate/Master</option>
+														<option value="Professional License">Professional License</option>
+														<option value="Doctorate">Doctorate</option>
+													</select>
+												</span>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label><span style="color: red"> *</span>
+                                                <input required type="text" name="address" class="form-control" placeholder="Address" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>School</label><span style="color: red"> *</span>
+                                                <input required type="text" name="school" class="form-control" placeholder="School" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Start Year</label><span style="color: red"> *</span>
+                                                <br/>
+												<?php
+													$start = 1900;
+													$end = intval(date('Y'));
+													echo '<select name="startyear">';
+													for($i = $start; $i <= $end; $i++){
+														echo "<option>{$i}</option>";
+													}
+													echo '</select>';?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>End Year</label><span style="color: red"> *</span>
+                                                <br/>
+												<?php
+													$start = 1900;
+													$end = 2022;
+													echo '<select name="endyear">';
+													for($i = $start; $i <= $end; $i++){
+														echo "<option>{$i}</option>";
+													}
+													echo '</select>';?>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Honor</label>
+                                                <input type="text" name="honor" class="form-control" placeholder="School" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+									<button type="submit" style="float: right;" class="btn btn-success">Add</button>
+                                </form>
+								<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
                             </div>
                         </div>
-                    </div> 
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-                </div>  
+                    </div>
+                 </div>
+			</div>
 			</div>
                   
 
@@ -215,5 +269,15 @@
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to add this?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 
 </html>

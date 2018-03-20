@@ -20,13 +20,26 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
+
+
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="<?php echo base_url(); ?>applicant/dashboard" class="simple-text">
-						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2" />
+						<img src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="" class="logo2"  />
 					</a>
                 </div>
                 <ul class="nav">
@@ -54,13 +67,13 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
                         </a>
                     </li>
-					<li>
+					<li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/companyprofiles">
                             <i class="nc-icon nc-single-02"></i>
                             <p>Company Profiles</p>
@@ -73,7 +86,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> View Company </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -112,36 +125,43 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container-fluid">                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
+                <div class="container-fluid">
+                 <div class="row">
+                   <div class="col-lg-12">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h2 class="card-title text-center"><?php echo $emp[0]['companyname']; ?></h2>
+								<h5 class="card-category text-center"><i class="fa fa-map-marker"></i>
+								<?php echo $emp[0]['address']; ?> <?php echo $emp[0]['city']; ?> <?php echo $emp[0]['state']; ?></h5>
+								<h5 class="card-category text-center"><i class="fa fa-envelope"></i> <?php echo $emp[0]['email']; ?></h5>
+								<h5 class="card-category text-center"><i class="fa fa-phone"></i> <?php echo $emp[0]['cnumber']; ?></h5>
+								<hr>
                             </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
+							<div class="card-body text-center">
+                                
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-md-12">
+						<div class="card card-chart">
+						<div class="button-container mr-auto ml-auto">  
+                                <h4>List of Jobs</h4>
+                        </div>
+                       <div class="card-body table-responsive">
+                                    <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                            <th>
+                                             <th>
                                                 Job
-                                            </th>
-                                            <th>
-                                                Company
-                                            </th>
-											<th>
-                                                Status
                                             </th>
                                             <th class="text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <?php
-											foreach($job as $post){
+                                              <?php
+											foreach($pos as $post){
 											echo '	<tr>	
 												<td>'.$post['position'].'</td>
-												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
 												<td>
 													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
 												</td>
@@ -151,16 +171,16 @@
 										?>
                                         </tbody>
                                     </table>
-                            </div>
-								
-                            </div>
-                        </div>
-                    </div> 
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-                </div>  
+                                </div> 
+							</div>
+                
+					</div>
+				</div>
+				<button type="button" style="float: right;" class="btn btn-info" onclick="window.history.back();">Back</button>
+				<button type="button" style="float: right;" class="btn btn-submit">Print Info</button><br/><br/>
 			</div>
-                  
-
+			</div>
+			
             <footer class="footer">
                 <div class="container">
                     <nav>
@@ -179,7 +199,6 @@
             </footer>
         </div>
     </div>
-  
 	
 	<!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -195,6 +214,25 @@
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="<?php echo base_url(); ?>applicant/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Logout Modal-->
+    <div class="modal fade" id="apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Apply to this job?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Apply" below to submit your application.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="<?php echo base_url('applicant/apply/'.$job[0]['posid']); ?>">Apply</a>
           </div>
         </div>
       </div>

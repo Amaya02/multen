@@ -36,6 +36,19 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <body>
 
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
+
+
 <header id="header">
     <div class="container">
 	<img class="logo" src="<?php echo base_url('assets/img/logos/logo.jpg'); ?>" alt="Logo" />
@@ -71,21 +84,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<label class="w3ls-opt">Password :<span class="w3ls-star"> * </span></label>
 			<span class="w3ls-text w3ls-name">
 				<input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
-			</span>
-	</li>
-	
-	<li>	
-			<label class="w3ls-opt">Username :<span class="w3ls-star"> * </span></label>
-			<span class="w3ls-text w3ls-name">
-				<input type="text" name="username" placeholder="Username" required />
+				<input type="checkbox" onclick="myFunction2()" />Show Password
 			</span>
 	</li>
 		
 	<li>
-		<label class="w3ls-opt">Name :<span class="w3ls-star"> * </span></label>
+		<label class="w3ls-opt">Name (Middle Name not required) :<span class="w3ls-star"> * </span></label>
 		<div class="w3ls-name">	
 			<input type="text" name="fname"  placeholder="First Name" required />
-			<input type="text" name="mname"  placeholder="Middle Name" required />
+			<input type="text" name="mname"  placeholder="Middle Name" />
 			<input type="text" name="lname"  placeholder="Last Name" required />
 		</div>
 	</li>
@@ -96,19 +103,32 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</span>
 	</li>
 	<li>
-		<label class="w3ls-opt">Address: <span class="w3ls-star"> * </span> </label>
+		<label class="w3ls-opt">Address (City and Zip Code not required): <span class="w3ls-star"> * </span> </label>
 		<div class="adderss">
 			<span class="text">
 				<input type="text" name="address" placeholder="Street address" required />
 			</span>
 			<span class="text">
-				<input type="text" name="city" placeholder="City" required />
+				<input type="text" name="city" placeholder="City" />
 			</span>
 			<span class="text">
-				<input type="text" name="state" placeholder="State/Province" />
+				<input type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 			</span>
-			<span class="text">
-				<input required type="text" name="zipcode" placeholder="Postal/Zipcode" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+		</div>
+	</li>
+	<li>
+		<label class="w3ls-opt">State :<span class="w3ls-star"> * </span></label>
+		<div class="w3ls-text w3ls-name">
+			<span class="agile_sub-label">
+				<?php
+				$state = array("Ilocos Region","Cagayan Valley","Central Luzon","Calabarzon","Bicol Region","Western Visayas","Central Visayas",
+					"Eastern Visayas","Zamboanga Peninsula","Northern Mindanao","Davao Region","Soccsksargen","National Capital Region (NCR)",
+					"Cordillera Administrative Region (CAR)","ARMM","Caraga","Mimaropa");
+				echo '<select name="state" class="month">';
+				foreach($state as $sta){
+					echo '<option value="'.$sta.'">'.$sta.'</option>';
+				}
+				echo '</select>';?>
 			</span>
 		</div>
 	</li>
@@ -116,150 +136,38 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<label class="w3ls-opt">Birth Date :<span class="w3ls-star"> * </span></label>	
 							<div class="w3ls-text w3ls-name">
 								<span class="agile_sub-label">
-									<select name="day" class="day">
-										<option value="01"> 1 </option>
-										<option value="02"> 2 </option>
-										<option value="03"> 3 </option>
-										<option value="04"> 4 </option>
-										<option value="05"> 5 </option>
-										<option value="06"> 6 </option>
-										<option value="07"> 7 </option>
-										<option value="08"> 8 </option>
-										<option value="09"> 9 </option>
-										<option value="10"> 10 </option>
-										<option value="11"> 11 </option>
-										<option value="12"> 12 </option>
-										<option value="13"> 13 </option>
-										<option value="14"> 14 </option>
-										<option value="15"> 15 </option>
-										<option value="16"> 16 </option>
-										<option value="17"> 17 </option>
-										<option value="18"> 18 </option>
-										<option value="19"> 19 </option>
-										<option value="20"> 20 </option>
-										<option value="21"> 21 </option>
-										<option value="22"> 22 </option>
-										<option value="23"> 23 </option>
-										<option value="24"> 24 </option>
-										<option value="25"> 25 </option>
-										<option value="26"> 26 </option>
-										<option value="27"> 27 </option>
-										<option value="28"> 28 </option>
-										<option value="29"> 29 </option>
-										<option value="30"> 30 </option>
-										<option value="31"> 31 </option>
-									</select>
+									<?php
+										$start = 1;
+										$end = 31;
+										echo '<select name="day" class="day">';
+										for($i = $start; $i <= $end; $i++){
+											echo "<option>{$i}</option>";
+										}
+										echo '</select>';?>
 									
 								</span>
 								<span class="agile_sub-label xxx">
-									<select name="month" class="month">
-										<option value="01"> January </option>
-										<option value="02"> February </option>
-										<option value="03"> March </option>
-										<option value="04"> April </option>
-										<option value="05"> May </option>
-										<option value="06"> June </option>
-										<option value="07"> July </option>
-										<option value="08"> August </option>
-										<option value="09"> September </option>
-										<option value="10"> October </option>
-										<option value="11"> November </option>
-										<option value="12"> December </option>
-									 </select>
+									<?php
+											$start = 1;
+											$end = 12;
+											$months = array(" ","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
+												"December");
+											echo '<select name="month" class="month">';
+											for($i = $start; $i <= $end; $i++){
+												echo "<option value='".$i."'>{$months[$i]}</option>";
+											}
+											echo '</select>';?>
 									
 								</span>
 								<span class="agile_sub-label">
-									<select name="year" class="month">
-										<option value="2014">2018</option>
-										<option value="2014">2017</option>
-										<option value="2014">2016</option>
-										<option value="2014">2015</option>
-										<option value="2014">2014</option>
-										<option value="2013">2013</option>
-										<option value="2012">2012</option>
-										<option value="2011">2011</option>
-										<option value="2010">2010</option>
-										<option value="2009">2009</option>
-										<option value="2008">2008</option>
-										<option value="2007">2007</option>
-										<option value="2006">2006</option>
-										<option value="2005">2005</option>
-										<option value="2004">2004</option>
-										<option value="2003">2003</option>
-										<option value="2002">2002</option>
-										<option value="2001">2001</option>
-										<option value="2000">2000</option>
-										<option value="1999">1999</option>
-										<option value="1998">1998</option>
-										<option value="1997">1997</option>
-										<option value="1996">1996</option>
-										<option value="1995">1995</option>
-										<option value="1994">1994</option>
-										<option value="1993">1993</option>
-										<option value="1992">1992</option>
-										<option value="1991">1991</option>
-										<option value="1990">1990</option>
-										<option value="1989">1989</option>
-										<option value="1988">1988</option>
-										<option value="1987">1987</option>
-										<option value="1986">1986</option>
-										<option value="1985">1985</option>
-										<option value="1984">1984</option>
-										<option value="1983">1983</option>
-										<option value="1982">1982</option>
-										<option value="1981">1981</option>
-										<option value="1980">1980</option>
-										<option value="1979">1979</option>
-										<option value="1978">1978</option>
-										<option value="1977">1977</option>
-										<option value="1976">1976</option>
-										<option value="1975">1975</option>
-										<option value="1974">1974</option>
-										<option value="1973">1973</option>
-										<option value="1972">1972</option>
-										<option value="1971">1971</option>
-										<option value="1970">1970</option>
-										<option value="1969">1969</option>
-										<option value="1968">1968</option>
-										<option value="1967">1967</option>
-										<option value="1966">1966</option>
-										<option value="1965">1965</option>
-										<option value="1964">1964</option>
-										<option value="1963">1963</option>
-										<option value="1962">1962</option>
-										<option value="1961">1961</option>
-										<option value="1960">1960</option>
-										<option value="1959">1959</option>
-										<option value="1958">1958</option>
-										<option value="1957">1957</option>
-										<option value="1956">1956</option>
-										<option value="1955">1955</option>
-										<option value="1954">1954</option>
-										<option value="1953">1953</option>
-										<option value="1952">1952</option>
-										<option value="1951">1951</option>
-										<option value="1950">1950</option>
-										<option value="1949">1949</option>
-										<option value="1948">1948</option>
-										<option value="1947">1947</option>
-										<option value="1946">1946</option>
-										<option value="1945">1945</option>
-										<option value="1944">1944</option>
-										<option value="1943">1943</option>
-										<option value="1942">1942</option>
-										<option value="1941">1941</option>
-										<option value="1940">1940</option>
-										<option value="1939">1939</option>
-										<option value="1938">1938</option>
-										<option value="1937">1937</option>
-										<option value="1936">1936</option>
-										<option value="1935">1935</option>
-										<option value="1934">1934</option>
-										<option value="1933">1933</option>
-										<option value="1932">1932</option>
-										<option value="1931">1931</option>
-										<option value="1930">1930</option>
-									</select>
+									<?php
+										$start = 1900;
+										$end = intval(date('Y'));
+										echo '<select name="year" class="month">';
+										for($i = $start; $i <= $end; $i++){
+											echo "<option>{$i}</option>";
+										}
+										echo '</select>';?>
 								</span>
 								
 								<div class="clear"></div>
@@ -270,31 +178,47 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<label class="w3ls-opt">Nationality :<span class="w3ls-star"> * </span></label>	
 							<div class="w3ls-text w3ls-name">
 								<span class="agile_sub-label">
-									<select name="nationality" class="day">
-										<option value="Filipino"> Filipino </option>
-									
-									</select>
+									<?php
+										$nation = array('Afghan','Albanian','Algerian','American','Andorran','Angolan','Antiguans','Argentinean','Armenian','Australian','Austrian',
+										'Azerbaijani','Bahamian','Bahraini','Bangladeshi','Barbadian','Barbudans','Batswana','Belarusian','Belgian','Belizean','Beninese',
+										'Bhutanese','Bolivian','Bosnian','Brazilian','British','Bruneian','Bulgarian','Burkinabe','Burmese','Burundian','Cambodian','Cameroonian',
+										'Canadian','Cape Verdean','Central African','Chadian','Chilean','Chinese','Colombian','Comoran','Congolese','Costa Rican','Croatian',
+										'Cuban','Cypriot','Czech','Danish','Djibouti','Dominican','Dutch','East Timorese','Ecuadorean','Egyptian','Emirian','Equatorial Guinean',
+										'Eritrean','Estonian','Ethiopian','Fijian','Filipino','Finnish','French','Gabonese','Gambian','Georgian','German','Ghanaian','Greek',
+										'Grenadian','Guatemalan','Guinea-Bissauan','Guinean','Guyanese','Haitian','Herzegovinian','Honduran','Hungarian','Icelander','Indian',
+										'Indonesian','Iranian','Iraqi','Irish','Israeli','Italian','Ivorian','Jamaican','Japanese','Jordanian','Kazakhstani','Kenyan',
+										'Kittian and Nevisian','Kuwaiti','Kyrgyz','Laotian','Latvian','Lebanese','Liberian','Libyan','Liechtensteiner','Lithuanian',
+										'Luxembourger','Macedonian','Malagasy','Malawian','Malaysian','Maldivan','Malian','Maltese','Marshallese','Mauritanian','Mauritian',
+										'Mexican','Micronesian','Moldovan','Monacan','Mongolian','Moroccan','Mosotho','Motswana','Mozambican','Namibian','Nauruan','Nepalese',
+										'Netherlander','New Zealander','Ni-Vanuatu','Nicaraguan','Nigerian','Nigerien','North Korean','Northern Irish','Norwegian','Omani',
+										'Pakistani','Palauan','Panamanian','Papua New Guinean','Paraguayan','Peruvian','Polish','Portuguese','Qatari','Romanian','Russian',
+										'Rwandan','Saint Lucian','Salvadoran','Samoan','San Marinese','Sao Tomean','Saudi','Scottish','Senegalese','Serbian','Seychellois',
+										'Sierra Leonean','Singaporean','Slovakian','Slovenian','Solomon Islander','Somali','South African','South Korean','Spanish','Sri Lankan',
+										'Sudanese','Surinamer','Swazi','Swedish','Swiss','Syrian','Taiwanese','Tajik','Tanzanian','Thai','Togolese','Tongan','Trinidadian or Tobagonian','Tunisian',
+										'Turkish','Tuvaluan','Ugandan','Ukrainian','Uruguayan','Uzbekistani','Venezuelan','Vietnamese','Welsh','Yemenite','Zambian','Zimbabwean');
+										echo '<select name="nationality" class="month">';
+										foreach($nation as $n){
+											echo "<option value='".$n."'>{$n}</option>";
+										}
+										echo '</select>';?>
 									
 								</span> </li>
 								<li>
 								<label class="w3ls-opt">Civil Status :<span class="w3ls-star"> * </span></label>	
 							<div class="w3ls-text w3ls-name">
 								<span class="agile_sub-label">
-									<select name="status" class="day">
-										<option value="Single"> Single </option>
-									
-									</select>
+									<?php
+										$status = array("Single","Married" , "Widow");
+										echo '<select name="status" class="month">';
+										foreach($status as $n){
+											echo "<option value='".$n."'>{$n}</option>";
+										}
+										echo '</select>';?>
 									
 								</span> </li>
 								<li><label class="w3ls-opt">Religion :<span class="w3ls-star"> * </span></label>	
 							<div class="w3ls-text w3ls-name">
-								<span class="agile_sub-label">
-									<select name="religion" class="day">
-										<option value="Roman Catholic"> Roman Catholic </option>
-									
-									</select>
-									
-								</span>
+								<input required type="text" name="religion" placeholder="Religion" />
 								</li>
 								<div class="wthree-text">
 						<h4>Gender</h4>

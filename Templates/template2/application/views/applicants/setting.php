@@ -20,6 +20,17 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
@@ -54,7 +65,7 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
@@ -73,7 +84,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Setting </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -111,53 +122,24 @@
                 </div>
             </nav>
             <!-- End Navbar -->
-            <div class="content">
-                <div class="container-fluid">                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
-                            </div>
-                               <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
-                                        <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
-                                            <th>
-                                                Company
-                                            </th>
-											<th>
-                                                Status
-                                            </th>
-                                            <th class="text-right">
-                                                
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-											foreach($job as $post){
-											echo '	<tr>	
-												<td>'.$post['position'].'</td>
-												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
-												<td>
-													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
-												</td>
-											</tr>
-											';
-											}
-										?>
-                                        </tbody>
-                                    </table>
-                            </div>
-								
-                            </div>
-                        </div>
-                    </div> 
-					<button type="button" style="float: right;" class="btn btn-submit">Print Info</button>
-                </div>  
+            <div class="content"> 
+				<div class="container-fluid"> 
+					<div class="card card-user">
+						<div class="card-body">
+							<b>Name:</b> <?php echo $metadata['fname']; ?> <?php echo $metadata['mname']; ?> <?php echo $metadata['lname']; ?>
+							<b><br>Contact No:</b> <?php echo $metadata['cnumber']; ?>
+							<b><br>Email:</b> <?php echo $metadata['email']; ?>
+							<b><br>Address:</b> <?php echo $metadata['address']; ?>  <?php echo $metadata['city']; ?>  <?php echo $metadata['state']; ?>
+									  <?php echo $metadata['zipcode']; ?>
+							<br/><br/><a href="<?php echo base_url(); ?>applicant/setting/edit" style="float: left;" class="btn btn-warning">Edit</a>
+							<a href="<?php echo base_url(); ?>applicant/password/change" style="float: left;" class="btn btn-danger">Change Password</a><br/><br/>
+						</div>
+						<div class="card-footer">
+						<button type="button" style="float: left;" class="btn btn-info" onclick="window.history.back();">Back</button>
+							
+						</div>
+					</div>
+                </div>     
 			</div>
                   
 

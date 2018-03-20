@@ -20,6 +20,17 @@
 </head>
 
 <body>
+<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+ 
+                  if($success_msg){
+                     echo "<script type='text/javascript'>alert('$success_msg');</script>";
+                  }
+                  if($error_msg){
+                      echo "<script type='text/javascript'>alert('$error_msg');</script>";
+                  }
+ ?>
     <div class="wrapper">
         <div class="sidebar" data-color="black">
         
@@ -53,8 +64,6 @@
                                     <span class="notification">Recruitment</span></a>
 					</li>
 						<ul class="sidenav-second-level collapse" id="collapseComponents" style="list-style-type: none;">
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/preselection">Pre-Selection</a></li>
-							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/interview">Interview</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/selected">Selected</a></li>
 							<li><a class="nav-link" href="<?php echo base_url(); ?>employer/hired">Hired</a></li>
 						</ul>
@@ -116,55 +125,49 @@
                                <div class="card-body table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                             <th>
-                                                ID No.
-                                            </th>
                                             <th>
                                                 Job
                                             </th>
 											<th>
                                                 Status
                                             </th>
+											<th>
+                                                
+                                            </th>
+											<th>
+                                                
+                                            </th>
                                             <th class="text-right">
                                                 
                                             </th>
                                         </thead>
                                         <tbody>
-                                             <tr>    
-                                                <td>
-                                                    123
-                                                </td>
-                                                <td>
-                                                   System analyst
-                                                </td>
+                                             <?php
+											foreach($pos as $post){
+											echo '	<tr>										
+												<td>'.$post['position'].'</td>
+												<td>'.$post['status'].'</td>
 												<td>
-                                                   Open
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/viewjob">View Job</a>
-                                                </td>
-                                            </tr>
-											<tr>    
-                                                <td>
-                                                    3
-                                                </td>
-                                                <td>
-                                                   Web dev
-                                                </td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('employer/viewjob/'.$post['posid']).'">View</a>
+												</td>
 												<td>
-                                                   Open
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-info" style="float: right;" href="<?php echo base_url(); ?>employer/viewjob">View Job</a>
-                                                </td>
-                                            </tr>
+													<a class="btn btn-success" style="float: right;" href="'.base_url('employer/job/edit/'.$post['posid']).'">Edit</a>
+												</td>
+												<td>
+													<a class="btn btn-danger" style="float: right;" href="'.base_url('employer/deletejob/'.$post['posid'] ).'" onclick="return(validate());">Delete</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div> 
-					<button type="button" style="float: left;" class="btn btn-submit">Print List</button>		
+					<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
+					<a href="<?php echo base_url(); ?>employer/job/add" style="float: left;" class="btn btn-warning">Add</a><br/><br/>
                 </div>              
                </div>   
 
@@ -199,7 +202,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>">Logout</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>employer/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -220,5 +223,14 @@
 <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js'); ?>"></script>
 <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
 <script src="<?php echo base_url('assets/js/bootstrap-dashboard.js?v=2.0.1'); ?>" type="text/javascript"></script>
-
+<script type="text/javascript">
+function validate()
+{
+     var r=confirm("Do you want to remove job?");
+    if (r==true)
+      return true;
+    else
+      return false;
+}
+</script>
 </html>

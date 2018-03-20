@@ -12,6 +12,16 @@ function empty1() {
     $('#demo-1').modal('hide');
 }
 
+function myFunction2(){
+	var x=document.getElementById("pass");
+	if(x.type == "password"){
+			x.type="text";
+	}
+	else{
+		x.type="password";
+	}
+}
+
 function myFunction(){
 	var x=document.getElementById("password");
 	if(x.type == "password"){

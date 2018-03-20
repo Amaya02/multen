@@ -54,7 +54,7 @@
                             <p>Interviews</p>
                         </a>
                     </li>
-					<li class="nav-item active">
+					<li>
                         <a class="nav-link" href="<?php echo base_url(); ?>applicant/jobs">
                             <i class="nc-icon nc-bag"></i>
                             <p>Jobs</p>
@@ -73,7 +73,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand"> Jobs </a>
+                    <a class="navbar-brand"> Search </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -117,19 +117,16 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="button-container mr-auto ml-auto">  
-                                <h4>List of Jobs</h4>
+                                <h4>Search Results for <?php echo $key ?></h4>
                             </div>
                                <div class="card-body table-responsive">
-                                    <table class="table table-hover table-striped" id="myTable">
+                                    <table class="table table-hover table-striped">
                                         <thead class=" text-primary">
-                                            <th>
-                                                Job
-                                            </th>
-                                            <th>
+											<th>
                                                 Company
                                             </th>
-											<th>
-                                                Status
+                                            <th>
+                                                
                                             </th>
                                             <th class="text-right">
                                                 
@@ -137,11 +134,39 @@
                                         </thead>
                                         <tbody>
                                             <?php
-											foreach($job as $post){
+											foreach($result1 as $post){
+											echo '	<tr>	
+												<td>'.$post->companyname.'</td>
+												<td>
+												</td>
+												<td>
+													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewemployer/'.$post->empid).'">View</a>
+												</td>
+											</tr>
+											';
+											}
+										?>
+                                        </tbody>
+                                    </table>
+									<hr/>
+									<table class="table table-hover table-striped" id="myTable">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Job
+                                            </th>
+                                            <th>
+                                                Company
+                                            </th>
+                                            <th class="text-right">
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+											foreach($result2 as $post){
 											echo '	<tr>	
 												<td>'.$post['position'].'</td>
 												<td>'.$post['companyname'].'</td>
-												<td>'.$post['status'].'</td>
 												<td>
 													<a class="btn btn-info" style="float: right;" href="'.base_url('applicant/viewjob/'.$post['posid']).'">View</a>
 												</td>
