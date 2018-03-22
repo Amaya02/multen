@@ -13,6 +13,8 @@ class admin extends CI_Controller {
 	{
 		// if the user is validated, then this function will run
 		$data['metadata']=$this->session->userdata();
+		$count = $this->user_model->getClients();
+		$data['count']= count($count);
 		$this->load->view('admin/admindashboard',$data);
 	}
 	

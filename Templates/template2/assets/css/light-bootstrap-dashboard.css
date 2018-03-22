@@ -15,6 +15,11 @@
  */
 
 /*      light colors         */
+.alerts {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
 
 .ul1 {
     list-style-type: none;

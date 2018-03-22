@@ -147,7 +147,7 @@ public function checkwebsitename(){
 }
 
 public function createwebsite($config,$user,$userid,$bill){
-	$this->recurse_copy("C:/xampp/htdocs/multen/Templates/".$config['template'],"C:/xampp/htdocs/".$config[websitename]);
+	$this->recurse_copy("C:/xampp/htdocs/multen/Templates/".$config['template'],"C:/xampp/htdocs/".$config['websitename']);
 	$this->uploadlogo($config);
 	$this->editconfig($config);
 	$this->createdatabase($config);

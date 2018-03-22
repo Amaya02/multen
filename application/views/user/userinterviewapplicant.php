@@ -137,7 +137,7 @@
                                     <br/><label for="exampleInputDate">Date of Interview (MM/DD/YY)</label><br/>
 									<div style="display: inline;">
 										<?php
-											$start = 1;
+											$start = intval(date('m'));
 											$end = 12;
 											$months = array(" ","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",
 												"December");
@@ -147,7 +147,7 @@
 											}
 											echo '</select>';?>
 										<?php
-										$start = 1;
+										$start = intval(date('d'));
 										$end = 31;
 										echo '<select name="day">';
 										for($i = $start; $i <= $end; $i++){
