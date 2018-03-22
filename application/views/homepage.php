@@ -77,7 +77,7 @@
       <div class="container">
         <div class="intro-text">
           <div class="intro-heading text-uppercase">MULTITENANT MAN POWER AGENCY</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services"> Try Now </a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="<?php echo base_url(); ?>signup"> Try Now </a>
         </div>
       </div>
     </header>

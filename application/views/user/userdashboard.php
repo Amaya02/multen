@@ -125,7 +125,14 @@
                     <div class="col-lg-4">
                         <div class="card card-chart clients">
                             <div class="card-header">
-                                <h2 class="card-title">Employers</h2>
+                                <h2 class="card-title">Employers
+								<?php
+								$file = $countemp; //Let say If I put the file name Bang.png
+								if($file>0){
+									echo '('.$file.')';
+								}
+								?>
+								</h2>
                                 <h5 class="card-category">View Employers</h5>
                             </div>
                             
@@ -140,7 +147,14 @@
 					<div class="col-lg-4 col-md-6">
                         <div class="card card-chart bills">
                             <div class="card-header">
-                                <h2 class="card-title">Applicants</h2>
+                                <h2 class="card-title">Applicants
+								<?php
+								$file = $countapp; //Let say If I put the file name Bang.png
+								if($file>0){
+									echo '('.$file.')';
+								}
+								?>
+								</h2>
                                 <h5 class="card-category">View Applicants</h5>
                             </div>
                             

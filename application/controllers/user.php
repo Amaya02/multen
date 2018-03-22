@@ -14,6 +14,10 @@ class user extends CI_Controller {
 		$data['metadata']=$this->session->userdata();
 		$configid = $this->session->userdata('configid');
 		$data['config']=$this->user_model->getClientsConfig(array('configid'=>$configid));
+		$countapp = $this->tenant_model->getApplicants();
+		$data['countapp']= count($countapp);
+		$countemp = $this->tenant_model->getEmployers();
+		$data['countemp']= count($countemp);
 		$this->load->view('user/userdashboard',$data);
 	}
 	
