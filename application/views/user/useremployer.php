@@ -170,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-				<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
+			<a style="float: left;" class="btn btn-submit" href="<?php echo base_url()?>pdf/pdfgen">Print List</a>
             </div>
 			
             <footer class="footer">
