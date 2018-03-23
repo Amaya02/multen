@@ -221,7 +221,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<input required type="text" name="religion" placeholder="Religion" />
 								</li>
 								<div class="wthree-text">
-						<h4>Gender</h4>
+						<h4>Sex</h4>
 						<ul class="radio-w3ls">
 							<li>
 								<input type="radio" id="a-option" name="selector1" value="Male" />
