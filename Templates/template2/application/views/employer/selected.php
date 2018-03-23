@@ -158,7 +158,7 @@
                       </div>
                 </div>
                 <div class="container-fluid">
-                     <button type="button" style="float: left;" class="btn btn-submit">Print List</button> <br>
+             <a  type="button" style="float: left;" type="button" class="btn btn-submit" href="<?php echo base_url()?>pdf/pdfselect">Print List</a> <br>
                   </div>
             </div>             
                   

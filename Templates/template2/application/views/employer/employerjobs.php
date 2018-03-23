@@ -166,8 +166,9 @@
                             </div>
                         </div>
                     </div> 
-					<button type="button" style="float: left;" class="btn btn-submit">Print List</button>
-					<a href="<?php echo base_url(); ?>employer/job/add" style="float: left;" class="btn btn-warning">Add</a><br/><br/>
+					      <a type="button"  style="float: left;" class="btn btn-submit" href="<?php echo base_url()?>pdf/pdfjob">Print List</a>
+                    <br>
+                    <a type="button" href="<?php echo base_url(); ?>employer/job/add" style="float: left;" class="btn btn-warning">Add</a><br/>
                 </div>              
                </div>   
 
